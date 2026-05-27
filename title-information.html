@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Title Information - RLP</title>
+  <!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .wysiwyg-wrapper {
+      border: 1px solid #565c65;
+      background: #fff;
+      margin-top: 0.8rem;
+    }
+    .wysiwyg-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      padding: 0.5rem 0.8rem;
+      border-bottom: 1px solid #dfe1e2;
+      background: #f0f0f0;
+    }
+    .wysiwyg-toolbar button {
+      min-width: 3rem;
+      height: 2.8rem;
+      border: 1px solid #a9aeb1;
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-family: inherit;
+      padding: 0 0.6rem;
+      border-radius: 2px;
+    }
+    .wysiwyg-toolbar button:hover {
+      background: #dfe1e2;
+    }
+    .wysiwyg-toolbar .toolbar-sep {
+      width: 1px;
+      background: #a9aeb1;
+      margin: 0.2rem 0.2rem;
+    }
+    .wysiwyg-content {
+      min-height: 8rem;
+      padding: 0.8rem;
+      font-size: 1.6rem;
+      font-family: "Public Sans Web", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+      outline: none;
+      overflow-y: auto;
+    }
+    .wysiwyg-content:focus {
+      outline: 0.25rem solid #2491ff;
+      outline-offset: 0;
+    }
+    .wysiwyg-footer {
+      padding: 0.3rem 0.8rem;
+      font-size: 1.3rem;
+      color: #71767a;
+      text-align: right;
+      border-top: 1px solid #dfe1e2;
+    }
+    .wysiwyg-footer .char-count.over-limit {
+      color: #b50909;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome DNR! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/il-logo.png" alt="Illinois Department of Natural Resources agency logo"
+                  class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">Illinois Department of Natural Resources</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false"
+                        class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                        </path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z">
+                        </path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="grid-container">
+      <div class="usa-step-indicator margin-top-4" aria-label="progress">
+        <ol class="usa-step-indicator__segments">
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+            <a class="usa-step-indicator__segment-label" href="document-upload.html">Application Details</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <a class="usa-step-indicator__segment-label" href="user-information.html">Applicant Information</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <a class="usa-step-indicator__segment-label" href="question-builder.html">Question Builder</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Conditions</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Payment</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Preview</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">License</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Notification</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="usa-step-indicator__header">
+        <h1 class="usa-step-indicator__heading">
+          <span class="usa-step-indicator__heading-counter">1</span>
+          <span class="usa-step-indicator__total-steps">of 8</span>
+          <span class="usa-step-indicator__heading-text">Application Details</span>
+        </h1>
+      </div>
+
+      <div class="margin-top-4 app-builder-container">
+        <!-- Left sidebar - Step indicators -->
+        <div class="app-builder-sidebar">
+          <div class="usa-step-indicator usa-step-indicator--sidebar" aria-label="step progress">
+            <ol class="usa-step-indicator__segments">
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <a class="usa-step-indicator__segment-label" href="start-application.html">Getting Started</a>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <a class="usa-step-indicator__segment-label" href="application-type.html">Application Type</a>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+                <a class="usa-step-indicator__segment-label" href="title-information.html">Title Information</a>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment">
+                <a class="usa-step-indicator__segment-label" href="form-number-deactivation.html">Form No., Deactivation & Search Terms</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right content area -->
+        <div class="app-builder-content">
+          <h1 class="app-builder-content__heading">Application Title, Display Name, Subtitle, Descriptions &amp; URL</h1>
+
+          <p class="app-builder-content__text app-builder-content__text--lg-margin">
+            Now let's give your application a title, display name, subtitle, description and URL.
+          </p>
+
+          <p class="app-builder-content__text">
+            The application title is important because it is saved as a unique name for your application. The display
+            title will appear at the top of every page of the application and it can be changed at anytime without
+            affecting the saved application title. The display title will also appear on the Certificate the user
+            receives. You also have the option to give your application a subtitle.
+          </p>
+
+          <p class="app-builder-content__text">
+            The description should be a brief explanation of the application to give users a clear understanding of the
+            application they are about to submit.
+          </p>
+
+          <p class="app-builder-content__text app-builder-content__text--lg-margin">
+            <strong>NOTE:</strong> The More Information URL is not the URL that will be assigned to this particular
+            application. Instead, it is a link to a website that may have more comprehensive information, FAQs, etc.
+            for users that need additional details pertaining to the license/permit application they are submitting.
+          </p>
+
+          <!-- Section 1: Application Title -->
+          <div class="section-indicator" data-section="1">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the Application Title in the field below (this cannot be changed once you click next).</h2>
+            <div class="margin-bottom-2">
+              <label class="usa-label" for="application-title">Application Title</label>
+              <input class="usa-input" id="application-title" name="application-title" type="text" value="Test Application" readonly>
+            </div>
+          </div>
+
+          <!-- Section 2: Application Display Title -->
+          <div class="section-indicator" data-section="2">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the Application Display Title in the field below.</h2>
+            <div class="margin-bottom-2">
+              <label class="usa-label" for="display-title">Application Display Title <span class="field-required">Required</span></label>
+              <input class="usa-input" id="display-title" name="display-title" type="text">
+            </div>
+          </div>
+
+          <!-- Section 3: Application Subtitle -->
+          <div class="section-indicator" data-section="3">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the Application Subtitle in the field below.</h2>
+            <div class="margin-bottom-2">
+              <label class="usa-label" for="application-subtitle">Application Subtitle</label>
+              <input class="usa-input" id="application-subtitle" name="application-subtitle" type="text">
+            </div>
+          </div>
+
+          <!-- Section 4: More Info URL -->
+          <div class="section-indicator" data-section="4">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the More Info URL in the field below.</h2>
+            <label class="usa-label" for="more-info-url">More Info URL</label>
+            <div class="wysiwyg-wrapper">
+              <div class="wysiwyg-toolbar">
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('bold')"><strong>B</strong></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('italic')"><em>I</em></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('underline')"><u>U</u></button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertUnorderedList')">&#8226; List</button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertOrderedList')">1. List</button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); insertLink()">&#128279; Link</button>
+              </div>
+              <div class="wysiwyg-content" id="more-info-url" contenteditable="true" aria-label="More Info URL" role="textbox" aria-multiline="true"></div>
+              <div class="wysiwyg-footer"><span class="char-count" data-for="more-info-url">0</span>/500</div>
+            </div>
+          </div>
+
+          <!-- Section 5: Application Description -->
+          <div class="section-indicator" data-section="5">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the Application Description in the field below. This will appear as a paragraph under the title.</h2>
+            <label class="usa-label">Application Description <span class="field-required">Required</span></label>
+            <div class="wysiwyg-wrapper">
+              <div class="wysiwyg-toolbar">
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('bold')"><strong>B</strong></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('italic')"><em>I</em></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('underline')"><u>U</u></button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertUnorderedList')">&#8226; List</button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertOrderedList')">1. List</button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); insertLink()">&#128279; Link</button>
+              </div>
+              <div class="wysiwyg-content" id="app-description" contenteditable="true" aria-label="Application Description" role="textbox" aria-multiline="true"></div>
+              <div class="wysiwyg-footer"><span class="char-count" data-for="app-description">0</span>/500</div>
+            </div>
+          </div>
+
+          <!-- Section 6: Application Instructions -->
+          <div class="section-indicator" data-section="6">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Type the Application Instructions in the field below. This will appear as a paragraph under the title.</h2>
+            <label class="usa-label">Application Instructions <span class="field-required">Required</span></label>
+            <div class="wysiwyg-wrapper">
+              <div class="wysiwyg-toolbar">
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('bold')"><strong>B</strong></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('italic')"><em>I</em></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('underline')"><u>U</u></button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertUnorderedList')">&#8226; List</button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertOrderedList')">1. List</button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); insertLink()">&#128279; Link</button>
+              </div>
+              <div class="wysiwyg-content" id="app-instructions" contenteditable="true" aria-label="Application Instructions" role="textbox" aria-multiline="true"></div>
+              <div class="wysiwyg-footer"><span class="char-count" data-for="app-instructions">0</span>/500</div>
+            </div>
+          </div>
+
+          <div class="app-builder-button-container">
+            <a href="application-type.html" class="usa-button usa-button--outline">Back</a>
+            <a href="form-number-deactivation.html" class="usa-button">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script>
+    var MAX_CHARS = 500;
+
+    document.querySelectorAll('.wysiwyg-content').forEach(function(editor) {
+      var id = editor.id;
+      var counter = document.querySelector('.char-count[data-for="' + id + '"]');
+
+      editor.addEventListener('input', function() {
+        var text = editor.innerText.replace(/\n$/, '');
+        if (text.length > MAX_CHARS) {
+          // trim to limit and restore cursor at end
+          editor.innerText = text.substring(0, MAX_CHARS);
+          var range = document.createRange();
+          range.selectNodeContents(editor);
+          range.collapse(false);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        var count = editor.innerText.replace(/\n$/, '').length;
+        counter.textContent = count;
+        counter.classList.toggle('over-limit', count >= MAX_CHARS);
+      });
+    });
+
+    function insertLink() {
+      var url = prompt('Enter URL:');
+      if (url) {
+        document.execCommand('createLink', false, url);
+      }
+    }
+  </script>
+</body>
+
+</html>

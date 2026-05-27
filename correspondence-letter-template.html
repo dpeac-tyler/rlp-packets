@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letter Template - RLP Settings</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .form-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .form-field-full { grid-column: 1 / -1; }
+    .form-field-2col { grid-column: span 2; }
+    @media (max-width: 1024px) { .form-grid-3col { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px)  { .form-grid-3col { grid-template-columns: 1fr; } }
+
+    .merge-fields-panel {
+      background-color: #f0f0f0;
+      border-left: 4px solid #005ea2;
+      padding: 1.5rem 2rem;
+      margin-top: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .merge-fields-panel__heading {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1b1b1b;
+      margin: 0 0 1.2rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .merge-fields-group { margin-bottom: 1rem; }
+    .merge-fields-group__label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #71767a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .merge-fields-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .merge-field-chip {
+      background-color: #fff;
+      border: 1px solid #005ea2;
+      border-radius: 2rem;
+      color: #005ea2;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 0.25rem 0.9rem;
+      transition: background-color 0.12s, color 0.12s;
+    }
+    .custom-merge-field-chip {
+      background-color: #fff;
+      border: 1px solid #faaf01;
+      border-radius: 2rem;
+      color: #6e610f;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.6rem;
+      font-weight: 700;
+      padding: 0.25rem 0.9rem;
+      transition: background-color 0.12s, color 0.12s;
+    }
+    .merge-field-chip:hover  { background-color: #005ea2; color: #fff; }
+    .merge-field-chip:focus  { outline: 0.25rem solid #2491ff; outline-offset: 2px; }
+
+    .merge-field--hidden { display: none !important; }
+
+    .version-preview-body {
+      background-color: #f0f0f0;
+      padding: 1.5rem;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      max-height: 380px;
+      overflow-y: auto;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .usa-input--error { border: 0.4rem solid #d54309; }
+
+    .usa-tag { display: inline-block; padding: 0.25rem 0.8rem; font-size: 1.3rem; font-weight: 700; border-radius: 2rem; line-height: 1.5; }
+    .usa-tag--active   { background-color: #ecf3ec; color: #417505; }
+    .usa-tag--draft    { background-color: #e7f6f8; color: #13669A; }
+    .usa-tag--archived { background-color: #f0f0f0; color: #5C5F66; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png" alt="ASP agency logo" class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="queues.html">Queues</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="license-types.html">License Types</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="applications.html">Applications</a></span></li>
+        <li class="usa-nav__primary-item active"><span class="menuItem-inner"><a href="settings.html">Settings</a></span></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="settings.html" class="usa-breadcrumb__link">Settings</a>
+          </li>
+          <li class="usa-breadcrumb__list-item">
+            <a href="correspondence.html?tab=letters" class="usa-breadcrumb__link">Correspondence</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span id="breadcrumb-current">New Letter Template</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="profile-header">
+        <h1 class="profile-header__title">Letter Template</h1>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-content__header">
+          <h2 class="profile-content__heading" id="form-heading">Create New Letter Template</h2>
+          <span id="current-version-badge" style="display:none;"></span>
+        </div>
+
+        <!-- Validation error banner -->
+        <div id="validation-error" class="usa-alert usa-alert--error" role="alert" style="display:none; margin-bottom:2rem;">
+          <div class="usa-alert__body">
+            <p class="usa-alert__heading">Please correct the following errors:</p>
+            <p class="usa-alert__text" id="validation-error-text"></p>
+          </div>
+        </div>
+
+        <form id="template-form" novalidate>
+          <div class="form-grid-3col">
+
+            <!-- Status (full row) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="template-status">Status <span class="field-required">Required</span></label>
+              <select class="usa-select" id="template-status" name="template-status">
+                <option value="Draft">Draft</option>
+                <option value="Active">Active</option>
+                <option value="Archived">Archived</option>
+              </select>
+            </div>
+
+            <!-- Template Name (full row) -->
+            <div class="usa-form-group form-field-full" id="name-group">
+              <label class="usa-label" for="template-name">
+                Template Name <span class="field-required">Required</span>
+              </label>
+              <input class="usa-input" id="template-name" name="template-name" type="text"
+                     required aria-required="true" autocomplete="off"
+                     placeholder="e.g., Application Held">
+            </div>
+
+            <!-- Template Description (full width) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="template-description">Template Description</label>
+              <div class="usa-hint">Describe the purpose and use of this template.</div>
+              <textarea class="usa-textarea" id="template-description" name="template-description"
+                        maxlength="1000" rows="3"
+                        placeholder="e.g., Sent via certified mail to applicants when their application is being held pending review."></textarea>
+              <p id="description-counter" style="font-size: 1.2rem; color: #71767a; text-align: right; margin: 0.25rem 0 0;">0 / 1000 characters</p>
+            </div>
+
+            <!-- Document Attachments heading (full width) -->
+            <div class="form-field-full" style="margin-bottom: 0.5rem;">
+              <p class="usa-label text-bold margin-bottom-0">Layout Options</p>
+              <p class="usa-hint margin-top-0">Check each box to enable and upload a file for this template.</p>
+            </div>
+
+            <!-- Header (col 1) -->
+            <div style="border: 1px solid #c9c9c9; padding: 1.2rem; background: #f9f9f9;">
+              <div class="usa-checkbox">
+                <input class="usa-checkbox__input" id="header-enabled" type="checkbox" name="header-enabled">
+                <label class="usa-checkbox__label" for="header-enabled" style="font-weight: 700;">Header</label>
+              </div>
+              <div id="header-upload-wrap" style="display: none; margin-top: 0.8rem;">
+                <div id="header-browse-state">
+                  <div class="usa-hint" style="margin-bottom: 0.5rem;">PNG, JPG, or PDF</div>
+                  <input type="file" id="header-file" name="header-file" accept=".pdf,.png,.jpg,.jpeg" style="font-size: 1.3rem; display: block;">
+                </div>
+                <div id="header-pending-state" style="display: none; margin-top: 0.8rem;">
+                  <img id="header-pending-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="header-pending-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" id="header-save-btn" class="usa-button" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Save</button>
+                    <button type="button" id="header-cancel-btn" class="usa-button usa-button--outline" style="font-size: 1.3rem; padding: 0.4rem 1.2rem; background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+                  </div>
+                </div>
+                <div id="header-saved-state" style="display: none;">
+                  <img id="header-saved-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="header-saved-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <button type="button" id="header-delete-btn" class="usa-button usa-button--secondary" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer (col 2) -->
+            <div style="border: 1px solid #c9c9c9; padding: 1.2rem; background: #f9f9f9;">
+              <div class="usa-checkbox">
+                <input class="usa-checkbox__input" id="footer-enabled" type="checkbox" name="footer-enabled">
+                <label class="usa-checkbox__label" for="footer-enabled" style="font-weight: 700;">Footer</label>
+              </div>
+              <div id="footer-upload-wrap" style="display: none; margin-top: 0.8rem;">
+                <div id="footer-browse-state">
+                  <div class="usa-hint" style="margin-bottom: 0.5rem;">PNG, JPG, or PDF</div>
+                  <input type="file" id="footer-file" name="footer-file" accept=".pdf,.png,.jpg,.jpeg" style="font-size: 1.3rem; display: block;">
+                </div>
+                <div id="footer-pending-state" style="display: none; margin-top: 0.8rem;">
+                  <img id="footer-pending-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="footer-pending-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" id="footer-save-btn" class="usa-button" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Save</button>
+                    <button type="button" id="footer-cancel-btn" class="usa-button usa-button--outline" style="font-size: 1.3rem; padding: 0.4rem 1.2rem; background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+                  </div>
+                </div>
+                <div id="footer-saved-state" style="display: none;">
+                  <img id="footer-saved-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="footer-saved-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <button type="button" id="footer-delete-btn" class="usa-button usa-button--secondary" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Watermark (col 3) -->
+            <div style="border: 1px solid #c9c9c9; padding: 1.2rem; background: #f9f9f9;">
+              <div class="usa-checkbox">
+                <input class="usa-checkbox__input" id="watermark-enabled" type="checkbox" name="watermark-enabled">
+                <label class="usa-checkbox__label" for="watermark-enabled" style="font-weight: 700;">Watermark</label>
+              </div>
+              <div id="watermark-upload-wrap" style="display: none; margin-top: 0.8rem;">
+                <div id="watermark-browse-state">
+                  <div class="usa-hint" style="margin-bottom: 0.5rem;">PNG, JPG, or PDF</div>
+                  <input type="file" id="watermark-file" name="watermark-file" accept=".pdf,.png,.jpg,.jpeg" style="font-size: 1.3rem; display: block;">
+                </div>
+                <div id="watermark-pending-state" style="display: none; margin-top: 0.8rem;">
+                  <img id="watermark-pending-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="watermark-pending-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" id="watermark-save-btn" class="usa-button" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Save</button>
+                    <button type="button" id="watermark-cancel-btn" class="usa-button usa-button--outline" style="font-size: 1.3rem; padding: 0.4rem 1.2rem; background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+                  </div>
+                </div>
+                <div id="watermark-saved-state" style="display: none;">
+                  <img id="watermark-saved-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="watermark-saved-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <button type="button" id="watermark-delete-btn" class="usa-button usa-button--secondary" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Left Sidebar (col 4) -->
+            <div style="border: 1px solid #c9c9c9; padding: 1.2rem; background: #f9f9f9;">
+              <div class="usa-checkbox">
+                <input class="usa-checkbox__input" id="sidebar-enabled" type="checkbox" name="sidebar-enabled">
+                <label class="usa-checkbox__label" for="sidebar-enabled" style="font-weight: 700;">Left Sidebar</label>
+              </div>
+              <div class="usa-hint" style="font-size: 1.2rem; margin-top: 0.3rem; margin-bottom: 0;">Full-height column on the left edge of the letter (e.g. commission members, contact block).</div>
+              <div id="sidebar-upload-wrap" style="display: none; margin-top: 0.8rem;">
+                <div id="sidebar-browse-state">
+                  <div class="usa-hint" style="margin-bottom: 0.5rem;">PNG, JPG, or PDF</div>
+                  <input type="file" id="sidebar-file" name="sidebar-file" accept=".pdf,.png,.jpg,.jpeg" style="font-size: 1.3rem; display: block;">
+                </div>
+                <div id="sidebar-pending-state" style="display: none; margin-top: 0.8rem;">
+                  <img id="sidebar-pending-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="sidebar-pending-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" id="sidebar-save-btn" class="usa-button" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Save</button>
+                    <button type="button" id="sidebar-cancel-btn" class="usa-button usa-button--outline" style="font-size: 1.3rem; padding: 0.4rem 1.2rem; background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+                  </div>
+                </div>
+                <div id="sidebar-saved-state" style="display: none;">
+                  <img id="sidebar-saved-img" src="" alt="" style="max-width: 100%; max-height: 80px; display: block; border: 1px solid #d9d9d9; margin-bottom: 0.5rem;">
+                  <p id="sidebar-saved-name" style="font-size: 1.2rem; color: #1b1b1b; margin: 0 0 0.6rem;"></p>
+                  <button type="button" id="sidebar-delete-btn" class="usa-button usa-button--secondary" style="font-size: 1.3rem; padding: 0.4rem 1.2rem;">Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Template Applies To (full width) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="template-context">Template Applies To <span class="field-required">Required</span></label>
+              <select class="usa-select" id="template-context" name="template-context">
+                <option value="">Please Select</option>
+                <option value="Account">Account</option>
+                <option value="Application">Application (submission)</option>
+                <option value="License">License</option>
+                <option value="Asset">Asset</option>
+                <option value="Case">Case</option>
+              </select>
+            </div>
+
+            <!-- Allowed Delivery Methods (full width fieldset) -->
+            <fieldset class="usa-fieldset form-field-full" id="delivery-method-fieldset">
+              <legend class="usa-legend">Allowed Delivery Method <span class="field-required">Required</span></legend>
+              <div class="usa-hint" style="margin-bottom:0.5rem;">Select which delivery options are available when using this template.</div>
+              <div class="usa-checkbox" style="display:inline-block; margin-right:3rem;">
+                <input class="usa-checkbox__input" id="delivery-standard" type="checkbox" name="template-delivery" value="Standard">
+                <label class="usa-checkbox__label" for="delivery-standard">Standard Delivery</label>
+              </div>
+              <div class="usa-checkbox" style="display:inline-block;">
+                <input class="usa-checkbox__input" id="delivery-certified" type="checkbox" name="template-delivery" value="Certified">
+                <label class="usa-checkbox__label" for="delivery-certified">Certified Mail</label>
+              </div>
+              <div id="delivery-method-error" class="usa-error-message" style="display:none;" role="alert">At least one delivery method must be selected.</div>
+            </fieldset>
+
+            <!-- Body (full width) -->
+            <div class="usa-form-group form-field-full" id="body-group">
+              <label class="usa-label" for="template-body">
+                Body <span class="field-required">Required</span>
+              </label>
+              <div class="usa-hint">Write the letter body. Use merge fields from the panel below to personalize content. Start with <code>{{date}}</code> and the recipient's address.</div>
+              <div class="mock-editor">
+                <div class="mock-editor__toolbar" role="toolbar" aria-label="Text formatting toolbar">
+                  <button type="button" class="mock-editor__btn" title="Bold" aria-label="Bold"><strong>B</strong></button>
+                  <button type="button" class="mock-editor__btn" title="Italic" aria-label="Italic"><em>I</em></button>
+                  <button type="button" class="mock-editor__btn" title="Underline" aria-label="Underline" style="text-decoration:underline;">U</button>
+                  <span class="mock-editor__separator" aria-hidden="true">|</span>
+                  <button type="button" class="mock-editor__btn" title="Bulleted list" aria-label="Bulleted list">&#8226; &#8212;</button>
+                  <button type="button" class="mock-editor__btn" title="Numbered list" aria-label="Numbered list">1.</button>
+                  <span class="mock-editor__separator" aria-hidden="true">|</span>
+                  <button type="button" class="mock-editor__btn" title="Align left" aria-label="Align left">&#8676;</button>
+                  <button type="button" class="mock-editor__btn" title="Align center" aria-label="Align center">&#8660;</button>
+                </div>
+                <textarea class="mock-editor__textarea" id="template-body" name="template-body"
+                          aria-required="true" rows="18"
+                          placeholder="{{date}}&#10;&#10;{{address_line1}}&#10;{{city}}, {{state}} {{zip}}&#10;&#10;Dear {{contact_name}}:&#10;&#10;Write your letter content here...&#10;&#10;Sincerely,&#10;{{user_name}}"></textarea>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Merge Fields Panel -->
+          <div class="merge-fields-panel" aria-label="Available merge fields — click to insert into body">
+            <p class="merge-fields-panel__heading">Available Merge Fields — Click to Insert</p>
+
+            <!-- Context prompt banner -->
+            <div id="merge-fields-prompt" class="usa-alert usa-alert--info usa-alert--slim" style="margin-bottom:1rem;">
+              <div class="usa-alert__body">
+                <p class="usa-alert__text">Select a <strong>Template Applies To</strong> context to see relevant merge fields.</p>
+              </div>
+            </div>
+
+            <div class="merge-fields-group" data-mf-group="applicant">
+              <span class="merge-fields-group__label" id="mf-applicant-label">Applicant</span>
+              <div class="merge-fields-list" role="group" aria-labelledby="mf-applicant-label">
+                <button type="button" class="merge-field-chip" data-field="contact_name" onclick="insertField('contact_name')" aria-label="Insert contact name field">contact_name</button>
+                <button type="button" class="merge-field-chip" data-field="credential_name" onclick="insertField('credential_name')" aria-label="Insert credential name field">credential_name</button>
+                <button type="button" class="merge-field-chip" data-field="application_type" onclick="insertField('application_type')" aria-label="Insert application type field">application_type</button>
+                <button type="button" class="merge-field-chip" data-field="supervised_by" onclick="insertField('supervised_by')" aria-label="Insert supervised by field">supervised_by</button>
+              </div>
+            </div>
+
+            <div class="merge-fields-group" data-mf-group="address">
+              <span class="merge-fields-group__label" id="mf-address-label">Mailing Address</span>
+              <div class="merge-fields-list" role="group" aria-labelledby="mf-address-label">
+                <button type="button" class="merge-field-chip" data-field="address_line1" onclick="insertField('address_line1')" aria-label="Insert address line 1">address_line1</button>
+                <button type="button" class="merge-field-chip" data-field="address_line2" onclick="insertField('address_line2')" aria-label="Insert address line 2">address_line2</button>
+                <button type="button" class="merge-field-chip" data-field="city" onclick="insertField('city')" aria-label="Insert city">city</button>
+                <button type="button" class="merge-field-chip" data-field="state" onclick="insertField('state')" aria-label="Insert state">state</button>
+                <button type="button" class="merge-field-chip" data-field="zip" onclick="insertField('zip')" aria-label="Insert zip">zip</button>
+              </div>
+            </div>
+
+            <div class="merge-fields-group" data-mf-group="staff">
+              <span class="merge-fields-group__label" id="mf-staff-label">Staff / Sender</span>
+              <div class="merge-fields-list" role="group" aria-labelledby="mf-staff-label">
+                <button type="button" class="merge-field-chip" data-field="user_name" onclick="insertField('user_name')" aria-label="Insert user name">user_name</button>
+                <button type="button" class="merge-field-chip" data-field="user_email" onclick="insertField('user_email')" aria-label="Insert user email">user_email</button>
+                <button type="button" class="merge-field-chip" data-field="user_signature" onclick="insertField('user_signature')" aria-label="Insert user signature">user_signature</button>
+                <button type="button" class="merge-field-chip" data-field="manager_name" onclick="insertField('manager_name')" aria-label="Insert manager name">manager_name</button>
+              </div>
+            </div>
+
+            <div class="merge-fields-group" data-mf-group="dates">
+              <span class="merge-fields-group__label" id="mf-dates-label">Dates</span>
+              <div class="merge-fields-list" role="group" aria-labelledby="mf-dates-label">
+                <button type="button" class="merge-field-chip" data-field="date" onclick="insertField('date')" aria-label="Insert date">date</button>
+                <button type="button" class="merge-field-chip" data-field="mailed_date" onclick="insertField('mailed_date')" aria-label="Insert mailed date">mailed_date</button>
+                <button type="button" class="merge-field-chip" data-field="rejection_dates" onclick="insertField('rejection_dates')" aria-label="Insert rejection dates">rejection_dates</button>
+              </div>
+            </div>
+            <br>
+            <div class="merge-fields-group" style="margin-bottom:0;" data-mf-group="custom">
+              <span class="merge-fields-group__label" id="mf-other-label">Custom Merge Fields</span>
+              <div class="merge-fields-list" role="group" aria-labelledby="mf-other-label">
+                <button type="button" class="custom-merge-field-chip" data-field="agency_name" onclick="insertField('agency_name')" aria-label="Insert agency name">agency_name</button>
+                <button type="button" class="custom-merge-field-chip" data-field="bg_number" onclick="insertField('bg_number')" aria-label="Insert BG number">bg_number</button>
+                <button type="button" class="custom-merge-field-chip" data-field="tracking_number" onclick="insertField('tracking_number')" aria-label="Insert tracking number">tracking_number</button>
+                <button type="button" class="custom-merge-field-chip" data-field="delivery_method" onclick="insertField('delivery_method')" aria-label="Insert delivery method">delivery_method</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Version Notes (edit mode only) -->
+          <div id="version-notes-section" class="usa-form-group" style="display:none; margin-top:0.5rem;">
+            <label class="usa-label" for="version-notes">Version Notes</label>
+            <div class="usa-hint">Briefly describe what changed in this version (optional)</div>
+            <input class="usa-input" id="version-notes" name="version-notes" type="text"
+                   placeholder="e.g., Updated signature block and address format">
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display:flex; gap:1rem; margin-top:3rem; flex-wrap:wrap; align-items:center;">
+            <button type="button" class="usa-button" id="publish-btn">Publish</button>
+            <button type="button" class="usa-button usa-button--accent-warm" id="preview-btn">Preview</button>
+            <button type="button" class="usa-button usa-button--outline" id="save-draft-btn">Save as Draft</button>
+            <button type="button" class="usa-button usa-button--secondary" id="cancel-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Version History (edit mode only) -->
+      <div id="version-history-block" class="profile-content" style="display:none; margin-top:2rem;">
+        <div class="profile-content__header">
+          <h2 class="profile-content__heading">Version History</h2>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="usa-table usa-table--borderless usa-table--striped" style="width:100%">
+            <thead>
+              <tr>
+                <th scope="col">Version</th>
+                <th scope="col">Date Saved</th>
+                <th scope="col">Saved By</th>
+                <th scope="col">Notes</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="version-history-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Version Preview Modal -->
+  <div id="version-preview-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="version-preview-title">
+    <div class="modal-content" style="max-width:720px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="version-preview-title">Version Preview</h2>
+        <button type="button" class="modal-close" id="close-version-preview" aria-label="Close preview modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="version-preview-meta" style="font-size:1.4rem; color:#71767a; margin-bottom:1.5rem;"></p>
+        <p style="font-size:1.4rem; font-weight:700; margin-bottom:0.5rem;">Body:</p>
+        <div class="version-preview-body" id="version-preview-body" role="document" aria-label="Version body content"></div>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button usa-button--outline" id="restore-version-btn" style="background:transparent; box-shadow:inset 0 0 0 2px #005ea2; color:#005ea2;">Restore This Version</button>
+        <button type="button" class="usa-button usa-button--secondary" id="close-version-preview-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Template Preview Modal -->
+  <div id="live-preview-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="live-preview-title">
+    <div class="modal-content" style="max-width: 780px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="live-preview-title">Preview</h2>
+        <button type="button" class="modal-close" id="close-live-preview" aria-label="Close preview">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Paper -->
+        <div style="background: #fff; border: 1px solid #c9c9c9; box-shadow: 0 2px 8px rgba(0,0,0,0.10); max-height: 560px; overflow-y: auto; overflow-x: hidden;">
+
+          <!-- Header — full width across the top -->
+          <div id="live-preview-header" style="display:none; border-bottom: 1px solid #d9d9d9; line-height:0;">
+            <img id="live-preview-header-img" src="" alt="Header" style="max-width:100%; display:block;">
+          </div>
+
+          <!-- Middle row: sidebar + body -->
+          <div style="display: flex;">
+
+            <!-- Left Sidebar -->
+            <div id="live-preview-sidebar" style="display:none; flex-shrink: 0; border-right: 1px solid #d9d9d9; line-height: 0;">
+              <img id="live-preview-sidebar-img" src="" alt="Left Sidebar" style="display: block; width: 90px; min-height: 400px; object-fit: cover;">
+            </div>
+
+            <!-- Body text -->
+            <div style="flex: 1; position: relative;">
+              <!-- Watermark image (absolute, behind content) -->
+              <img id="live-preview-watermark-img" src="" alt="" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:65%; max-height:65%; opacity:0.12; pointer-events:none; z-index:0;">
+              <div style="padding: 3rem 3.5rem; position: relative; z-index: 1;">
+                <div id="live-preview-body" style="font-size: 1.5rem; line-height: 1.7; white-space: pre-wrap; font-family: 'Georgia', serif; color: #1b1b1b;"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Footer — full width across the bottom -->
+          <div id="live-preview-footer" style="display:none; border-top: 1px solid #d9d9d9; line-height:0;">
+            <img id="live-preview-footer-img" src="" alt="Footer" style="max-width:100%; display:block;">
+          </div>
+
+        </div>
+        <p style="font-size: 1.2rem; color: #71767a; margin: 0.8rem 0 0;"><em>Merge fields replaced with sample data for preview.</em></p>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button usa-button--outline" id="close-live-preview-btn" style="background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const templateId = params.get('id');
+    const isEdit = !!templateId;
+    let currentTemplate = null;
+    let previewVersionData = null;
+
+    function formatDate(d) {
+      if (!d) return '—';
+      return new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function formatDateTime(d) {
+      if (!d) return '—';
+      const date = new Date(d.includes('T') ? d : d + 'T00:00:00Z');
+      const datePart = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+      const timePart = date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' });
+      return datePart + ' ' + timePart + ' UTC';
+    }
+
+    // ---- Description counter ----
+    document.getElementById('template-description').addEventListener('input', function () {
+      document.getElementById('description-counter').textContent = this.value.length + ' / 1000 characters';
+    });
+
+    // ---- Attachment state management ----
+    let headerDataUrl = null, footerDataUrl = null, watermarkDataUrl = null, sidebarDataUrl = null;
+    const pendingDataUrls  = { header: null, footer: null, watermark: null, sidebar: null };
+    const pendingFileNames = { header: null, footer: null, watermark: null, sidebar: null };
+    const savedFileNames   = { header: null, footer: null, watermark: null, sidebar: null };
+
+    function setDataUrl(type, url) {
+      if (type === 'header')    headerDataUrl    = url;
+      if (type === 'footer')    footerDataUrl    = url;
+      if (type === 'watermark') watermarkDataUrl = url;
+      if (type === 'sidebar')   sidebarDataUrl   = url;
+    }
+
+    function getDataUrl(type) {
+      if (type === 'header')    return headerDataUrl;
+      if (type === 'footer')    return footerDataUrl;
+      if (type === 'watermark') return watermarkDataUrl;
+      if (type === 'sidebar')   return sidebarDataUrl;
+    }
+
+    function setupAttachment(type) {
+      const fileInput    = document.getElementById(type + '-file');
+      const browseState  = document.getElementById(type + '-browse-state');
+      const pendingState = document.getElementById(type + '-pending-state');
+      const savedState   = document.getElementById(type + '-saved-state');
+      const pendingImg   = document.getElementById(type + '-pending-img');
+      const pendingName  = document.getElementById(type + '-pending-name');
+      const savedImg     = document.getElementById(type + '-saved-img');
+      const savedName    = document.getElementById(type + '-saved-name');
+      const saveBtn      = document.getElementById(type + '-save-btn');
+      const cancelBtn    = document.getElementById(type + '-cancel-btn');
+      const deleteBtn    = document.getElementById(type + '-delete-btn');
+
+      fileInput.addEventListener('change', function () {
+        const file = this.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          pendingDataUrls[type]  = e.target.result;
+          pendingFileNames[type] = file.name;
+          if (file.type.startsWith('image/')) {
+            pendingImg.src = e.target.result;
+            pendingImg.style.display = 'block';
+          } else {
+            pendingImg.style.display = 'none';
+          }
+          pendingName.textContent    = file.name;
+          browseState.style.display  = 'none';
+          pendingState.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      });
+
+      saveBtn.addEventListener('click', function () {
+        setDataUrl(type, pendingDataUrls[type]);
+        savedFileNames[type]       = pendingFileNames[type] || '';
+        savedImg.src               = pendingImg.src;
+        savedImg.style.display     = pendingImg.style.display;
+        savedName.textContent      = pendingFileNames[type] || '';
+        pendingDataUrls[type]      = null;
+        pendingFileNames[type]     = null;
+        fileInput.value            = '';
+        pendingState.style.display = 'none';
+        savedState.style.display   = 'block';
+      });
+
+      cancelBtn.addEventListener('click', function () {
+        pendingDataUrls[type]      = null;
+        pendingFileNames[type]     = null;
+        fileInput.value            = '';
+        pendingState.style.display = 'none';
+        browseState.style.display  = 'block';
+      });
+
+      deleteBtn.addEventListener('click', function () {
+        setDataUrl(type, null);
+        savedFileNames[type]      = null;
+        savedImg.src              = '';
+        savedName.textContent     = '';
+        savedState.style.display  = 'none';
+        browseState.style.display = 'block';
+      });
+    }
+
+    ['header', 'footer', 'watermark', 'sidebar'].forEach(setupAttachment);
+
+    // ---- Attachment checkbox toggles ----
+    ['header', 'footer', 'watermark', 'sidebar'].forEach(function (type) {
+      document.getElementById(type + '-enabled').addEventListener('change', function () {
+        document.getElementById(type + '-upload-wrap').style.display = this.checked ? 'block' : 'none';
+        if (type === 'header') {
+          const ta = document.getElementById('template-body');
+          if (this.checked) {
+            if (!ta.value.startsWith('{{logo}}')) {
+              ta.value = '{{logo}}\n\n' + ta.value;
+            }
+          } else {
+            if (ta.value.startsWith('{{logo}}\n\n')) {
+              ta.value = ta.value.slice('{{logo}}\n\n'.length);
+            } else if (ta.value.startsWith('{{logo}}')) {
+              ta.value = ta.value.slice('{{logo}}'.length);
+            }
+          }
+        }
+      });
+    });
+
+    function insertField(field) {
+      const ta = document.getElementById('template-body');
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      const text = '{{' + field + '}}';
+      ta.value = ta.value.substring(0, start) + text + ta.value.substring(end);
+      ta.selectionStart = ta.selectionEnd = start + text.length;
+      ta.focus();
+    }
+
+    // ---- Merge field context filtering ----
+    const FIELD_CONTEXTS = {
+      user_name:       null,
+      user_email:      null,
+      user_signature:  null,
+      manager_name:    null,
+      date:            null,
+      agency_name:     null,
+      contact_name:    ['Account', 'Application', 'License', 'Asset', 'Case'],
+      credential_name: ['Application', 'License'],
+      application_type:['Application'],
+      supervised_by:   ['Application', 'License'],
+      address_line1:   ['Account', 'Application', 'License', 'Asset', 'Case'],
+      address_line2:   ['Account', 'Application', 'License', 'Asset', 'Case'],
+      city:            ['Account', 'Application', 'License', 'Asset', 'Case'],
+      state:           ['Account', 'Application', 'License', 'Asset', 'Case'],
+      zip:             ['Account', 'Application', 'License', 'Asset', 'Case'],
+      rejection_dates: ['Application', 'Case'],
+      mailed_date:     ['Application', 'Case'],
+      bg_number:       ['Application', 'Asset', 'Case'],
+      tracking_number: ['Account', 'Application', 'License', 'Asset', 'Case'],
+      delivery_method: ['Application', 'License', 'Case']
+    };
+
+    function applyContextFilter(context) {
+      const noContext = !context;
+      document.getElementById('merge-fields-prompt').style.display = noContext ? 'block' : 'none';
+      document.getElementById('publish-btn').disabled = noContext;
+
+      document.querySelectorAll('[data-field]').forEach(function (chip) {
+        const field = chip.getAttribute('data-field');
+        const allowed = FIELD_CONTEXTS[field];
+        const visible = !noContext && (allowed === null || allowed.includes(context));
+        chip.classList.toggle('merge-field--hidden', !visible);
+      });
+
+      document.querySelectorAll('[data-mf-group]').forEach(function (group) {
+        const chips = group.querySelectorAll('[data-field]:not(.merge-field--hidden)');
+        group.style.display = chips.length ? '' : 'none';
+      });
+    }
+
+    if (isEdit) {
+      const templates = JSON.parse(localStorage.getItem('letterTemplates') || '[]');
+      currentTemplate = templates.find(t => t.id === templateId);
+
+      if (!currentTemplate) {
+        alert('Template not found.');
+        window.location.href = 'correspondence.html?tab=letters';
+      } else {
+        document.title = 'Edit: ' + currentTemplate.name + ' - RLP Settings';
+        document.getElementById('breadcrumb-current').textContent = 'Edit: ' + currentTemplate.name;
+        document.getElementById('form-heading').textContent = 'Edit: ' + currentTemplate.name;
+
+        const badge = document.getElementById('current-version-badge');
+        badge.style.display = 'inline-block';
+        badge.innerHTML = '<span class="usa-tag usa-tag--draft" style="font-size:1.4rem;">v' + currentTemplate.version + '</span>';
+
+        document.getElementById('template-status').value = currentTemplate.status;
+        document.getElementById('template-name').value = currentTemplate.name;
+        document.getElementById('template-context').value = currentTemplate.appliesTo || '';
+        applyContextFilter(currentTemplate.appliesTo || '');
+        document.getElementById('template-body').value = currentTemplate.body || '';
+
+        const desc = currentTemplate.description || '';
+        document.getElementById('template-description').value = desc;
+        document.getElementById('description-counter').textContent = desc.length + ' / 1000 characters';
+
+        ['header', 'footer', 'watermark', 'sidebar'].forEach(function (type) {
+          if (currentTemplate[type + 'Enabled']) {
+            document.getElementById(type + '-enabled').checked = true;
+            document.getElementById(type + '-upload-wrap').style.display = 'block';
+            const fname = currentTemplate[type + 'File'];
+            const url   = currentTemplate[type + 'DataUrl'];
+            if (url) {
+              setDataUrl(type, url);
+              savedFileNames[type] = fname || '';
+              document.getElementById(type + '-saved-img').src           = url;
+              document.getElementById(type + '-saved-img').style.display = 'block';
+              document.getElementById(type + '-saved-name').textContent  = fname || '';
+              document.getElementById(type + '-browse-state').style.display = 'none';
+              document.getElementById(type + '-saved-state').style.display  = 'block';
+            }
+          }
+        });
+
+        const deliveryMethods = currentTemplate.deliveryMethods || (currentTemplate.deliveryMethod ? [currentTemplate.deliveryMethod] : []);
+        document.querySelectorAll('input[name="template-delivery"]').forEach(function (cb) {
+          cb.checked = deliveryMethods.includes(cb.value);
+        });
+
+        document.getElementById('version-notes-section').style.display = 'block';
+        document.getElementById('version-history-block').style.display = 'block';
+        renderVersionHistory(currentTemplate.versions || []);
+      }
+    }
+
+    function renderVersionHistory(versions) {
+      const tbody = document.getElementById('version-history-tbody');
+      if (!versions || !versions.length) {
+        tbody.innerHTML = '<tr><td colspan="5" style="color:#71767a;">No version history available.</td></tr>';
+        return;
+      }
+      const sorted = [...versions].sort((a, b) => b.version - a.version);
+      tbody.innerHTML = sorted.map(v => `
+        <tr>
+          <td><strong>v${v.version}</strong>${v.version === currentTemplate.version ? ' <span class="usa-tag usa-tag--active" style="font-size:1.1rem; vertical-align:middle;">Current</span>' : ''}</td>
+          <td>${formatDateTime(v.savedDate)}</td>
+          <td>${v.savedBy || '—'}</td>
+          <td>${v.notes || '—'}</td>
+          <td>
+            <button type="button" class="usa-button usa-button--unstyled"
+                    onclick="openVersionPreview(${v.version})"
+                    aria-label="Preview version ${v.version}">Preview</button>
+          </td>
+        </tr>`).join('');
+    }
+
+    function openVersionPreview(versionNum) {
+      if (!currentTemplate) return;
+      const v = currentTemplate.versions.find(x => x.version === versionNum);
+      if (!v) return;
+      previewVersionData = v;
+
+      document.getElementById('version-preview-title').textContent = 'Version ' + versionNum + ' Preview';
+      document.getElementById('version-preview-meta').textContent =
+        'Saved ' + formatDateTime(v.savedDate) + ' by ' + (v.savedBy || '—') + (v.notes ? ' — ' + v.notes : '');
+      document.getElementById('version-preview-body').textContent = v.body || '(no content)';
+
+      document.getElementById('restore-version-btn').style.display =
+        (versionNum === currentTemplate.version) ? 'none' : 'inline-block';
+
+      document.getElementById('version-preview-modal').removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('close-version-preview').focus();
+    }
+
+    function closeVersionPreview() {
+      document.getElementById('version-preview-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-version-preview').addEventListener('click', closeVersionPreview);
+    document.getElementById('close-version-preview-btn').addEventListener('click', closeVersionPreview);
+    document.getElementById('version-preview-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeVersionPreview();
+    });
+
+    document.getElementById('restore-version-btn').addEventListener('click', function () {
+      if (!previewVersionData) return;
+      document.getElementById('template-body').value = previewVersionData.body || '';
+      document.getElementById('version-notes').value = 'Restored from version ' + previewVersionData.version;
+      closeVersionPreview();
+    });
+
+    function validate() {
+      const name = document.getElementById('template-name').value.trim();
+      const body = document.getElementById('template-body').value.trim();
+      const deliveryChecked = document.querySelectorAll('input[name="template-delivery"]:checked').length > 0;
+      const errors = [];
+
+      document.getElementById('template-name').classList.toggle('usa-input--error', !name);
+      document.getElementById('template-body').classList.toggle('usa-input--error', !body);
+      document.getElementById('delivery-method-error').style.display = deliveryChecked ? 'none' : 'block';
+
+      if (!name) errors.push('Template Name is required.');
+      if (!body) errors.push('Body is required.');
+      if (!deliveryChecked) errors.push('At least one delivery method must be selected.');
+
+      const errBlock = document.getElementById('validation-error');
+      if (errors.length) {
+        document.getElementById('validation-error-text').textContent = errors.join(' ');
+        errBlock.style.display = 'block';
+        errBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return false;
+      }
+      errBlock.style.display = 'none';
+      return true;
+    }
+
+    function saveTemplate(statusOverride) {
+      if (!validate()) return;
+
+      const status = statusOverride || document.getElementById('template-status').value;
+      const name = document.getElementById('template-name').value.trim();
+      const description = document.getElementById('template-description').value.trim();
+      const appliesTo = document.getElementById('template-context').value;
+      const deliveryMethods = Array.from(document.querySelectorAll('input[name="template-delivery"]:checked')).map(el => el.value);
+      const body = document.getElementById('template-body').value;
+      const now = new Date().toISOString().split('T')[0];
+      const nowISO = new Date().toISOString();
+      const author = 'Michael Rodriguez';
+
+      const attachments = {};
+      ['header', 'footer', 'watermark', 'sidebar'].forEach(function (type) {
+        const enabled      = document.getElementById(type + '-enabled').checked;
+        const existingFile = isEdit && currentTemplate ? currentTemplate[type + 'File'] : '';
+        const existingUrl  = isEdit && currentTemplate ? currentTemplate[type + 'DataUrl'] : null;
+        attachments[type + 'Enabled'] = enabled;
+        attachments[type + 'File']    = enabled ? (savedFileNames[type] || existingFile || '') : '';
+        attachments[type + 'DataUrl'] = enabled ? (getDataUrl(type) || existingUrl || null) : null;
+      });
+
+      let templates = JSON.parse(localStorage.getItem('letterTemplates') || '[]');
+
+      if (isEdit && currentTemplate) {
+        const idx = templates.findIndex(t => t.id === templateId);
+        if (idx !== -1) {
+          const newVer = templates[idx].version + 1;
+          const vEntry = {
+            version: newVer,
+            savedDate: nowISO,
+            savedBy: author,
+            notes: document.getElementById('version-notes').value.trim() || '',
+            body
+          };
+          templates[idx] = {
+            ...templates[idx],
+            name, description, appliesTo, deliveryMethods, status, body,
+            ...attachments,
+            version: newVer,
+            lastModifiedDate: now,
+            lastModifiedBy: author,
+            versions: [...(templates[idx].versions || []), vEntry]
+          };
+          localStorage.setItem('correspondenceNotification', '"' + name + '" saved as version v' + newVer + '.');
+        }
+      } else {
+        const newTemplate = {
+          id: 'TMPL-LETTER-' + Date.now(),
+          name, description, appliesTo, deliveryMethods, status, body,
+          ...attachments,
+          version: 1,
+          createdDate: now, createdBy: author,
+          lastModifiedDate: now, lastModifiedBy: author,
+          versions: [{ version: 1, savedDate: now, savedBy: author, notes: 'Initial version', body }]
+        };
+        templates.unshift(newTemplate);
+        localStorage.setItem('correspondenceNotification', '"' + name + '" created successfully.');
+      }
+
+      localStorage.setItem('letterTemplates', JSON.stringify(templates));
+      window.location.href = 'correspondence.html?tab=letters';
+    }
+
+    document.getElementById('save-draft-btn').addEventListener('click', function () { saveTemplate('Draft'); });
+    document.getElementById('publish-btn').addEventListener('click', function () { saveTemplate('Active'); });
+
+    document.getElementById('template-context').addEventListener('change', function () {
+      applyContextFilter(this.value);
+    });
+
+    applyContextFilter(document.getElementById('template-context').value);
+
+    // ---- Sample data for preview rendering ----
+    const SAMPLE_DATA = {
+      logo:            '[Agency Logo]',
+      contact_name:    'John Smith',
+      credential_name: 'Commercial Fishing License',
+      application_type:'New Application',
+      supervised_by:   'Jane Doe',
+      address_line1:   '123 River Road',
+      address_line2:   '',
+      city:            'Springfield',
+      state:           'IL',
+      zip:             '62701',
+      user_name:       'Michael Rodriguez',
+      user_email:      'm.rodriguez@dnr.illinois.gov',
+      user_signature:  'Michael Rodriguez\nDivision Chief, Wildlife Resources',
+      manager_name:    'Sarah Johnson',
+      date:            'May 1, 2026',
+      rejection_dates: 'March 15, 2026 and April 1, 2026',
+      mailed_date:     'April 28, 2026',
+      agency_name:     'ASP',
+      bg_number:       'BG-2026-0042',
+      tracking_number: 'TRK-2026-00891',
+      delivery_method: 'Certified Mail'
+    };
+
+    function applyMergeFields(text) {
+      return (text || '').replace(/\{\{(\w+)\}\}/g, function (match, key) {
+        return SAMPLE_DATA[key] !== undefined ? SAMPLE_DATA[key] : match;
+      });
+    }
+
+    document.getElementById('preview-btn').addEventListener('click', function () {
+      const name = document.getElementById('template-name').value.trim() || 'Untitled Template';
+      const body = document.getElementById('template-body').value || '(no content)';
+
+      const headerEnabled    = document.getElementById('header-enabled').checked;
+      const footerEnabled    = document.getElementById('footer-enabled').checked;
+      const watermarkEnabled = document.getElementById('watermark-enabled').checked;
+      const sidebarEnabled   = document.getElementById('sidebar-enabled').checked;
+
+      document.getElementById('live-preview-title').textContent = name + ' — Preview';
+      document.getElementById('live-preview-body').textContent = applyMergeFields(body);
+
+      const hUrl = headerDataUrl;
+      const hEl  = document.getElementById('live-preview-header');
+      hEl.style.display = (headerEnabled && hUrl) ? 'block' : 'none';
+      if (headerEnabled && hUrl) document.getElementById('live-preview-header-img').src = hUrl;
+
+      const fUrl = footerDataUrl;
+      const fEl  = document.getElementById('live-preview-footer');
+      fEl.style.display = (footerEnabled && fUrl) ? 'block' : 'none';
+      if (footerEnabled && fUrl) document.getElementById('live-preview-footer-img').src = fUrl;
+
+      const wUrl = watermarkDataUrl;
+      const wImg = document.getElementById('live-preview-watermark-img');
+      wImg.style.display = (watermarkEnabled && wUrl) ? 'block' : 'none';
+      if (watermarkEnabled && wUrl) wImg.src = wUrl;
+
+      const sUrl = sidebarDataUrl;
+      const sEl  = document.getElementById('live-preview-sidebar');
+      sEl.style.display = (sidebarEnabled && sUrl) ? 'flex' : 'none';
+      if (sidebarEnabled && sUrl) document.getElementById('live-preview-sidebar-img').src = sUrl;
+
+      document.getElementById('live-preview-modal').removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('close-live-preview').focus();
+    });
+
+    document.getElementById('close-live-preview').addEventListener('click', function () {
+      document.getElementById('live-preview-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    });
+    document.getElementById('close-live-preview-btn').addEventListener('click', function () {
+      document.getElementById('live-preview-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    });
+    document.getElementById('live-preview-modal').addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.getElementById('cancel-btn').addEventListener('click', function () {
+      if (confirm('Are you sure you want to cancel? Unsaved changes will be lost.')) {
+        window.location.href = 'correspondence.html?tab=letters';
+      }
+    });
+  </script>
+</body>
+</html>

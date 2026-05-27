@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Correspondence - RLP Settings</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png" alt="ASP agency logo" class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="queues.html">Queues</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="license-types.html">License Types</a></span></li>
+        <li class="usa-nav__primary-item"><span class="menuItem-inner"><a href="applications.html">Applications</a></span></li>
+        <li class="usa-nav__primary-item active"><span class="menuItem-inner"><a href="settings.html">Settings</a></span></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="settings.html" class="usa-breadcrumb__link">Settings</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Correspondence</span>
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="page-title page-title--underlined">Correspondence</h1>
+
+      <!-- Template type switcher -->
+      <div class="profile-tabs" role="tablist" aria-label="Correspondence template type">
+        <button type="button" class="profile-tab active" id="btn-emails" role="tab"
+                aria-selected="true" aria-controls="panel-emails" data-panel="emails">Emails</button>
+        <button type="button" class="profile-tab" id="btn-letters" role="tab"
+                aria-selected="false" aria-controls="panel-letters" data-panel="letters">Letters</button>
+      </div>
+
+      <!-- ===== Emails Panel ===== -->
+      <div id="panel-emails">
+
+        <div class="margin-top-2">
+          <div class="usa-accordion usa-accordion--bordered">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="email-icon-key-content">
+                Icon Key
+              </button>
+            </h3>
+            <div id="email-icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  <span>- Edit</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  <span>- Preview</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/publish-icon.png" alt="" width="30" height="30">
+                  <span>- Publish (Draft → Active)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-deactivate.png" alt="" width="30" height="30">
+                  <span>- Deactivate (Active → Inactive)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-reactivate.png" alt="" width="30" height="30">
+                  <span>- Reactivate (Inactive → Active)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-archive.png" alt="" width="30" height="30">
+                  <span>- Archive (template has associations)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  <span>- Delete (no associations)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <div class="margin-bottom-2" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="correspondence-email-template.html" class="usa-button">Create Email Template</a>
+            <div class="usa-button-group usa-button-group--segmented">
+              <ul class="usa-button-group__list">
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline email-status-filter" data-status="Active">Active</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline email-status-filter" data-status="Draft">Draft</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline email-status-filter" data-status="Inactive">Inactive</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline email-status-filter" data-status="Archived">Archived</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="table-controls">
+            <div class="table-controls__left">
+              <strong id="email-count"></strong>
+            </div>
+            <div class="table-controls__right" style="display: flex; align-items: center; gap: 1rem;">
+              <label for="email-per-page" class="table-controls__label">Show</label>
+              <select class="usa-select table-controls__select" id="email-per-page" name="email-per-page">
+                <option value="100" selected>100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col" role="columnheader" aria-sort="none">Template Name <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Applies To <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Status <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Version <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Last Modified <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader">Controls</th>
+              </tr>
+            </thead>
+            <tbody id="email-tbody"></tbody>
+          </table>
+
+          <p id="no-email-msg" style="display: none; padding: 3rem 0; color: #71767a; font-size: 1.6rem;">
+            No email templates found. <a href="correspondence-email-template.html" class="usa-link">Create your first email template.</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== Letters Panel ===== -->
+      <div id="panel-letters" style="display: none;">
+
+        <div class="margin-top-2">
+          <div class="usa-accordion usa-accordion--bordered">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="letter-icon-key-content">
+                Icon Key
+              </button>
+            </h3>
+            <div id="letter-icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  <span>- Edit</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  <span>- Preview</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/publish-icon.png" alt="" width="30" height="30">
+                  <span>- Publish (Draft → Active)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-deactivate.png" alt="" width="30" height="30">
+                  <span>- Deactivate (Active → Inactive)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-reactivate.png" alt="" width="30" height="30">
+                  <span>- Reactivate (Inactive → Active)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-archive.png" alt="" width="30" height="30">
+                  <span>- Archive (template has associations)</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  <span>- Delete (no associations)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <div class="margin-bottom-2" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="correspondence-letter-template.html" class="usa-button">Create Letter Template</a>
+            <div class="usa-button-group usa-button-group--segmented">
+              <ul class="usa-button-group__list">
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline letter-status-filter" data-status="Active">Active</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline letter-status-filter" data-status="Draft">Draft</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline letter-status-filter" data-status="Inactive">Inactive</button>
+                </li>
+                <li class="usa-button-group__item">
+                  <button type="button" class="usa-button usa-button--outline letter-status-filter" data-status="Archived">Archived</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="table-controls">
+            <div class="table-controls__left">
+              <strong id="letter-count"></strong>
+            </div>
+            <div class="table-controls__right" style="display: flex; align-items: center; gap: 1rem;">
+              <label for="letter-per-page" class="table-controls__label">Show</label>
+              <select class="usa-select table-controls__select" id="letter-per-page" name="letter-per-page">
+                <option value="100" selected>100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col" role="columnheader" aria-sort="none">Template Name <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Applies To <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Delivery <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Status <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Version <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Last Modified <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader">Controls</th>
+              </tr>
+            </thead>
+            <tbody id="letter-tbody"></tbody>
+          </table>
+
+          <p id="no-letter-msg" style="display: none; padding: 3rem 0; color: #71767a; font-size: 1.6rem;">
+            No letter templates found. <a href="correspondence-letter-template.html" class="usa-link">Create your first letter template.</a>
+          </p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="delete-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="delete-modal-title">Delete Template</h2>
+        <button type="button" class="modal-close" id="close-delete-modal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 1.6rem; margin: 0;">
+          Are you sure you want to permanently delete <strong id="delete-template-name"></strong>?
+          This will remove all version history and cannot be undone.
+        </p>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button usa-button--secondary" id="confirm-delete-btn">Delete Template</button>
+        <button type="button" class="usa-button usa-button--outline" id="cancel-delete-btn" style="background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Archive Confirmation Modal -->
+  <div id="archive-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="archive-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="archive-modal-title">Archive Template</h2>
+        <button type="button" class="modal-close" id="close-archive-modal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 1.6rem; margin: 0;">
+          Are you sure you want to archive <strong id="archive-template-name"></strong>?
+          Archived templates are retired for historical reference only and can no longer be used for new correspondence.
+        </p>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button usa-button--secondary" id="confirm-archive-btn">Archive Template</button>
+        <button type="button" class="usa-button usa-button--outline" id="cancel-archive-btn" style="background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template Preview Modal -->
+  <div id="preview-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="preview-modal-title">
+    <div class="modal-content" style="max-width: 760px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="preview-modal-title">Template Preview</h2>
+        <button type="button" class="modal-close" id="close-preview-modal" aria-label="Close preview">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="preview-meta" style="font-size: 1.3rem; color: #71767a; margin: 0 0 1.5rem;"></p>
+
+        <!-- Email subject row (hidden for letters) -->
+        <div id="preview-subject-row" style="background: #f0f0f0; border-left: 4px solid #005ea2; padding: 0.8rem 1.2rem; margin-bottom: 1.5rem; display: none;">
+          <span style="font-size: 1.3rem; font-weight: 700; text-transform: uppercase; color: #71767a; letter-spacing: 0.04em;">Subject</span>
+          <p id="preview-subject-text" style="font-size: 1.5rem; margin: 0.3rem 0 0; color: #1b1b1b;"></p>
+        </div>
+
+        <div id="preview-body-wrap" style="position: relative; background: #fff; border: 1px solid #c9c9c9; box-shadow: 0 2px 6px rgba(0,0,0,0.08); max-height: 480px; overflow-y: auto; overflow-x: hidden;">
+          <img id="preview-watermark-img" src="" alt="" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:65%; max-height:65%; opacity:0.12; pointer-events:none; z-index:0;">
+          <div id="preview-header" style="display:none; border-bottom: 1px solid #d9d9d9; line-height:0;">
+            <img id="preview-header-img" src="" alt="Header" style="max-width:100%; display:block;">
+          </div>
+          <div style="padding: 3rem 3.5rem; position: relative; z-index: 1;">
+            <div id="preview-body-text" style="font-size: 1.5rem; line-height: 1.7; white-space: pre-wrap; font-family: 'Georgia', serif; color: #1b1b1b;"></div>
+          </div>
+          <div id="preview-footer" style="display:none; border-top: 1px solid #d9d9d9; line-height:0;">
+            <img id="preview-footer-img" src="" alt="Footer" style="max-width:100%; display:block;">
+          </div>
+        </div>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button usa-button--outline" id="close-preview-btn" style="background: transparent; box-shadow: inset 0 0 0 2px #005ea2; color: #005ea2;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Notification -->
+  <div class="notification" id="success-notification" role="status" aria-live="polite">
+    <div class="notification-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="#00a91c"/>
+        <path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="notification-text" id="notification-text">Template saved successfully.</span>
+  </div>
+
+  <script>
+    // ---- Seed Data (v4 — Template Applies To) ----
+    function seedTemplates() {
+      if (localStorage.getItem('correspondenceSeeded_v4')) return;
+
+      const emailTemplates = [
+        {
+          id: 'TMPL-EMAIL-001', name: 'Application Voided',
+          appliesTo: 'Application',
+          status: 'Active', hasUsage: true,
+          subject: 'Your {{credential_name}} Application Has Been Voided',
+          body: 'Dear {{contact_name}},\n\nPlease be advised that your application for {{credential_name}} has been voided based upon your failure to provide a complete application.\n\nOur office submitted a request to you for additional information on {{rejection_dates}}. As of this date, no information has been received.\n\nShould you have any questions, please contact this department at {{user_email}}.\n\nSincerely,\n{{user_name}}',
+          version: 2, createdDate: '2025-01-10', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-04-15', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-01-10', savedBy: 'Michael Rodriguez', notes: 'Initial version', subject: 'Your Application Has Been Voided', body: 'Dear {{contact_name}},\n\nYour application has been voided...' },
+            { version: 2, savedDate: '2025-04-15', savedBy: 'Michael Rodriguez', notes: 'Updated contact information and added credential name to subject', subject: 'Your {{credential_name}} Application Has Been Voided', body: 'Dear {{contact_name}},\n\nPlease be advised...' }
+          ]
+        },
+        {
+          id: 'TMPL-EMAIL-002', name: 'License Approval',
+          appliesTo: 'License',
+          status: 'Active', hasUsage: true,
+          subject: 'Your {{credential_name}} License Has Been Approved',
+          body: 'Dear {{contact_name}},\n\nWe are pleased to inform you that your application for {{credential_name}} has been approved.\n\nSincerely,\n{{user_name}}\n{{user_email}}',
+          version: 1, createdDate: '2025-01-15', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-01-15', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-01-15', savedBy: 'Michael Rodriguez', notes: 'Initial version', subject: 'Your {{credential_name}} License Has Been Approved', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-EMAIL-003', name: 'Deficiency Notice',
+          appliesTo: 'Application',
+          status: 'Active', hasUsage: true,
+          subject: 'Deficiency Notice - {{credential_name}} Application',
+          body: 'Dear {{contact_name}},\n\nThis notice is to advise you that your application for {{credential_name}} requires additional information before it can be processed.\n\nPlease respond within 30 days.\n\nSincerely,\n{{user_name}}',
+          version: 3, createdDate: '2024-11-20', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2025-03-01', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2024-11-20', savedBy: 'Jennifer Adams', notes: 'Initial version', subject: 'Deficiency Notice', body: '...' },
+            { version: 2, savedDate: '2025-01-10', savedBy: 'Jennifer Adams', notes: 'Revised response deadline from 60 to 30 days', subject: 'Deficiency Notice - {{credential_name}} Application', body: '...' },
+            { version: 3, savedDate: '2025-03-01', savedBy: 'Michael Rodriguez', notes: 'Updated agency contact information', subject: 'Deficiency Notice - {{credential_name}} Application', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-EMAIL-004', name: 'Renewal Reminder',
+          appliesTo: 'License',
+          status: 'Draft', hasUsage: false,
+          subject: 'Your {{credential_name}} License Expires Soon',
+          body: 'Dear {{contact_name}},\n\nThis is a reminder that your {{credential_name}} license will expire soon.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-04-01', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-04-01', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-04-01', savedBy: 'Michael Rodriguez', notes: 'Initial draft', subject: 'Your {{credential_name}} License Expires Soon', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-EMAIL-005', name: 'Payment Confirmation',
+          appliesTo: 'License',
+          status: 'Archived', hasUsage: true,
+          subject: 'Payment Received for {{credential_name}}',
+          body: 'Dear {{contact_name}},\n\nThis email confirms your payment for {{credential_name}} has been received.\n\nSincerely,\n{{user_name}}',
+          version: 2, createdDate: '2024-06-01', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2024-09-15', lastModifiedBy: 'Jennifer Adams',
+          versions: [
+            { version: 1, savedDate: '2024-06-01', savedBy: 'Jennifer Adams', notes: 'Initial version', subject: 'Payment Received', body: '...' },
+            { version: 2, savedDate: '2024-09-15', savedBy: 'Jennifer Adams', notes: 'Added fee schedule reference', subject: 'Payment Received for {{credential_name}}', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-EMAIL-006', name: 'Out-of-Season Notice',
+          appliesTo: 'Application',
+          status: 'Inactive', hasUsage: false,
+          subject: 'Out-of-Season Application Notice - {{credential_name}}',
+          body: 'Dear {{contact_name}},\n\nThis notice is to advise you that applications for {{credential_name}} are not being accepted at this time. The application window opens on the first business day of each season.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-02-14', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2025-02-14', lastModifiedBy: 'Jennifer Adams',
+          versions: [
+            { version: 1, savedDate: '2025-02-14', savedBy: 'Jennifer Adams', notes: 'Initial version', subject: 'Out-of-Season Application Notice - {{credential_name}}', body: '...' }
+          ]
+        }
+      ];
+
+      const letterTemplates = [
+        {
+          id: 'TMPL-LETTER-001', name: 'Application Held',
+          appliesTo: 'Application',
+          deliveryMethods: ['Standard', 'Certified'], status: 'Active', hasUsage: true,
+          body: '{{date}}\n\n{{address_line1}}\n{{address_line2}}\n{{city}}, {{state}} {{zip}}\n\nDear {{manager_name}}:\n\nThe ASP has received the {{credential_name}} application for {{contact_name}}.\n\nSincerely,\n{{user_name}}\n{{user_email}}',
+          version: 2, createdDate: '2025-01-10', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-04-10', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-01-10', savedBy: 'Michael Rodriguez', notes: 'Initial version', body: '...' },
+            { version: 2, savedDate: '2025-04-10', savedBy: 'Michael Rodriguez', notes: 'Updated signature block and address format', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-LETTER-002', name: 'Compliance Letter',
+          appliesTo: 'Case',
+          deliveryMethods: ['Certified'], status: 'Active', hasUsage: true,
+          body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter is to notify you of a compliance requirement.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-02-01', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2025-02-01', lastModifiedBy: 'Jennifer Adams',
+          versions: [
+            { version: 1, savedDate: '2025-02-01', savedBy: 'Jennifer Adams', notes: 'Initial version', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-LETTER-003', name: 'Deficiency Notice',
+          appliesTo: 'Application',
+          deliveryMethods: ['Standard'], status: 'Active', hasUsage: false,
+          body: '{{date}}\n\nDear {{contact_name}}:\n\nYour application for {{credential_name}} is deficient. Please provide the missing information within 30 days.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-01-20', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-01-20', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-01-20', savedBy: 'Michael Rodriguez', notes: 'Initial version', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-LETTER-004', name: 'Notice of Violation',
+          appliesTo: 'Case',
+          deliveryMethods: ['Certified'], status: 'Draft', hasUsage: false,
+          body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter serves as formal notification that you are in violation of applicable regulations.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-04-20', createdBy: 'Michael Rodriguez',
+          lastModifiedDate: '2025-04-20', lastModifiedBy: 'Michael Rodriguez',
+          versions: [
+            { version: 1, savedDate: '2025-04-20', savedBy: 'Michael Rodriguez', notes: 'Initial draft', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-LETTER-005', name: 'Enforcement Communications',
+          appliesTo: 'Case',
+          deliveryMethods: ['Certified'], status: 'Inactive', hasUsage: true,
+          body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter is in regard to your enforcement case.\n\nSincerely,\n{{user_name}}',
+          version: 1, createdDate: '2025-03-15', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2025-03-15', lastModifiedBy: 'Jennifer Adams',
+          versions: [
+            { version: 1, savedDate: '2025-03-15', savedBy: 'Jennifer Adams', notes: 'Initial version', body: '...' }
+          ]
+        },
+        {
+          id: 'TMPL-LETTER-006', name: 'Legacy Fee Notice',
+          appliesTo: 'License',
+          deliveryMethods: ['Standard'], status: 'Archived', hasUsage: true,
+          body: '{{date}}\n\nDear {{contact_name}}:\n\nPlease find enclosed the current fee schedule for {{credential_name}}.\n\nSincerely,\n{{user_name}}',
+          version: 3, createdDate: '2023-08-01', createdBy: 'Jennifer Adams',
+          lastModifiedDate: '2024-03-10', lastModifiedBy: 'Jennifer Adams',
+          versions: [
+            { version: 1, savedDate: '2023-08-01', savedBy: 'Jennifer Adams', notes: 'Initial version', body: '...' },
+            { version: 2, savedDate: '2024-01-15', savedBy: 'Jennifer Adams', notes: 'Updated fee amounts', body: '...' },
+            { version: 3, savedDate: '2024-03-10', savedBy: 'Jennifer Adams', notes: 'Final update before archiving', body: '...' }
+          ]
+        }
+      ];
+
+      localStorage.setItem('emailTemplates', JSON.stringify(emailTemplates));
+      localStorage.setItem('letterTemplates', JSON.stringify(letterTemplates));
+      localStorage.setItem('correspondenceSeeded_v4', 'true');
+    }
+
+    // ---- Helpers ----
+    function statusClass(status) {
+      const map = {
+        Active:   'status-active',
+        Draft:    'status-draft',
+        Inactive: 'status-inactive',
+        Archived: 'status-archived'
+      };
+      return map[status] || '';
+    }
+
+    function formatDate(d) {
+      if (!d) return '';
+      return new Date(d + 'T00:00:00').toLocaleDateString('en-US', { month: '2-digit', day: '2-digit', year: 'numeric' });
+    }
+
+    function escAttr(s) {
+      return String(s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    }
+
+    // ---- Inline SVG Icons ----
+    const SVG_EDIT    = `<img src="assets/edit-icon.png" alt="" width="30" height="30">`;
+    const SVG_PREVIEW = `<img src="assets/eye-icon.png" alt="" width="30" height="30">`;
+    const SVG_PUBLISH = `<img src="assets/publish-icon.png" alt="" width="30" height="30">`;
+    const SVG_DEACT   = `<img src="assets/icon-deactivate.png" alt="" width="30" height="30">`; // placeholder — needs icon-deactivate.png
+    const SVG_REACT   = `<img src="assets/icon-reactivate.png" alt="" width="30" height="30">`; // placeholder — needs icon-reactivate.png
+    const SVG_ARCHIVE = `<img src="assets/icon-archive.png" alt="" width="30" height="30">`;    // placeholder — needs icon-archive.png
+    const SVG_DELETE  = `<img src="assets/icon-delete.png" alt="" width="30" height="30">`;
+
+    // ---- Build controls HTML based on status and hasUsage ----
+    function buildControls(t, type, editUrl) {
+      const id   = t.id;
+      const name = escAttr(t.name);
+
+      // Status transition button
+      let transitionBtn = '';
+      if (t.status === 'Draft') {
+        transitionBtn = `<button type="button" class="icon-button" onclick="publishTemplate('${id}','${type}')" title="Publish — move to Active" aria-label="Publish ${t.name}">${SVG_PUBLISH}</button>`;
+      } else if (t.status === 'Active') {
+        transitionBtn = `<button type="button" class="icon-button" onclick="deactivateTemplate('${id}','${type}')" title="Deactivate — move to Inactive" aria-label="Deactivate ${t.name}">${SVG_DEACT}</button>`;
+      } else if (t.status === 'Inactive') {
+        transitionBtn = `<button type="button" class="icon-button" onclick="reactivateTemplate('${id}','${type}')" title="Reactivate — move to Active" aria-label="Reactivate ${t.name}">${SVG_REACT}</button>`;
+      }
+      // Archived: no transition button
+
+      // Remove button: Archive if associations exist, Delete if not; Archived+hasUsage = nothing
+      let removeBtn = '';
+      if (t.status === 'Archived') {
+        if (!t.hasUsage) {
+          removeBtn = `<button type="button" class="icon-button" onclick="openDeleteModal('${id}','${name}','${type}')" title="Delete permanently" aria-label="Delete ${t.name}">${SVG_DELETE}</button>`;
+        }
+      } else if (t.hasUsage) {
+        removeBtn = `<button type="button" class="icon-button" onclick="openArchiveModal('${id}','${name}','${type}')" title="Archive — retire for reference only" aria-label="Archive ${t.name}">${SVG_ARCHIVE}</button>`;
+      } else {
+        removeBtn = `<button type="button" class="icon-button" onclick="openDeleteModal('${id}','${name}','${type}')" title="Delete permanently" aria-label="Delete ${t.name}">${SVG_DELETE}</button>`;
+      }
+
+      return `
+        <a href="${editUrl}" class="icon-button" title="Edit" aria-label="Edit ${t.name}">${SVG_EDIT}</a>
+        <button type="button" class="icon-button" onclick="openPreviewModal('${id}','${type}')" title="Preview" aria-label="Preview ${t.name}">${SVG_PREVIEW}</button>
+        ${transitionBtn}
+        ${removeBtn}`;
+    }
+
+    // ---- Filter state ----
+    let emailStatusFilter = null;
+    let letterStatusFilter = null;
+
+    // ---- Render Tables ----
+    function renderEmailTable() {
+      const all = JSON.parse(localStorage.getItem('emailTemplates') || '[]');
+      const templates = emailStatusFilter ? all.filter(t => t.status === emailStatusFilter) : all;
+      const tbody = document.getElementById('email-tbody');
+      const n = templates.length;
+      const total = all.length;
+      document.getElementById('email-count').textContent =
+        'Showing 1 - ' + n + ' of ' + total + ' Entr' + (total === 1 ? 'y' : 'ies');
+
+      if (!n) {
+        tbody.innerHTML = '';
+        document.getElementById('no-email-msg').style.display = 'block';
+        return;
+      }
+      document.getElementById('no-email-msg').style.display = 'none';
+
+      tbody.innerHTML = templates.map(t => `
+        <tr>
+          <td><a href="correspondence-email-template.html?id=${t.id}" class="usa-link">${t.name}</a></td>
+          <td>${t.appliesTo || ''}</td>
+          <td><span class="${statusClass(t.status)}">${t.status}</span></td>
+          <td>v${t.version}</td>
+          <td>${formatDate(t.lastModifiedDate)}</td>
+          <td style="white-space: nowrap;">${buildControls(t, 'email', 'correspondence-email-template.html?id=' + t.id)}</td>
+        </tr>`).join('');
+    }
+
+    function renderLetterTable() {
+      const all = JSON.parse(localStorage.getItem('letterTemplates') || '[]');
+      const templates = letterStatusFilter ? all.filter(t => t.status === letterStatusFilter) : all;
+      const tbody = document.getElementById('letter-tbody');
+      const n = templates.length;
+      const total = all.length;
+      document.getElementById('letter-count').textContent =
+        'Showing 1 - ' + n + ' of ' + total + ' Entr' + (total === 1 ? 'y' : 'ies');
+
+      if (!n) {
+        tbody.innerHTML = '';
+        document.getElementById('no-letter-msg').style.display = 'block';
+        return;
+      }
+      document.getElementById('no-letter-msg').style.display = 'none';
+
+      tbody.innerHTML = templates.map(t => `
+        <tr>
+          <td><a href="correspondence-letter-template.html?id=${t.id}" class="usa-link">${t.name}</a></td>
+          <td>${t.appliesTo || ''}</td>
+          <td>${(t.deliveryMethods || (t.deliveryMethod ? [t.deliveryMethod] : [])).join(', ')}</td>
+          <td><span class="${statusClass(t.status)}">${t.status}</span></td>
+          <td>v${t.version}</td>
+          <td>${formatDate(t.lastModifiedDate)}</td>
+          <td style="white-space: nowrap;">${buildControls(t, 'letter', 'correspondence-letter-template.html?id=' + t.id)}</td>
+        </tr>`).join('');
+    }
+
+    // ---- Status Transition Functions ----
+    function updateTemplateStatus(id, type, newStatus) {
+      const key = type === 'email' ? 'emailTemplates' : 'letterTemplates';
+      const items = JSON.parse(localStorage.getItem(key) || '[]');
+      const idx = items.findIndex(t => t.id === id);
+      if (idx === -1) return;
+      items[idx].status = newStatus;
+      items[idx].lastModifiedDate = new Date().toISOString().split('T')[0];
+      localStorage.setItem(key, JSON.stringify(items));
+      type === 'email' ? renderEmailTable() : renderLetterTable();
+    }
+
+    function publishTemplate(id, type) {
+      updateTemplateStatus(id, type, 'Active');
+      showNotification('Template published and set to Active.');
+    }
+
+    function deactivateTemplate(id, type) {
+      updateTemplateStatus(id, type, 'Inactive');
+      showNotification('Template deactivated. Set to Inactive.');
+    }
+
+    function reactivateTemplate(id, type) {
+      updateTemplateStatus(id, type, 'Active');
+      showNotification('Template reactivated and set to Active.');
+    }
+
+    // ---- Tab switcher ----
+    document.querySelectorAll('.profile-tab').forEach(tab => {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.profile-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+
+        const panel = this.getAttribute('data-panel');
+        document.getElementById('panel-emails').style.display  = panel === 'emails'  ? 'block' : 'none';
+        document.getElementById('panel-letters').style.display = panel === 'letters' ? 'block' : 'none';
+      });
+    });
+
+    // ---- Status Filters ----
+    document.querySelectorAll('.email-status-filter').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const status = this.getAttribute('data-status');
+        if (emailStatusFilter === status) {
+          emailStatusFilter = null;
+          document.querySelectorAll('.email-status-filter').forEach(b => b.classList.remove('active'));
+        } else {
+          emailStatusFilter = status;
+          document.querySelectorAll('.email-status-filter').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        }
+        renderEmailTable();
+      });
+    });
+
+    document.querySelectorAll('.letter-status-filter').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const status = this.getAttribute('data-status');
+        if (letterStatusFilter === status) {
+          letterStatusFilter = null;
+          document.querySelectorAll('.letter-status-filter').forEach(b => b.classList.remove('active'));
+        } else {
+          letterStatusFilter = status;
+          document.querySelectorAll('.letter-status-filter').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+        }
+        renderLetterTable();
+      });
+    });
+
+    // ---- Accordion ----
+    document.querySelectorAll('.usa-accordion__button').forEach(button => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const content = document.getElementById(this.getAttribute('aria-controls'));
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          content.setAttribute('hidden', '');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          content.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // ---- Template Preview ----
+    const SAMPLE_DATA = {
+      contact_name:    'John Smith',
+      credential_name: 'Commercial Fishing License',
+      application_type:'New Application',
+      supervised_by:   'Jane Doe',
+      address_line1:   '123 River Road',
+      address_line2:   '',
+      city:            'Springfield',
+      state:           'IL',
+      zip:             '62701',
+      user_name:       'Michael Rodriguez',
+      user_email:      'm.rodriguez@dnr.illinois.gov',
+      user_signature:  'Michael Rodriguez\nDivision Chief, Wildlife Resources',
+      manager_name:    'Sarah Johnson',
+      date:            'May 1, 2026',
+      rejection_dates: 'March 15, 2026 and April 1, 2026',
+      mailed_date:     'April 28, 2026',
+      agency_name:     'ASP',
+      bg_number:       'BG-2026-0042',
+      tracking_number: 'TRK-2026-00891',
+      delivery_method: 'Certified Mail'
+    };
+
+    function applyMergeFields(text) {
+      return (text || '').replace(/\{\{(\w+)\}\}/g, (match, key) =>
+        SAMPLE_DATA[key] !== undefined ? SAMPLE_DATA[key] : match
+      );
+    }
+
+    function openPreviewModal(id, type) {
+      const key = type === 'email' ? 'emailTemplates' : 'letterTemplates';
+      const templates = JSON.parse(localStorage.getItem(key) || '[]');
+      const t = templates.find(x => x.id === id);
+      if (!t) return;
+
+      document.getElementById('preview-modal-title').textContent = t.name + ' — Preview';
+      document.getElementById('preview-meta').textContent =
+        'Status: ' + t.status + '  ·  Version: v' + t.version + '  ·  Last modified: ' + formatDate(t.lastModifiedDate);
+
+      const subjectRow = document.getElementById('preview-subject-row');
+      if (type === 'email') {
+        subjectRow.style.display = 'block';
+        document.getElementById('preview-subject-text').textContent = t.subject;
+      } else {
+        subjectRow.style.display = 'none';
+      }
+
+      document.getElementById('preview-body-text').textContent = t.body;
+
+      const headerUrl    = t.headerEnabled    ? t.headerDataUrl    : null;
+      const footerUrl    = t.footerEnabled    ? t.footerDataUrl    : null;
+      const watermarkUrl = t.watermarkEnabled ? t.watermarkDataUrl : null;
+
+      const hEl = document.getElementById('preview-header');
+      hEl.style.display = headerUrl ? 'block' : 'none';
+      if (headerUrl) document.getElementById('preview-header-img').src = headerUrl;
+
+      const fEl = document.getElementById('preview-footer');
+      fEl.style.display = footerUrl ? 'block' : 'none';
+      if (footerUrl) document.getElementById('preview-footer-img').src = footerUrl;
+
+      const wImg = document.getElementById('preview-watermark-img');
+      wImg.style.display = watermarkUrl ? 'block' : 'none';
+      if (watermarkUrl) wImg.src = watermarkUrl;
+
+      document.getElementById('preview-modal').removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('close-preview-modal').focus();
+    }
+
+    function closePreviewModal() {
+      document.getElementById('preview-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-preview-modal').addEventListener('click', closePreviewModal);
+    document.getElementById('close-preview-btn').addEventListener('click', closePreviewModal);
+    document.getElementById('preview-modal').addEventListener('click', function (e) {
+      if (e.target === this) closePreviewModal();
+    });
+
+    // ---- Delete Modal ----
+    let deleteTarget = { id: null, type: null };
+
+    function openDeleteModal(id, name, type) {
+      deleteTarget = { id, type };
+      document.getElementById('delete-template-name').textContent = name;
+      document.getElementById('delete-modal').removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('confirm-delete-btn').focus();
+    }
+
+    function closeDeleteModal() {
+      document.getElementById('delete-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-delete-modal').addEventListener('click', closeDeleteModal);
+    document.getElementById('cancel-delete-btn').addEventListener('click', closeDeleteModal);
+    document.getElementById('delete-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeDeleteModal();
+    });
+
+    document.getElementById('confirm-delete-btn').addEventListener('click', function () {
+      const key = deleteTarget.type === 'email' ? 'emailTemplates' : 'letterTemplates';
+      let items = JSON.parse(localStorage.getItem(key) || '[]');
+      items = items.filter(t => t.id !== deleteTarget.id);
+      localStorage.setItem(key, JSON.stringify(items));
+      closeDeleteModal();
+      deleteTarget.type === 'email' ? renderEmailTable() : renderLetterTable();
+      showNotification('Template deleted successfully.');
+    });
+
+    // ---- Archive Modal ----
+    let archiveTarget = { id: null, type: null };
+
+    function openArchiveModal(id, name, type) {
+      archiveTarget = { id, type };
+      document.getElementById('archive-template-name').textContent = name;
+      document.getElementById('archive-modal').removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('confirm-archive-btn').focus();
+    }
+
+    function closeArchiveModal() {
+      document.getElementById('archive-modal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-archive-modal').addEventListener('click', closeArchiveModal);
+    document.getElementById('cancel-archive-btn').addEventListener('click', closeArchiveModal);
+    document.getElementById('archive-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeArchiveModal();
+    });
+
+    document.getElementById('confirm-archive-btn').addEventListener('click', function () {
+      updateTemplateStatus(archiveTarget.id, archiveTarget.type, 'Archived');
+      closeArchiveModal();
+      showNotification('Template archived successfully.');
+    });
+
+    // ---- Notification ----
+    function showNotification(msg) {
+      document.getElementById('notification-text').textContent = msg;
+      const el = document.getElementById('success-notification');
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 4000);
+    }
+
+    // ---- Init ----
+    seedTemplates();
+    renderEmailTable();
+    renderLetterTable();
+
+    const redirectMsg = localStorage.getItem('correspondenceNotification');
+    if (redirectMsg) {
+      localStorage.removeItem('correspondenceNotification');
+      showNotification(redirectMsg);
+    }
+
+    if (new URLSearchParams(window.location.search).get('tab') === 'letters') {
+      document.getElementById('btn-letters').click();
+    }
+  </script>
+</body>
+</html>

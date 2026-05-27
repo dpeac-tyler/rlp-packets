@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New Case - RLP</title>
+  <!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png"
+                     alt="ASP agency logo"
+                     class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png"
+                           alt="RLP logo"
+                           class="margin-right-1"
+                           height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="queues.html">Queues</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="license-types.html">License Types</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="applications.html">Applications</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="settings.html">Settings</a></span>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="index.html" class="usa-breadcrumb__link">Home</a>
+          </li>
+          <li class="usa-breadcrumb__list-item">
+            <a href="view-cases.html" class="usa-breadcrumb__link">View Cases</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Create New Case</span>
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="page-title page-title--underlined">Create New Case</h1>
+
+      <div class="margin-top-2">
+        <p>Enter case information to create a new complaint case. All fields marked with <span class="field-required">Required</span> indicate a required field.</p>
+      </div>
+
+      <h2 class="margin-top-4">Case Information</h2>
+      <hr>
+
+      <div class="grid-row grid-gap-4" style="margin-top: 2rem;">
+        <div class="tablet:grid-col-4">
+          <div class="text-bold">Case Number</div>
+          <div id="case-number-display">—</div>
+        </div>
+        <div class="tablet:grid-col-4">
+          <div class="text-bold">Date Received</div>
+          <div id="date-received-display">—</div>
+        </div>
+        <div class="tablet:grid-col-4">
+          <div class="text-bold">Status</div>
+          <div>Open</div>
+        </div>
+      </div>
+
+      <div class="grid-row grid-gap-4" style="margin-top: 3rem;">
+        <div class="tablet:grid-col-8">
+          <fieldset class="usa-fieldset">
+            <legend class="usa-legend">Case Type <span class="field-required">Required</span></legend>
+            <div class="usa-radio usa-radio--tile" style="display: inline-flex; gap: 1rem;">
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="case-type-complaint" type="radio" name="case-type" value="Complaint" required>
+                <label class="usa-radio__label" for="case-type-complaint">Complaint</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="case-type-appeal" type="radio" name="case-type" value="Appeal">
+                <label class="usa-radio__label" for="case-type-appeal">Appeal</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="grid-row grid-gap-4" style="margin-top: 2rem;">
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="priority">Priority <span class="field-required">Required</span></label>
+          <select class="usa-select" id="priority" name="priority" required>
+            <option value="High">High</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="filing-method">Filing Method</label>
+          <select class="usa-select" id="filing-method" name="filing-method">
+            <option value="Board Order">Board Order</option>
+            <option value="Email">Email</option>
+            <option value="Fax">Fax</option>
+            <option value="Judicial Decision">Judicial Decision</option>
+            <option value="Mail">Mail</option>
+            <option value="Online">Online</option>
+            <option value="Personal Visit">Personal Visit</option>
+            <option value="Staff Discovery">Staff Discovery</option>
+            <option value="Staff Entry" selected>Staff Entry</option>
+            <option value="Telephone">Telephone</option>
+          </select>
+        </div>
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="legacy-case-number">Legacy Case Number</label>
+          <input class="usa-input" id="legacy-case-number" name="legacy-case-number" type="text">
+        </div>
+      </div>
+
+      <h2 style="margin-top: 3rem;">Case Subject Information</h2>
+      <hr>
+
+      <div class="margin-top-2">
+        <button type="button" class="usa-button" id="open-add-subject-btn">Create Case Subject</button>
+      </div>
+
+      <div id="case-subjects-table-container" style="display: none; margin-top: 2rem;">
+        <div class="usa-accordion usa-accordion--bordered">
+          <h3 class="usa-accordion__heading">
+            <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="subjects-icon-key-content">
+              Icon Key
+            </button>
+          </h3>
+          <div id="subjects-icon-key-content" class="usa-accordion__content usa-prose" hidden>
+            <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+            <div class="icon-key-grid">
+              <div class="icon-key-item">
+                <img src="assets/icon-delete.png" alt="" width="24" height="24">
+                <span>- Delete Case Subject</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+        <table class="usa-table usa-table--borderless usa-table--striped" id="case-subjects-table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">License Number</th>
+              <th scope="col">License Type</th>
+              <th scope="col">Practice Address</th>
+              <th scope="col">Email</th>
+              <th scope="col">Controls</th>
+            </tr>
+          </thead>
+          <tbody id="case-subjects-tbody">
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <h2 style="margin-top: 3rem;">Complainant Information</h2>
+      <hr>
+
+      <div style="margin-top: 2rem;">
+        <label class="usa-label" for="complainant-name">Complainant Name</label>
+        <input class="usa-input" id="complainant-name" name="complainant-name" type="text" style="max-width: 100%;">
+      </div>
+
+      <div class="grid-row grid-gap-4" style="margin-top: 3rem;">
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="incident-date">Incident Date</label>
+          <input class="usa-input" id="incident-date" name="incident-date" type="date">
+        </div>
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="phone-number">Phone Number</label>
+          <input class="usa-input" id="phone-number" name="phone-number" type="tel">
+        </div>
+        <div class="tablet:grid-col-4">
+          <label class="usa-label" for="email-address">Email Address</label>
+          <input class="usa-input" id="email-address" name="email-address" type="email">
+        </div>
+      </div>
+
+      <h2 style="margin-top: 3rem;">Complaint Details</h2>
+      <hr>
+
+      <div style="margin-top: 2rem;">
+        <label class="usa-label" for="complaint-description">Complaint Description</label>
+        <textarea class="usa-textarea" id="complaint-description" name="complaint-description" style="max-width: 100%; height: 12rem;"></textarea>
+      </div>
+
+      <h2 style="margin-top: 3rem;">Documents</h2>
+      <hr>
+
+      <p>Upload supporting documents for this case.</p>
+      <button type="button" class="usa-button" id="open-upload-modal-btn">Upload Document</button>
+
+      <div id="documents-section" style="display: none;">
+        <div class="margin-top-2">
+          <div class="usa-accordion usa-accordion--bordered">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="documents-icon-key-content">
+                Icon Key
+              </button>
+            </h3>
+            <div id="documents-icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/eye-icon.png" alt="" width="24" height="24">
+                  <span>- View Document</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="24" height="24">
+                  <span>- Delete Document</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped" id="documents-table">
+            <thead>
+              <tr>
+                <th scope="col">Document Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Uploaded Date</th>
+                <th scope="col">File Name</th>
+                <th scope="col">Controls</th>
+              </tr>
+            </thead>
+            <tbody id="documents-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <hr style="margin-top: 4rem;">
+      <div style="margin-top: 2rem; margin-bottom: 3rem;">
+        <button type="button" class="usa-button" id="create-case-btn">Create New Case</button>
+        <button type="button" class="usa-button usa-button--secondary" onclick="window.location.href='view-cases.html'">Cancel</button>
+      </div>
+
+    </main>
+  </div>
+  <!-- Upload Document Modal -->
+  <div id="upload-document-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="upload-document-modal-title">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="upload-document-modal-title">Upload Document</h2>
+        <button type="button" class="modal-close" id="upload-document-modal-close" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="margin-bottom-2">
+          <label class="usa-label" for="doc-name">Document Name <span class="field-required">Required</span></label>
+          <input class="usa-input" id="doc-name" name="doc-name" type="text">
+        </div>
+        <div class="margin-bottom-2">
+          <label class="usa-label" for="doc-category">Category <span class="field-required">Required</span></label>
+          <select class="usa-select" id="doc-category" name="doc-category">
+            <option value="">Please Select</option>
+            <option value="Identification">Identification</option>
+            <option value="Licenses and Permits">Licenses and Permits</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Reports">Reports</option>
+            <option value="Evidence">Evidence</option>
+            <option value="Correspondence">Correspondence</option>
+            <option value="Compliance">Compliance</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="margin-bottom-2">
+          <label class="usa-label" for="doc-description">Description</label>
+          <textarea class="usa-textarea" id="doc-description" name="doc-description"></textarea>
+        </div>
+        <div class="margin-bottom-2">
+          <label class="usa-label" for="doc-file">File <span class="field-required">Required</span></label>
+          <input type="file" id="doc-file" name="doc-file" style="font-size: 1.6rem; display: block; width: 100%;">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button" id="upload-document-submit-btn">Upload Document</button>
+        <button type="button" class="usa-button usa-button--secondary" id="upload-document-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Case Subject Modal -->
+  <div id="add-subject-modal" class="modal-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="add-subject-modal-title">
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="add-subject-modal-title">Add Case Subject</h2>
+        <button type="button" class="modal-close" id="add-subject-modal-close" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="grid-row grid-gap-4">
+          <div class="tablet:grid-col-4">
+            <label class="usa-label" for="subject-search-name">Name</label>
+            <input class="usa-input" id="subject-search-name" name="subject-search-name" type="text">
+          </div>
+          <div class="tablet:grid-col-4">
+            <label class="usa-label" for="subject-search-license">License Number</label>
+            <input class="usa-input" id="subject-search-license" name="subject-search-license" type="text">
+          </div>
+          <div class="tablet:grid-col-4">
+            <label class="usa-label" for="subject-search-address">Physical Address</label>
+            <input class="usa-input" id="subject-search-address" name="subject-search-address" type="text">
+          </div>
+        </div>
+        <div class="margin-top-2">
+          <button type="button" class="usa-button" id="subject-search-btn">Search</button>
+          <button type="button" class="usa-button usa-button--outline" id="subject-clear-btn">Clear Search</button>
+        </div>
+
+        <div id="subject-results-container" style="display: none; margin-top: 2rem;">
+          <div class="table-controls" style="margin-bottom: 0.5rem;">
+            <div class="table-controls__left">
+              <strong id="subject-results-count">Showing 1 - 10 of 10 Entries</strong>
+            </div>
+            <div class="table-controls__right">
+              <label for="subject-entries-per-page" class="table-controls__label">Show</label>
+              <select class="usa-select table-controls__select" id="subject-entries-per-page" name="subject-entries-per-page">
+                <option value="100" selected>100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+          <div style="max-height: 320px; overflow-y: auto; border: 1px solid #dfe1e2;">
+            <table class="usa-table usa-table--borderless usa-table--striped" id="subject-results-table" style="width: 100%; margin: 0;">
+              <thead>
+                <tr>
+                  <th scope="col" style="position: sticky; top: 0; background: #fff; z-index: 1;">Select</th>
+                  <th scope="col" style="position: sticky; top: 0; background: #fff; z-index: 1;">Name</th>
+                  <th scope="col" style="position: sticky; top: 0; background: #fff; z-index: 1;">License Number</th>
+                  <th scope="col" style="position: sticky; top: 0; background: #fff; z-index: 1;">License Type</th>
+                  <th scope="col" style="position: sticky; top: 0; background: #fff; z-index: 1;">Practice Address</th>
+                </tr>
+              </thead>
+              <tbody id="subject-results-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <hr style="margin: 0;">
+      <div class="modal-footer" style="padding-top: 2rem;">
+        <button type="button" class="usa-button" id="add-selected-btn" disabled>Add Selected (0)</button>
+        <button type="button" class="usa-button usa-button--secondary" id="add-subject-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Generate case number
+    const year = new Date().getFullYear();
+    let counter = parseInt(sessionStorage.getItem('caseCounter') || '11', 10);
+    counter++;
+    sessionStorage.setItem('caseCounter', counter);
+    const caseNumber = 'CI-' + year + '-' + String(counter).padStart(4, '0');
+    document.getElementById('case-number-display').textContent = caseNumber;
+
+    // Populate Date Received with today's date
+    const today = new Date();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    document.getElementById('date-received-display').textContent = mm + '/' + dd + '/' + yyyy;
+
+    // Mock subject data
+    const subjectData = [
+      { name: 'Anderson, Derek',        licenseNumber: 'PI-2023-00145', licenseType: 'Private Investigator', practiceAddress: '123 Main St, Little Rock, AR 72201',        email: 'd.anderson@email.com' },
+      { name: 'Apex Security Solutions', licenseNumber: 'SB-2022-00891', licenseType: 'Security Business',    practiceAddress: '4500 Cantrell Rd, Little Rock, AR 72207',   email: 'info@apexsecurity.com' },
+      { name: 'Brooks, Terrence',        licenseNumber: 'PI-2024-00312', licenseType: 'Private Investigator', practiceAddress: '789 Oak Ave, Fayetteville, AR 72701',        email: 't.brooks@email.com' },
+      { name: 'Capitol Shield LLC',      licenseNumber: 'SB-2021-01203', licenseType: 'Security Business',    practiceAddress: '300 W Capitol Ave, Little Rock, AR 72201',   email: 'contact@capitolshield.com' },
+      { name: 'Evans, Michelle',         licenseNumber: 'AG-2023-00567', licenseType: 'Armed Guard',          practiceAddress: '2200 Kavanaugh Blvd, Little Rock, AR 72205', email: 'm.evans@email.com' },
+      { name: 'Frontier Defense Group',  licenseNumber: 'SB-2020-00445', licenseType: 'Security Business',    practiceAddress: '1100 Rogers Ave, Fort Smith, AR 72901',      email: 'info@frontierdefense.com' },
+      { name: 'Harris, Calvin',          licenseNumber: 'PI-2025-00089', licenseType: 'Private Investigator', practiceAddress: '501 Union St, Jonesboro, AR 72401',          email: 'c.harris@email.com' },
+      { name: 'Iron Guard Services',     licenseNumber: 'SB-2023-00734', licenseType: 'Security Business',    practiceAddress: '888 S College Ave, Fayetteville, AR 72701',  email: 'ops@ironguard.com' },
+      { name: 'Jackson, Renee',          licenseNumber: 'AG-2024-00201', licenseType: 'Armed Guard',          practiceAddress: '640 Garland Ave, Fayetteville, AR 72701',    email: 'r.jackson@email.com' },
+      { name: 'Summit Protection Inc',   licenseNumber: 'SB-2022-01089', licenseType: 'Security Business',    practiceAddress: '2050 N College Ave, Fayetteville, AR 72703', email: 'info@summitprotection.com' }
+    ];
+
+    // Render search results
+    function renderSubjectResults(data) {
+      const tbody = document.getElementById('subject-results-tbody');
+      tbody.innerHTML = '';
+      data.forEach((s, i) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><input type="checkbox" class="subject-checkbox" data-index="${i}" aria-label="Select ${s.name}" style="width: 1.8rem; height: 1.8rem; cursor: pointer;"></td>
+          <td>${s.name}</td>
+          <td>${s.licenseNumber}</td>
+          <td>${s.licenseType}</td>
+          <td>${s.practiceAddress}</td>`;
+        tbody.appendChild(row);
+      });
+      document.querySelectorAll('.subject-checkbox').forEach(cb => {
+        cb.addEventListener('change', updateAddSelectedBtn);
+      });
+    }
+
+    // Update Add Selected button count and enabled state
+    function updateAddSelectedBtn() {
+      const count = document.querySelectorAll('.subject-checkbox:checked').length;
+      const btn = document.getElementById('add-selected-btn');
+      btn.textContent = 'Add Selected (' + count + ')';
+      btn.disabled = count === 0;
+    }
+
+    // Search
+    document.getElementById('subject-search-btn').addEventListener('click', () => {
+      const nameVal    = document.getElementById('subject-search-name').value.trim().toLowerCase();
+      const licenseVal = document.getElementById('subject-search-license').value.trim().toLowerCase();
+      const addressVal = document.getElementById('subject-search-address').value.trim().toLowerCase();
+      const filtered = subjectData.filter(s =>
+        (!nameVal    || s.name.toLowerCase().includes(nameVal)) &&
+        (!licenseVal || s.licenseNumber.toLowerCase().includes(licenseVal)) &&
+        (!addressVal || s.practiceAddress.toLowerCase().includes(addressVal))
+      );
+      renderSubjectResults(filtered);
+      const count = filtered.length;
+      document.getElementById('subject-results-count').textContent =
+        count === 0 ? 'No results found' : 'Showing 1 - ' + count + ' of ' + count + ' Entries';
+      document.getElementById('subject-results-container').style.display = '';
+      updateAddSelectedBtn();
+    });
+
+    // Clear Search
+    document.getElementById('subject-clear-btn').addEventListener('click', () => {
+      document.getElementById('subject-search-name').value = '';
+      document.getElementById('subject-search-license').value = '';
+      document.getElementById('subject-search-address').value = '';
+      document.getElementById('subject-results-container').style.display = 'none';
+      updateAddSelectedBtn();
+    });
+
+    // Add Selected → populate main table
+    document.getElementById('add-selected-btn').addEventListener('click', () => {
+      const checked = document.querySelectorAll('.subject-checkbox:checked');
+      const tbody = document.getElementById('case-subjects-tbody');
+      checked.forEach(cb => {
+        const s = subjectData[parseInt(cb.getAttribute('data-index'), 10)];
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${s.name}</td>
+          <td>${s.licenseNumber}</td>
+          <td>${s.licenseType}</td>
+          <td>${s.practiceAddress}</td>
+          <td>${s.email}</td>
+          <td><a href="#" class="icon-button" aria-label="Remove Case Subject"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a></td>`;
+        tbody.appendChild(row);
+      });
+      document.getElementById('case-subjects-table-container').style.display = '';
+      closeSubjectModal();
+    });
+
+    // Modal open/close
+    const subjectModal = document.getElementById('add-subject-modal');
+
+    document.getElementById('open-add-subject-btn').addEventListener('click', () => {
+      subjectModal.removeAttribute('hidden');
+    });
+
+    function closeSubjectModal() {
+      subjectModal.setAttribute('hidden', '');
+      document.getElementById('subject-search-name').value = '';
+      document.getElementById('subject-search-license').value = '';
+      document.getElementById('subject-search-address').value = '';
+      document.getElementById('subject-results-container').style.display = 'none';
+      document.getElementById('subject-results-tbody').innerHTML = '';
+      const btn = document.getElementById('add-selected-btn');
+      btn.textContent = 'Add Selected (0)';
+      btn.disabled = true;
+    }
+
+    // Upload Document modal
+    const uploadModal = document.getElementById('upload-document-modal');
+
+    document.getElementById('open-upload-modal-btn').addEventListener('click', () => {
+      uploadModal.removeAttribute('hidden');
+    });
+
+    function closeUploadModal() {
+      uploadModal.setAttribute('hidden', '');
+      document.getElementById('doc-name').value = '';
+      document.getElementById('doc-category').value = '';
+      document.getElementById('doc-description').value = '';
+      document.getElementById('doc-file').value = '';
+    }
+
+    document.getElementById('upload-document-modal-close').addEventListener('click', closeUploadModal);
+    document.getElementById('upload-document-cancel-btn').addEventListener('click', closeUploadModal);
+    uploadModal.addEventListener('click', e => { if (e.target === uploadModal) closeUploadModal(); });
+
+    document.getElementById('upload-document-submit-btn').addEventListener('click', () => {
+      const name     = document.getElementById('doc-name').value.trim();
+      const category = document.getElementById('doc-category').value;
+      const file     = document.getElementById('doc-file');
+      if (!name || !category || !file.value) {
+        alert('Please complete all required fields.');
+        return;
+      }
+      const description = document.getElementById('doc-description').value.trim();
+      const fileName    = file.files[0] ? file.files[0].name : 'document.pdf';
+      const t = new Date();
+      const uploadedDate = String(t.getMonth() + 1).padStart(2, '0') + '/' +
+                           String(t.getDate()).padStart(2, '0') + '/' + t.getFullYear();
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${category}</td>
+        <td>${description}</td>
+        <td>${uploadedDate}</td>
+        <td>${fileName}</td>
+        <td>
+          <a href="#" class="icon-button" aria-label="View Document"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+          <a href="#" class="icon-button" aria-label="Delete Document"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
+        </td>`;
+      document.getElementById('documents-tbody').appendChild(row);
+      document.getElementById('documents-section').style.display = '';
+      closeUploadModal();
+    });
+
+    // Accordion
+    document.querySelectorAll('.usa-accordion__button').forEach(button => {
+      button.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const content  = document.getElementById(this.getAttribute('aria-controls'));
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        expanded ? content.setAttribute('hidden', '') : content.removeAttribute('hidden');
+      });
+    });
+
+    document.getElementById('add-subject-modal-close').addEventListener('click', closeSubjectModal);
+    document.getElementById('add-subject-cancel-btn').addEventListener('click', closeSubjectModal);
+    subjectModal.addEventListener('click', e => { if (e.target === subjectModal) closeSubjectModal(); });
+
+    document.getElementById('create-case-btn').addEventListener('click', () => {
+      const complainantName = document.getElementById('complainant-name').value.trim();
+      if (!complainantName) {
+        alert('Please enter a Complainant Name.');
+        return;
+      }
+      const rawDate = document.getElementById('incident-date').value;
+      let incidentDate = '—';
+      if (rawDate) {
+        const parts = rawDate.split('-');
+        incidentDate = parts[1] + '/' + parts[2] + '/' + parts[0];
+      }
+      const subjectRows = document.getElementById('case-subjects-tbody').rows;
+      let subjectName = '—', licenseNumber = '—', licenseType = '—', practiceAddress = '—', subjectEmail = '—';
+      if (subjectRows.length > 0) {
+        const r = subjectRows[0];
+        subjectName = r.cells[0].textContent;
+        licenseNumber = r.cells[1].textContent;
+        licenseType = r.cells[2].textContent;
+        practiceAddress = r.cells[3].textContent;
+        subjectEmail = r.cells[4].textContent;
+      }
+      const emailVal = document.getElementById('email-address').value.trim();
+      const newCase = {
+        dateReceived: document.getElementById('date-received-display').textContent,
+        caseSubject: subjectName,
+        status: 'Pending',
+        assignedTo: 'Sgt. Peacock',
+        complainantName: complainantName,
+        licenseNumber: licenseNumber,
+        physicalAddress: practiceAddress,
+        emailAddress: emailVal || '—',
+        filingMethod: document.getElementById('filing-method').value,
+        incidentDate: incidentDate,
+        caseType: 'Complaint',
+        description: document.getElementById('complaint-description').value.trim(),
+        priority: document.getElementById('priority').value,
+        phoneNumber: document.getElementById('phone-number').value.trim(),
+        legacyCaseNumber: document.getElementById('legacy-case-number').value.trim()
+      };
+      const cn = document.getElementById('case-number-display').textContent;
+      sessionStorage.setItem('case_' + cn, JSON.stringify(newCase));
+      sessionStorage.setItem('newCaseCreated', cn);
+      window.location.href = 'view-cases.html';
+    });
+
+    document.getElementById('case-subjects-tbody').addEventListener('click', e => {
+      const btn = e.target.closest('[aria-label="Remove Case Subject"]');
+      if (btn) {
+        e.preventDefault();
+        btn.closest('tr').remove();
+        if (document.getElementById('case-subjects-tbody').rows.length === 0) {
+          document.getElementById('case-subjects-table-container').style.display = 'none';
+        }
+      }
+    });
+
+    document.getElementById('documents-tbody').addEventListener('click', e => {
+      const btn = e.target.closest('[aria-label="Delete Document"]');
+      if (btn) {
+        e.preventDefault();
+        btn.closest('tr').remove();
+        if (document.getElementById('documents-tbody').rows.length === 0) {
+          document.getElementById('documents-section').style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

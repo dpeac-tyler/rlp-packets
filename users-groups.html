@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Users/Groups - RLP</title>
+<!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome DNR! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/il-logo.png"
+                     alt="Illinois Department of Natural Resources agency logo"
+                     class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">Illinois Department of Natural Resources</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png"
+                           alt="RLP logo"
+                           class="margin-right-1"
+                           height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="queues.html">Queues</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="license-types.html">License Types</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="applications.html">Applications</a></span>
+        </li>
+        <li class="usa-nav__primary-item active">
+          <span class="menuItem-inner"><a href="settings.html">Settings</a></span>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="settings.html" class="usa-breadcrumb__link">Settings</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Users/Groups</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="horizontal-tabs">
+        <button type="button" class="horizontal-tab active">Users</button>
+        <button type="button" class="horizontal-tab">User Groups</button>
+      </div>
+
+      <h1 class="page-title page-title--underlined">Users</h1>
+
+      <!-- Users Tab Content -->
+      <div id="users-tab" class="tab-panel active">
+        <div class="margin-top-2">
+          <div class="usa-accordion usa-accordion--bordered">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="icon-key-users">
+                Icon Key
+              </button>
+            </h3>
+            <div id="icon-key-users" class="usa-accordion__content usa-prose" hidden="">
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/edit-icon.png" alt="" width="24" height="24">
+                  <span>- Edit User</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="24" height="24">
+                  <span>- Delete User</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <button type="button" class="usa-button">Add User</button>
+        </div>
+
+        <div class="margin-top-2">
+          <div class="table-controls">
+            <div class="table-controls__left">
+              <strong>Showing 1 - 12 of 12 Entries</strong>
+            </div>
+            <div class="table-controls__right">
+              <label for="entries-per-page-users" class="table-controls__label">Show</label>
+              <select class="usa-select table-controls__select" id="entries-per-page-users" name="entries-per-page-users">
+                <option value="100" selected>100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">First Name <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Last Name <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Rules <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Roles <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">User Groups <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Status <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader">Controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>sjohnson</td>
+                <td>Sarah</td>
+                <td>Johnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td>License Management</td>
+                <td>Administrator</td>
+                <td>Administrators</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>mchen</td>
+                <td>Michael</td>
+                <td>Chen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Administrator</td>
+                <td>Administrators</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>jwilliams</td>
+                <td>Jennifer</td>
+                <td>Williams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td>Inspection Management</td>
+                <td>Administrator</td>
+                <td>Administrators</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>dmartinez</td>
+                <td>David</td>
+                <td>Martinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td>Payment Processing</td>
+                <td>Finance Officer</td>
+                <td>Administrators</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>ebrown</td>
+                <td>Emily</td>
+                <td>Brown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>rgarcia</td>
+                <td>Robert</td>
+                <td>Garcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>landerson</td>
+                <td>Lisa</td>
+                <td>Anderson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>jwilson</td>
+                <td>James</td>
+                <td>Wilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>mrodriguez</td>
+                <td>Maria</td>
+                <td>Rodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>tlee</td>
+                <td>Thomas</td>
+                <td>Lee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>ptaylor</td>
+                <td>Patricia</td>
+                <td>Taylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td>Application Review</td>
+                <td>Reviewer</td>
+                <td>Review Team</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>cwhite</td>
+                <td>Christopher</td>
+                <td>White</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td>Inspection Management</td>
+                <td>Inspector</td>
+                <td>Field Operations</td>
+                <td><span class="status-active">Active</span></td>
+                <td>
+                  <a href="#" class="icon-button" aria-label="Edit User">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button" aria-label="Delete User">
+                    <img src="assets/icon-delete.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav aria-label="Pagination" class="usa-pagination" style="display: flex; justify-content: center; margin-top: 2rem;">
+            <ul class="usa-pagination__list">
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a href="#" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page">
+                  <span>‹</span>
+                  <span class="usa-pagination__link-text">Previous</span>
+                </a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button usa-current" aria-label="Page 1" aria-current="page">1</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button" aria-label="Page 2">2</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button" aria-label="Page 3">3</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a href="#" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page">
+                  <span class="usa-pagination__link-text">Next</span>
+                  <span>›</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- End Users Tab -->
+
+      <!-- User Groups Tab Content -->
+      <div id="groups-tab" class="tab-panel" hidden>
+        <div class="margin-top-2">
+          <div class="usa-accordion usa-accordion--bordered">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="icon-key-groups">
+                Icon Key
+              </button>
+            </h3>
+            <div id="icon-key-groups" class="usa-accordion__content usa-prose" hidden="">
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/edit-icon.png" alt="" width="24" height="24">
+                  <span>- Edit Group</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/eye-icon.png" alt="" width="24" height="24">
+                  <span>- View Group</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <button type="button" class="usa-button" id="create-group-btn">Create Group</button>
+        </div>
+
+        <div class="margin-top-2">
+          <div class="table-controls">
+            <div class="table-controls__left">
+              <strong>Showing 1 - 5 of 5 Entries</strong>
+            </div>
+            <div class="table-controls__right">
+              <label for="entries-per-page-groups" class="table-controls__label">Show</label>
+              <select class="usa-select table-controls__select" id="entries-per-page-groups" name="entries-per-page-groups">
+                <option value="100" selected>100</option>
+                <option value="50">50</option>
+                <option value="25">25</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+          </div>
+
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col" role="columnheader" aria-sort="none">User Group Name <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Group Count <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Created Date <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Auto Assigned <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader">Controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Administrators</td>
+                <td id="group-count-administrators">4</td>
+                <td>01/07/2026</td>
+                <td>No</td>
+                <td>
+                  <a href="#" class="icon-button edit-group-btn" data-group="administrators" aria-label="Edit Group">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button view-group-btn" data-group="administrators" aria-label="View Group">
+                    <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Review Team</td>
+                <td id="group-count-review-team">7</td>
+                <td>01/15/2026</td>
+                <td>Yes</td>
+                <td>
+                  <a href="#" class="icon-button edit-group-btn" data-group="review-team" aria-label="Edit Group">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button view-group-btn" data-group="review-team" aria-label="View Group">
+                    <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Field Operations</td>
+                <td id="group-count-field-operations">12</td>
+                <td>02/03/2026</td>
+                <td>Yes</td>
+                <td>
+                  <a href="#" class="icon-button edit-group-btn" data-group="field-operations" aria-label="Edit Group">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button view-group-btn" data-group="field-operations" aria-label="View Group">
+                    <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Finance Team</td>
+                <td id="group-count-finance-team">3</td>
+                <td>02/10/2026</td>
+                <td>No</td>
+                <td>
+                  <a href="#" class="icon-button edit-group-btn" data-group="finance-team" aria-label="Edit Group">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button view-group-btn" data-group="finance-team" aria-label="View Group">
+                    <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Customer Service</td>
+                <td id="group-count-customer-service">8</td>
+                <td>02/20/2026</td>
+                <td>Yes</td>
+                <td>
+                  <a href="#" class="icon-button edit-group-btn" data-group="customer-service" aria-label="Edit Group">
+                    <img src="assets/edit-icon.png" alt="" width="30" height="30">
+                  </a>
+                  <a href="#" class="icon-button view-group-btn" data-group="customer-service" aria-label="View Group">
+                    <img src="assets/eye-icon.png" alt="" width="30" height="30">
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav aria-label="Pagination" class="usa-pagination" style="display: flex; justify-content: center; margin-top: 2rem;">
+            <ul class="usa-pagination__list">
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a href="#" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page">
+                  <span>‹</span>
+                  <span class="usa-pagination__link-text">Previous</span>
+                </a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button usa-current" aria-label="Page 1" aria-current="page">1</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button" aria-label="Page 2">2</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a href="#" class="usa-pagination__button" aria-label="Page 3">3</a>
+              </li>
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a href="#" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page">
+                  <span class="usa-pagination__link-text">Next</span>
+                  <span>›</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- End User Groups Tab -->
+
+    </main>
+  </div>
+
+  <!-- View User Group Modal - Administrators -->
+  <div class="modal" id="view-group-administrators-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">View User Group - Administrators</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-bold">Showing 4 Users</p>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Auto Assigned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View User Group Modal - Review Team -->
+  <div class="modal" id="view-group-review-team-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">View User Group - Review Team</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-bold">Showing 7 Users</p>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Auto Assigned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View User Group Modal - Field Operations -->
+  <div class="modal" id="view-group-field-operations-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">View User Group - Field Operations</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-bold">Showing 12 Users</p>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Auto Assigned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View User Group Modal - Finance Team -->
+  <div class="modal" id="view-group-finance-team-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">View User Group - Finance Team</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-bold">Showing 3 Users</p>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Auto Assigned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td>No</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- View User Group Modal - Customer Service -->
+  <div class="modal" id="view-group-customer-service-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">View User Group - Customer Service</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-bold">Showing 8 Users</p>
+
+        <div class="margin-top-2">
+          <table class="usa-table usa-table--borderless usa-table--striped">
+            <thead>
+              <tr>
+                <th scope="col">User</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Auto Assigned</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Group Modal - Administrators -->
+  <div class="modal" id="edit-group-administrators-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div style="display: flex; gap: 3.2rem;" class="margin-top-2">
+          <div style="flex: 1;">
+            <label class="usa-label" for="edit-group-name-administrators">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="edit-group-name-administrators" name="group-name" type="text" value="Administrators" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-administrators-yes" type="radio" name="auto-assign-administrators" value="yes">
+                  <label class="usa-radio__label" for="edit-auto-assign-administrators-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-administrators-no" type="radio" name="auto-assign-administrators" value="no" checked>
+                  <label class="usa-radio__label" for="edit-auto-assign-administrators-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span class="edit-user-count-administrators">Showing 12 Users - 4 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="edit-select-all-administrators" type="checkbox">
+                    <label class="usa-checkbox__label" for="edit-select-all-administrators"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-1" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-administrators-1"></label></div></td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-1" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-1"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-2" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-administrators-2"></label></div></td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-2" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-2"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-3" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-administrators-3"></label></div></td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-3" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-3"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-4" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-administrators-4"></label></div></td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-4" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-4"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-5" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-5"></label></div></td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-5" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-5"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-6" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-6"></label></div></td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-6" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-6"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-7" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-7"></label></div></td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-7" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-7"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-8" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-8"></label></div></td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-8" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-8"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-9" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-9"></label></div></td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-9" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-9"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-10" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-10"></label></div></td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-10" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-10"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-11" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-11"></label></div></td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-11" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-11"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-administrators" id="edit-user-administrators-12" type="checkbox"><label class="usa-checkbox__label" for="edit-user-administrators-12"></label></div></td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-administrators-12" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-administrators-12"></label></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button edit-group-save-btn" data-group="administrators">Save</button>
+        <button type="button" class="usa-button usa-button--secondary edit-group-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Group Modal - Review Team -->
+  <div class="modal" id="edit-group-review-team-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div style="display: flex; gap: 3.2rem;" class="margin-top-2">
+          <div style="flex: 1;">
+            <label class="usa-label" for="edit-group-name-review-team">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="edit-group-name-review-team" name="group-name" type="text" value="Review Team" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-review-team-yes" type="radio" name="auto-assign-review-team" value="yes" checked>
+                  <label class="usa-radio__label" for="edit-auto-assign-review-team-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-review-team-no" type="radio" name="auto-assign-review-team" value="no">
+                  <label class="usa-radio__label" for="edit-auto-assign-review-team-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span class="edit-user-count-review-team">Showing 12 Users - 7 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="edit-select-all-review-team" type="checkbox">
+                    <label class="usa-checkbox__label" for="edit-select-all-review-team"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-1" type="checkbox"><label class="usa-checkbox__label" for="edit-user-review-team-1"></label></div></td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-1" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-review-team-1"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-2" type="checkbox"><label class="usa-checkbox__label" for="edit-user-review-team-2"></label></div></td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-2" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-review-team-2"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-3" type="checkbox"><label class="usa-checkbox__label" for="edit-user-review-team-3"></label></div></td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-3" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-review-team-3"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-4" type="checkbox"><label class="usa-checkbox__label" for="edit-user-review-team-4"></label></div></td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-4" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-review-team-4"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-5"></label></div></td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-5"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-6"></label></div></td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-6"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-7" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-7"></label></div></td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-7" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-7"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-8"></label></div></td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-8"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-9" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-9"></label></div></td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-9" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-9"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-10"></label></div></td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-10"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-11" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-review-team-11"></label></div></td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-11" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-review-team-11"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-review-team" id="edit-user-review-team-12" type="checkbox"><label class="usa-checkbox__label" for="edit-user-review-team-12"></label></div></td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-review-team-12" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-review-team-12"></label></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button edit-group-save-btn" data-group="review-team">Save</button>
+        <button type="button" class="usa-button usa-button--secondary edit-group-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Group Modal - Field Operations -->
+  <div class="modal" id="edit-group-field-operations-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div style="display: flex; gap: 3.2rem;" class="margin-top-2">
+          <div style="flex: 1;">
+            <label class="usa-label" for="edit-group-name-field-operations">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="edit-group-name-field-operations" name="group-name" type="text" value="Field Operations" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-field-operations-yes" type="radio" name="auto-assign-field-operations" value="yes" checked>
+                  <label class="usa-radio__label" for="edit-auto-assign-field-operations-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-field-operations-no" type="radio" name="auto-assign-field-operations" value="no">
+                  <label class="usa-radio__label" for="edit-auto-assign-field-operations-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span class="edit-user-count-field-operations">Showing 12 Users - 12 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="edit-select-all-field-operations" type="checkbox" checked>
+                    <label class="usa-checkbox__label" for="edit-select-all-field-operations"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-1" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-1"></label></div></td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-1" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-1"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-2" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-2"></label></div></td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-2" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-2"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-3" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-3"></label></div></td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-3" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-3"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-4" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-4"></label></div></td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-4" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-4"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-5"></label></div></td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-5"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-6"></label></div></td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-6"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-7" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-7"></label></div></td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-7" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-7"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-8"></label></div></td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-8"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-9" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-9"></label></div></td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-9" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-9"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-10"></label></div></td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-10"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-11" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-11"></label></div></td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-11" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-11"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-field-operations" id="edit-user-field-operations-12" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-field-operations-12"></label></div></td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-field-operations-12" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-field-operations-12"></label></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button edit-group-save-btn" data-group="field-operations">Save</button>
+        <button type="button" class="usa-button usa-button--secondary edit-group-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Group Modal - Finance Team -->
+  <div class="modal" id="edit-group-finance-team-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div style="display: flex; gap: 3.2rem;" class="margin-top-2">
+          <div style="flex: 1;">
+            <label class="usa-label" for="edit-group-name-finance-team">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="edit-group-name-finance-team" name="group-name" type="text" value="Finance Team" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-finance-team-yes" type="radio" name="auto-assign-finance-team" value="yes">
+                  <label class="usa-radio__label" for="edit-auto-assign-finance-team-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-finance-team-no" type="radio" name="auto-assign-finance-team" value="no" checked>
+                  <label class="usa-radio__label" for="edit-auto-assign-finance-team-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span class="edit-user-count-finance-team">Showing 12 Users - 3 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="edit-select-all-finance-team" type="checkbox">
+                    <label class="usa-checkbox__label" for="edit-select-all-finance-team"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-1" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-finance-team-1"></label></div></td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-1" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-1"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-2" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-2"></label></div></td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-2" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-2"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-3" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-3"></label></div></td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-3" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-3"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-4" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-4"></label></div></td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-4" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-4"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-5" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-5"></label></div></td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-5" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-5"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-finance-team-6"></label></div></td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-6" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-6"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-7" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-7"></label></div></td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-7" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-7"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-8" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-8"></label></div></td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-8" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-8"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-9" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-finance-team-9"></label></div></td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-9" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-9"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-10" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-10"></label></div></td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-10" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-10"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-11" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-11"></label></div></td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-11" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-11"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-finance-team" id="edit-user-finance-team-12" type="checkbox"><label class="usa-checkbox__label" for="edit-user-finance-team-12"></label></div></td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-finance-team-12" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-finance-team-12"></label></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button edit-group-save-btn" data-group="finance-team">Save</button>
+        <button type="button" class="usa-button usa-button--secondary edit-group-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit User Group Modal - Customer Service -->
+  <div class="modal" id="edit-group-customer-service-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Edit User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div style="display: flex; gap: 3.2rem;" class="margin-top-2">
+          <div style="flex: 1;">
+            <label class="usa-label" for="edit-group-name-customer-service">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="edit-group-name-customer-service" name="group-name" type="text" value="Customer Service" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-customer-service-yes" type="radio" name="auto-assign-customer-service" value="yes" checked>
+                  <label class="usa-radio__label" for="edit-auto-assign-customer-service-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="edit-auto-assign-customer-service-no" type="radio" name="auto-assign-customer-service" value="no">
+                  <label class="usa-radio__label" for="edit-auto-assign-customer-service-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span class="edit-user-count-customer-service">Showing 12 Users - 8 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="edit-select-all-customer-service" type="checkbox">
+                    <label class="usa-checkbox__label" for="edit-select-all-customer-service"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-1" type="checkbox"><label class="usa-checkbox__label" for="edit-user-customer-service-1"></label></div></td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-1" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-1"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-2" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-2"></label></div></td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-2" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-2"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-3" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-3"></label></div></td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-3" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-3"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-4" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-4"></label></div></td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-4" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-4"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-5"></label></div></td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-5" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-5"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-6"></label></div></td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-6" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-6"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-7" type="checkbox"><label class="usa-checkbox__label" for="edit-user-customer-service-7"></label></div></td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-7" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-7"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-8"></label></div></td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-8" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-8"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-9" type="checkbox"><label class="usa-checkbox__label" for="edit-user-customer-service-9"></label></div></td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-9" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-9"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-user-customer-service-10"></label></div></td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-10" type="checkbox" checked><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-10"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-11" type="checkbox"><label class="usa-checkbox__label" for="edit-user-customer-service-11"></label></div></td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-11" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-11"></label></div></td>
+              </tr>
+              <tr>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input edit-user-checkbox-customer-service" id="edit-user-customer-service-12" type="checkbox"><label class="usa-checkbox__label" for="edit-user-customer-service-12"></label></div></td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td><div class="usa-checkbox"><input class="usa-checkbox__input" id="edit-auto-assign-customer-service-12" type="checkbox"><label class="usa-checkbox__label" for="edit-auto-assign-customer-service-12"></label></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button edit-group-save-btn" data-group="customer-service">Save</button>
+        <button type="button" class="usa-button usa-button--secondary edit-group-cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create User Group Modal -->
+  <div class="modal" id="create-group-modal" hidden>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Create User Group</h2>
+        <button type="button" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="app-builder-content__text">In order to create a user group, please input a unique group name and add at least one user to the user group.</p>
+
+        <div class="margin-top-2" style="display: flex; gap: 3.2rem;">
+          <div style="flex: 1;">
+            <label class="usa-label" for="group-name">Group Name <span class="field-required">Required</span></label>
+            <input class="usa-input" id="group-name" name="group-name" type="text" required>
+          </div>
+          <div style="flex: 1;">
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Automatic Task Assignment <span class="field-required">Required</span></legend>
+              <div class="radio-group-inline">
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="auto-assign-yes" type="radio" name="auto-assign" value="yes">
+                  <label class="usa-radio__label" for="auto-assign-yes">Yes</label>
+                </div>
+                <div class="usa-radio">
+                  <input class="usa-radio__input" id="auto-assign-no" type="radio" name="auto-assign" value="no">
+                  <label class="usa-radio__label" for="auto-assign-no">No</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+        <div class="margin-top-2">
+          <p style="font-style: italic; margin: 0;"><span id="user-count-display">Showing 12 Users - 0 user(s) selected</span></p>
+        </div>
+
+        <div class="margin-top-2" style="max-height: 400px; overflow-y: auto; border: 1px solid #aeb0b5; position: relative;">
+          <table class="usa-table usa-table--borderless" id="user-selection-table" style="margin: 0;">
+            <thead style="position: sticky; top: 0; z-index: 10; background-color: #f0f0f0;">
+              <tr>
+                <th scope="col" style="width: 60px;">
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="select-all-users" type="checkbox">
+                    <label class="usa-checkbox__label" for="select-all-users"></label>
+                  </div>
+                </th>
+                <th scope="col" role="columnheader" aria-sort="none">User <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Username <span class="sort-arrows"></span></th>
+                <th scope="col" role="columnheader" aria-sort="none">Email <span class="sort-arrows"></span></th>
+                <th scope="col" style="width: 100px;">Auto Assign</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-1" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-1"></label>
+                  </div>
+                </td>
+                <td>Sarah Johnson</td>
+                <td>sjohnson</td>
+                <td>sarah.johnson@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-1" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-1"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-2" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-2"></label>
+                  </div>
+                </td>
+                <td>Michael Chen</td>
+                <td>mchen</td>
+                <td>michael.chen@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-2" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-2"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-3" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-3"></label>
+                  </div>
+                </td>
+                <td>Jennifer Williams</td>
+                <td>jwilliams</td>
+                <td>jennifer.williams@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-3" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-3"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-4" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-4"></label>
+                  </div>
+                </td>
+                <td>David Martinez</td>
+                <td>dmartinez</td>
+                <td>david.martinez@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-4" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-4"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-5" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-5"></label>
+                  </div>
+                </td>
+                <td>Emily Brown</td>
+                <td>ebrown</td>
+                <td>emily.brown@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-5" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-5"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-6" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-6"></label>
+                  </div>
+                </td>
+                <td>Robert Garcia</td>
+                <td>rgarcia</td>
+                <td>robert.garcia@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-6" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-6"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-7" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-7"></label>
+                  </div>
+                </td>
+                <td>Lisa Anderson</td>
+                <td>landerson</td>
+                <td>lisa.anderson@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-7" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-7"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-8" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-8"></label>
+                  </div>
+                </td>
+                <td>James Wilson</td>
+                <td>jwilson</td>
+                <td>james.wilson@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-8" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-8"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-9" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-9"></label>
+                  </div>
+                </td>
+                <td>Maria Rodriguez</td>
+                <td>mrodriguez</td>
+                <td>maria.rodriguez@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-9" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-9"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-10" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-10"></label>
+                  </div>
+                </td>
+                <td>Thomas Lee</td>
+                <td>tlee</td>
+                <td>thomas.lee@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-10" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-10"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-11" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-11"></label>
+                  </div>
+                </td>
+                <td>Patricia Taylor</td>
+                <td>ptaylor</td>
+                <td>patricia.taylor@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-11" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-11"></label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input user-checkbox" id="user-12" type="checkbox">
+                    <label class="usa-checkbox__label" for="user-12"></label>
+                  </div>
+                </td>
+                <td>Christopher White</td>
+                <td>cwhite</td>
+                <td>christopher.white@dnr.il.gov</td>
+                <td>
+                  <div class="usa-checkbox">
+                    <input class="usa-checkbox__input" id="auto-assign-user-12" type="checkbox">
+                    <label class="usa-checkbox__label" for="auto-assign-user-12"></label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="margin-top-2">
+          <p class="app-builder-content__text">Select All Users to Add to the Group</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button" id="create-group-submit">Create Group</button>
+        <button type="button" class="usa-button usa-button--secondary" id="cancel-create-group">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Accordion functionality
+    document.querySelectorAll('.usa-accordion__button').forEach(button => {
+      button.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const content = document.getElementById(this.getAttribute('aria-controls'));
+
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          content.setAttribute('hidden', '');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          content.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // Create User Group Modal functionality
+    const createGroupModal = document.getElementById('create-group-modal');
+    const createGroupBtn = document.getElementById('create-group-btn');
+    const modalClose = createGroupModal.querySelector('.modal-close');
+    const modalOverlay = createGroupModal.querySelector('.modal-overlay');
+    const cancelBtn = document.getElementById('cancel-create-group');
+    const createGroupSubmit = document.getElementById('create-group-submit');
+
+    // Open modal
+    createGroupBtn.addEventListener('click', function() {
+      createGroupModal.removeAttribute('hidden');
+      // Initialize auto-assign checkboxes state
+      toggleCreateAutoAssignCheckboxes();
+    });
+
+    // Close modal functions
+    function closeModal() {
+      createGroupModal.setAttribute('hidden', '');
+      // Reset form
+      document.getElementById('group-name').value = '';
+      document.querySelectorAll('input[name="auto-assign"]').forEach(rb => rb.checked = false);
+      document.querySelectorAll('.user-checkbox').forEach(cb => cb.checked = false);
+      document.getElementById('select-all-users').checked = false;
+      createAutoAssignCheckboxes.forEach(cb => {
+        cb.checked = false;
+        cb.disabled = true;
+      });
+      updateUserCount();
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+
+    // Select All functionality
+    const selectAllCheckbox = document.getElementById('select-all-users');
+    const userCheckboxes = document.querySelectorAll('.user-checkbox');
+    const userCountDisplay = document.getElementById('user-count-display');
+
+    selectAllCheckbox.addEventListener('change', function() {
+      userCheckboxes.forEach(checkbox => {
+        checkbox.checked = this.checked;
+      });
+      updateUserCount();
+    });
+
+    // Individual checkbox functionality
+    userCheckboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        // Update "Select All" state
+        const allChecked = Array.from(userCheckboxes).every(cb => cb.checked);
+        const someChecked = Array.from(userCheckboxes).some(cb => cb.checked);
+
+        selectAllCheckbox.checked = allChecked;
+        selectAllCheckbox.indeterminate = someChecked && !allChecked;
+
+        updateUserCount();
+      });
+    });
+
+    // Update user count display
+    function updateUserCount() {
+      const totalUsers = userCheckboxes.length;
+      const selectedUsers = Array.from(userCheckboxes).filter(cb => cb.checked).length;
+      userCountDisplay.textContent = `Showing ${totalUsers} Users - ${selectedUsers} user(s) selected`;
+    }
+
+    // Create Group submit
+    createGroupSubmit.addEventListener('click', function() {
+      const groupName = document.getElementById('group-name').value;
+      const selectedUsers = Array.from(userCheckboxes).filter(cb => cb.checked).length;
+      const autoAssign = document.querySelector('input[name="auto-assign"]:checked');
+
+      if (!groupName) {
+        alert('Please enter a group name.');
+        return;
+      }
+
+      if (!autoAssign) {
+        alert('Please select Automatic Task Assignment.');
+        return;
+      }
+
+      if (selectedUsers === 0) {
+        alert('Please select at least one user.');
+        return;
+      }
+
+      // Success - close modal and show confirmation
+      closeModal();
+      alert(`User group "${groupName}" created with ${selectedUsers} user(s).`);
+    });
+
+    // Handle Auto Assign checkbox enabling/disabling in Create Group Modal
+    const createAutoAssignRadios = document.querySelectorAll('input[name="auto-assign"]');
+    const createAutoAssignCheckboxes = document.querySelectorAll('#create-group-modal input[id^="auto-assign-user-"]');
+
+    function toggleCreateAutoAssignCheckboxes() {
+      const autoAssignYes = document.getElementById('auto-assign-yes').checked;
+      createAutoAssignCheckboxes.forEach(checkbox => {
+        checkbox.disabled = !autoAssignYes;
+        if (!autoAssignYes) {
+          checkbox.checked = false;
+        }
+      });
+    }
+
+    createAutoAssignRadios.forEach(radio => {
+      radio.addEventListener('change', toggleCreateAutoAssignCheckboxes);
+    });
+
+    // Initialize state on modal open
+    toggleCreateAutoAssignCheckboxes();
+
+    // View User Group Modal functionality
+    const viewGroupButtons = document.querySelectorAll('.view-group-btn');
+
+    viewGroupButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const groupId = this.getAttribute('data-group');
+        const modal = document.getElementById(`view-group-${groupId}-modal`);
+
+        if (modal) {
+          modal.removeAttribute('hidden');
+        }
+      });
+    });
+
+    // Close View Group modals
+    document.querySelectorAll('[id^="view-group-"]').forEach(modal => {
+      const closeBtn = modal.querySelector('.modal-close');
+      const closeFooterBtn = modal.querySelector('.modal-close-btn');
+      const overlay = modal.querySelector('.modal-overlay');
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          modal.setAttribute('hidden', '');
+        });
+      }
+
+      if (closeFooterBtn) {
+        closeFooterBtn.addEventListener('click', function() {
+          modal.setAttribute('hidden', '');
+        });
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          modal.setAttribute('hidden', '');
+        });
+      }
+    });
+
+    // Edit User Group Modal functionality
+    const editGroupButtons = document.querySelectorAll('.edit-group-btn');
+
+    editGroupButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const groupId = this.getAttribute('data-group');
+        const modal = document.getElementById(`edit-group-${groupId}-modal`);
+
+        if (modal) {
+          modal.removeAttribute('hidden');
+
+          // Refresh auto-assign checkbox states when modal opens
+          const autoAssignYesRadio = modal.querySelector('input[type="radio"][value="yes"]');
+          const isAutoAssignEnabled = autoAssignYesRadio && autoAssignYesRadio.checked;
+          const autoAssignCheckboxes = modal.querySelectorAll('input[type="checkbox"][id^="edit-auto-assign-"]');
+
+          autoAssignCheckboxes.forEach(checkbox => {
+            checkbox.disabled = !isAutoAssignEnabled;
+            if (!isAutoAssignEnabled) {
+              checkbox.checked = false;
+            }
+          });
+        }
+      });
+    });
+
+    // Close Edit Group modals and handle Save
+    document.querySelectorAll('[id^="edit-group-"]').forEach(modal => {
+      const closeBtn = modal.querySelector('.modal-close');
+      const cancelBtn = modal.querySelector('.edit-group-cancel-btn');
+      const saveBtn = modal.querySelector('.edit-group-save-btn');
+      const overlay = modal.querySelector('.modal-overlay');
+      const selectAllCheckbox = modal.querySelector('[id^="edit-select-all-"]');
+      const userCheckboxes = modal.querySelectorAll('[class*="edit-user-checkbox-"]');
+      const userCountDisplay = modal.querySelector('[class*="edit-user-count-"]');
+      const autoAssignRadios = modal.querySelectorAll('input[type="radio"][name*="auto-assign"]');
+      const autoAssignCheckboxes = modal.querySelectorAll('input[type="checkbox"][id^="edit-auto-assign-"]');
+
+      // Setup Select All functionality
+      if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+          userCheckboxes.forEach(checkbox => {
+            checkbox.checked = this.checked;
+          });
+          updateEditUserCount();
+        });
+      }
+
+      // Setup individual checkbox functionality
+      if (userCheckboxes) {
+        userCheckboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', function() {
+            const allChecked = Array.from(userCheckboxes).every(cb => cb.checked);
+            const someChecked = Array.from(userCheckboxes).some(cb => cb.checked);
+
+            if (selectAllCheckbox) {
+              selectAllCheckbox.checked = allChecked;
+              selectAllCheckbox.indeterminate = someChecked && !allChecked;
+            }
+
+            updateEditUserCount();
+          });
+        });
+      }
+
+      function updateEditUserCount() {
+        if (userCountDisplay) {
+          const totalUsers = userCheckboxes.length;
+          const selectedUsers = Array.from(userCheckboxes).filter(cb => cb.checked).length;
+          userCountDisplay.textContent = `Showing ${totalUsers} Users - ${selectedUsers} user(s) selected`;
+        }
+      }
+
+      // Handle Auto Assign checkbox enabling/disabling
+      function toggleAutoAssignCheckboxes() {
+        const autoAssignYesRadio = modal.querySelector('input[type="radio"][value="yes"]');
+        const isAutoAssignEnabled = autoAssignYesRadio && autoAssignYesRadio.checked;
+
+        autoAssignCheckboxes.forEach(checkbox => {
+          checkbox.disabled = !isAutoAssignEnabled;
+          if (!isAutoAssignEnabled) {
+            checkbox.checked = false;
+          }
+        });
+      }
+
+      // Add event listeners to radio buttons
+      autoAssignRadios.forEach(radio => {
+        radio.addEventListener('change', toggleAutoAssignCheckboxes);
+      });
+
+      // Initialize state
+      toggleAutoAssignCheckboxes();
+
+      // Initialize count on modal open
+      updateEditUserCount();
+
+      // Close modal functions
+      function closeEditModal() {
+        modal.setAttribute('hidden', '');
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeEditModal);
+      }
+
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeEditModal);
+      }
+
+      if (overlay) {
+        overlay.addEventListener('click', closeEditModal);
+      }
+
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+          const groupName = modal.querySelector('input[type="text"]').value;
+          const selectedUsers = Array.from(userCheckboxes).filter(cb => cb.checked).length;
+          const autoAssignRadios = modal.querySelectorAll('input[type="radio"]');
+          const autoAssign = Array.from(autoAssignRadios).find(rb => rb.checked);
+
+          if (!groupName) {
+            alert('Please enter a group name.');
+            return;
+          }
+
+          if (!autoAssign) {
+            alert('Please select Automatic Task Assignment.');
+            return;
+          }
+
+          if (selectedUsers === 0) {
+            alert('Please select at least one user.');
+            return;
+          }
+
+          // Update group count in the table
+          const groupSlug = saveBtn.getAttribute('data-group');
+          const groupCountCell = document.getElementById(`group-count-${groupSlug}`);
+          if (groupCountCell) {
+            groupCountCell.textContent = selectedUsers;
+          }
+
+          // Close modal
+          closeEditModal();
+
+          // Show success notification
+          showNotification('Changes saved successfully');
+        });
+      }
+    });
+
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.horizontal-tab');
+    const usersTab = document.getElementById('users-tab');
+    const groupsTab = document.getElementById('groups-tab');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const tabName = this.textContent.trim();
+
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+
+        // Add active class to clicked tab
+        this.classList.add('active');
+
+        // Update page title based on active tab
+        const pageTitle = document.querySelector('.page-title');
+        pageTitle.textContent = tabName;
+
+        // Show/hide appropriate tab content
+        if (tabName === 'Users') {
+          usersTab.classList.add('active');
+          usersTab.removeAttribute('hidden');
+          groupsTab.classList.remove('active');
+          groupsTab.setAttribute('hidden', '');
+        } else if (tabName === 'User Groups') {
+          groupsTab.classList.add('active');
+          groupsTab.removeAttribute('hidden');
+          usersTab.classList.remove('active');
+          usersTab.setAttribute('hidden', '');
+        }
+      });
+    });
+
+    // Notification function
+    function showNotification(message) {
+      const notification = document.getElementById('success-notification');
+      const notificationText = document.getElementById('notification-text');
+
+      notificationText.textContent = message;
+      notification.classList.remove('hide');
+      notification.classList.add('show');
+
+      // Hide after 3 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+      }, 3000);
+    }
+  </script>
+
+  <!-- Success Notification -->
+  <div id="success-notification" class="notification hide">
+    <div class="notification-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00a91c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <span id="notification-text" class="notification-text">Changes saved successfully</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Email - RLP</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .form-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 1024px) {
+      .form-grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid-3col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .usa-input:disabled,
+    .usa-select:disabled {
+      background-color: #f0f0f0;
+      color: #71767a;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png"
+                     alt="ASP agency logo"
+                     class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png"
+                           alt="RLP logo"
+                           class="margin-right-1"
+                           height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 257.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="queues.html">Queues</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="license-types.html">License Types</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="applications.html">Applications</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="settings.html">Settings</a></span>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="search.html" class="usa-breadcrumb__link">Back to Submission Search Results</a>
+          </li>
+          <li class="usa-breadcrumb__list-item">
+            <a href="individual-profile.html" class="usa-breadcrumb__link">Sarah Johnson</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Edit Email</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="profile-header">
+        <h1 class="profile-header__title">Profile</h1>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-content__header">
+          <h2 class="profile-content__heading">Edit Email</h2>
+        </div>
+
+        <form id="edit-email-form">
+          <div class="form-grid-3col">
+
+            <!-- Record Type -->
+            <div class="usa-form-group">
+              <label class="usa-label" for="email-record-type">Record Type</label>
+              <select class="usa-select" id="email-record-type" name="email-record-type" disabled>
+                <option value="">Please Select</option>
+                <option value="License">License</option>
+                <option value="Application">Application</option>
+                <option value="Case">Case</option>
+              </select>
+            </div>
+
+            <!-- Associated Record (shown when Record Type is selected) -->
+            <div class="usa-form-group" id="email-associated-record-group" style="visibility: hidden;">
+              <label class="usa-label" for="email-associated-record">Associated Record <span class="field-required">Required</span></label>
+              <select class="usa-select" id="email-associated-record" name="email-associated-record" disabled>
+                <option value="">Please Select</option>
+              </select>
+            </div>
+
+            <!-- Email Template -->
+            <div class="usa-form-group">
+              <label class="usa-label" for="email-template">Email Template <span class="field-required">Required</span></label>
+              <select class="usa-select" id="email-template" name="email-template" disabled>
+                <option value="">Please Select</option>
+              </select>
+            </div>
+
+            <!-- To / CC / Subject (shown when any template is selected) -->
+            <div id="email-recipient-fields" style="display: none; grid-column: 1 / -1;">
+              <p style="font-size: 1.4rem; color: #71767a; margin-bottom: 1.5rem;">Review and confirm the recipients and subject line before sending.</p>
+              <div class="form-grid-3col" style="margin-bottom: 0;">
+                <div class="usa-form-group">
+                  <label class="usa-label" for="email-to">To: <span class="field-required">Required</span></label>
+                  <input class="usa-input" id="email-to" name="email-to" type="text" value="Sarah Johnson" disabled>
+                </div>
+                <div class="usa-form-group">
+                  <label class="usa-label" for="email-cc">CC:</label>
+                  <input class="usa-input" id="email-cc" name="email-cc" type="text" disabled>
+                </div>
+                <div class="usa-form-group">
+                  <label class="usa-label" for="email-subject">Subject:</label>
+                  <input class="usa-input" id="email-subject" name="email-subject" type="text" disabled>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email Template Fields (dynamic, shown when template is selected) -->
+            <div id="email-template-fields" style="display: none; grid-column: 1 / -1;">
+              <!-- Application Voided Fields -->
+              <div id="email-application-voided-fields" style="display: none;">
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-template-date">Date Spelled</label>
+                  <input class="usa-input" id="email-template-date" name="email-template-date" type="text" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                  <h3 style="font-size: 1.8rem; font-weight: bold; margin-bottom: 1rem;">Mailing Address</h3>
+
+                  <div class="usa-form-group" style="margin-bottom: 1rem;">
+                    <label class="usa-label" for="email-address-line1">Address Line 1</label>
+                    <input class="usa-input" id="email-address-line1" name="email-address-line1" type="text" value="4521 Maple Street" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                  </div>
+
+                  <div class="usa-form-group" style="margin-bottom: 1rem;">
+                    <label class="usa-label" for="email-city">City</label>
+                    <input class="usa-input" id="email-city" name="email-city" type="text" value="Chicago" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                  </div>
+
+                  <div class="usa-form-group" style="margin-bottom: 1rem;">
+                    <label class="usa-label" for="email-state">State</label>
+                    <input class="usa-input" id="email-state" name="email-state" type="text" value="IL" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                  </div>
+
+                  <div class="usa-form-group" style="margin-bottom: 1rem;">
+                    <label class="usa-label" for="email-zip">Zip Code</label>
+                    <input class="usa-input" id="email-zip" name="email-zip" type="text" value="60601" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                  </div>
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-contact-name">Contact Name</label>
+                  <input class="usa-input" id="email-contact-name" name="email-contact-name" type="text" value="Sarah Johnson" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-credential-name">Full Credential Name</label>
+                  <input class="usa-input" id="email-credential-name" name="email-credential-name" type="text" value="Private Security License" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-supervised-by">Supervised By Name</label>
+                  <input class="usa-input" id="email-supervised-by" name="email-supervised-by" type="text" value="James Patterson" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label">User Signature</label>
+                  <div style="background-color: #f0f0f0; border: 1px solid #dfe1e2; padding: 1rem; border-radius: 4px;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60'%3E%3Ctext x='10' y='40' font-family='Brush Script MT, cursive' font-size='24' fill='%23333'>Michael Rodriguez%3C/text%3E%3C/svg%3E" alt="User Signature" style="display: block; max-width: 200px;">
+                  </div>
+                  <input type="hidden" id="email-user-signature" name="email-user-signature" value="Michael Rodriguez">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-user-name">User Name</label>
+                  <input class="usa-input" id="email-user-name" name="email-user-name" type="text" value="Michael Rodriguez" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-user-email">User Email</label>
+                  <input class="usa-input" id="email-user-email" name="email-user-email" type="email" value="michael.rodriguez@dnr.illinois.gov" readonly aria-readonly="true" style="background-color: #f0f0f0; color: #71767a;">
+                </div>
+
+                <div class="usa-form-group" style="margin-bottom: 1.5rem;">
+                  <label class="usa-label" for="email-rejection-dates">Rejection Date(s)</label>
+                  <input class="usa-input" id="email-rejection-dates" name="email-rejection-dates" type="date" disabled>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                  <button type="button" id="preview-email-btn" class="usa-button">Preview Email</button>
+                </div>
+
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid #dfe1e2; margin: 2rem 0;">
+            </div>
+
+            <!-- Notes (full width) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="email-notes">Notes</label>
+              <textarea class="usa-textarea" id="email-notes" name="email-notes" maxlength="500" rows="4"></textarea>
+              <p style="font-size: 1.4rem; color: #71767a; margin-top: 0.5rem;">Maximum 500 characters</p>
+            </div>
+
+          </div>
+
+          <!-- Form Buttons -->
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="usa-button">Save Changes</button>
+            <button type="button" class="usa-button usa-button--secondary" id="cancel-edit-email">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Preview Email Modal -->
+  <div id="preview-email-modal" class="modal-overlay" hidden>
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Email Preview</h2>
+        <button type="button" class="modal-close" id="close-preview-email-modal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="email-preview-content" style="padding: 2rem; background: white; font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.6;">
+          <!-- Email content will be inserted here -->
+        </div>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer" style="padding-top: 1.5rem;">
+        <button type="button" class="usa-button usa-button--secondary" id="close-preview-email-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Read email ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const emailId = params.get('id');
+
+    // Load the matching email from localStorage
+    const emails = JSON.parse(localStorage.getItem('emails') || '[]');
+    const email = emails.find(e => e.id === emailId);
+
+    // Set today's date in spelled format for the template date field
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.toLocaleString('en-US', { month: 'long' });
+    const year = today.getFullYear();
+
+    function getOrdinalSuffix(d) {
+      if (d > 3 && d < 21) return 'th';
+      switch (d % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+
+    const todayFormatted = `${day}${getOrdinalSuffix(day)} of ${month} ${year}`;
+    document.getElementById('email-template-date').value = todayFormatted;
+
+    // Helper: populate associated record options for a given record type
+    // Populate email template select from localStorage
+    (function loadEmailTemplates() {
+      const sel = document.getElementById('email-template');
+      const all = JSON.parse(localStorage.getItem('emailTemplates') || '[]');
+      all.forEach(function(t) {
+        const opt = document.createElement('option');
+        opt.value = t.name;
+        opt.textContent = t.name;
+        sel.appendChild(opt);
+      });
+    })();
+
+    function populateAssociatedRecords(recordType) {
+      const associatedRecordSelect = document.getElementById('email-associated-record');
+      associatedRecordSelect.innerHTML = '<option value="">Please Select</option>';
+      if (recordType === 'License') {
+        associatedRecordSelect.innerHTML += '<option value="LIC-2024-001">LIC-2024-001 - Commercial Fishing</option>';
+        associatedRecordSelect.innerHTML += '<option value="LIC-2024-002">LIC-2024-002 - Hunting</option>';
+      } else if (recordType === 'Application') {
+        associatedRecordSelect.innerHTML += '<option value="APP-2024-001">APP-2024-001 - New License Application</option>';
+        associatedRecordSelect.innerHTML += '<option value="APP-2024-002">APP-2024-002 - Renewal Application</option>';
+      } else if (recordType === 'Case') {
+        associatedRecordSelect.innerHTML += '<option value="CASE-2024-001">CASE-2024-001 - Compliance Case</option>';
+        associatedRecordSelect.innerHTML += '<option value="CASE-2024-002">CASE-2024-002 - Enforcement Case</option>';
+      }
+    }
+
+    // Helper: show/hide template-specific sections
+    function applyTemplateVisibility(selectedTemplate) {
+      const emailTemplateFields = document.getElementById('email-template-fields');
+      const emailApplicationVoidedFields = document.getElementById('email-application-voided-fields');
+      const emailRecipientFields = document.getElementById('email-recipient-fields');
+      const emailSubjectInput = document.getElementById('email-subject');
+
+      emailTemplateFields.style.display = 'none';
+      emailApplicationVoidedFields.style.display = 'none';
+
+      if (selectedTemplate) {
+        emailRecipientFields.style.display = 'block';
+        // Only auto-set subject if it's currently blank (don't overwrite saved value on init)
+        if (!emailSubjectInput.value) {
+          emailSubjectInput.value = selectedTemplate;
+        }
+      } else {
+        emailRecipientFields.style.display = 'none';
+      }
+
+      if (selectedTemplate === 'Application Voided') {
+        emailTemplateFields.style.display = 'block';
+        emailApplicationVoidedFields.style.display = 'block';
+      }
+    }
+
+    // Pre-populate form from saved email data
+    if (email) {
+      // Record Type + Associated Record
+      const recordTypeSelect = document.getElementById('email-record-type');
+      if (email.recordType && email.recordType !== '-') {
+        recordTypeSelect.value = email.recordType;
+        populateAssociatedRecords(email.recordType);
+        document.getElementById('email-associated-record-group').style.visibility = 'visible';
+        document.getElementById('email-associated-record').required = true;
+        if (email.associatedRecord) {
+          document.getElementById('email-associated-record').value = email.associatedRecord;
+        }
+      }
+
+      // Email Template
+      const templateSelect = document.getElementById('email-template');
+      templateSelect.value = email.emailTemplate || '';
+
+      // To / CC / Subject
+      if (email.to) document.getElementById('email-to').value = email.to;
+      if (email.cc) document.getElementById('email-cc').value = email.cc;
+      if (email.subject) {
+        document.getElementById('email-subject').value = email.subject;
+      } else if (email.emailTemplate) {
+        document.getElementById('email-subject').value = email.emailTemplate;
+      }
+
+      // Template-specific fields
+      if (email.templateFields && email.emailTemplate === 'Application Voided') {
+        if (email.templateFields.rejectionDates) {
+          document.getElementById('email-rejection-dates').value = email.templateFields.rejectionDates;
+        }
+      }
+
+      // Notes
+      document.getElementById('email-notes').value = email.notes || '';
+
+      // Show/hide conditional sections based on loaded template
+      applyTemplateVisibility(email.emailTemplate || '');
+    }
+
+    // Email Template change handler
+    document.getElementById('email-template').addEventListener('change', function() {
+      const emailSubjectInput = document.getElementById('email-subject');
+      emailSubjectInput.value = this.value;
+      applyTemplateVisibility(this.value);
+    });
+
+    // Record Type change handler
+    document.getElementById('email-record-type').addEventListener('change', function() {
+      const associatedRecordGroup = document.getElementById('email-associated-record-group');
+      const associatedRecordSelect = document.getElementById('email-associated-record');
+      if (this.value) {
+        associatedRecordGroup.style.visibility = 'visible';
+        associatedRecordSelect.required = true;
+        populateAssociatedRecords(this.value);
+      } else {
+        associatedRecordGroup.style.visibility = 'hidden';
+        associatedRecordSelect.required = false;
+        associatedRecordSelect.value = '';
+      }
+    });
+
+    // Form submission — only notes are editable
+    document.getElementById('edit-email-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const emailIndex = emails.findIndex(e => e.id === emailId);
+
+      if (emailIndex === -1) {
+        alert('Could not find the email record to update.');
+        return;
+      }
+
+      emails[emailIndex].notes = document.getElementById('email-notes').value || '';
+
+      localStorage.setItem('emails', JSON.stringify(emails));
+      window.location.href = 'individual-profile.html';
+    });
+
+    // Cancel button
+    document.getElementById('cancel-edit-email').addEventListener('click', function() {
+      if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+        window.location.href = 'individual-profile.html';
+      }
+    });
+
+    // Preview Email
+    const previewEmailBtn = document.getElementById('preview-email-btn');
+    const previewEmailModal = document.getElementById('preview-email-modal');
+    const closePreviewEmailModalBtn = document.getElementById('close-preview-email-modal');
+    const closePreviewEmailBtn = document.getElementById('close-preview-email-btn');
+    const emailPreviewContent = document.getElementById('email-preview-content');
+
+    if (previewEmailBtn) {
+      previewEmailBtn.addEventListener('click', function() {
+        const dateSpelled = document.getElementById('email-template-date').value;
+        const addressLine1 = document.getElementById('email-address-line1').value;
+        const city = document.getElementById('email-city').value;
+        const state = document.getElementById('email-state').value;
+        const zip = document.getElementById('email-zip').value;
+        const contactName = document.getElementById('email-contact-name').value;
+        const credentialName = document.getElementById('email-credential-name').value;
+        const supervisedBy = document.getElementById('email-supervised-by').value;
+        const userName = document.getElementById('email-user-name').value;
+        const userEmail = document.getElementById('email-user-email').value;
+        const rejectionDatesRaw = document.getElementById('email-rejection-dates').value;
+
+        let rejectionDates = '[Rejection Date]';
+        if (rejectionDatesRaw) {
+          const d = new Date(rejectionDatesRaw + 'T00:00:00');
+          rejectionDates = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        const emailHTML = `
+          <div style="max-width: 680px; margin: 0 auto; font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.6; color: #000;">
+            <div style="font-weight: bold; text-align: center; margin-bottom: 2rem; text-transform: uppercase;">
+              Private Investigators, Private Security, and Alarm Installation/Monitoring Section
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">${dateSpelled}</div>
+
+            <div style="margin-bottom: 1.5rem; line-height: 1.5;">
+              ${addressLine1}<br>
+              ${city}, ${state} ${zip}
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">Dear ${contactName}:</div>
+
+            <p style="margin-bottom: 1rem;">Please be advised that your application for <strong>${credentialName}</strong> has been voided based upon your failure to provide a complete application as outlined in 17 CAR § 350-212.</p>
+
+            <p style="margin-bottom: 1rem;">Our office submitted a request to you for additional information on <strong>${rejectionDates}</strong>. As of this date, no information has been received.</p>
+
+            <p style="margin-bottom: 1rem;">The company for which you were applying, cannot employ you in a position that requires a license, credential, or commission issued by the Arkansas Private Investigators, Private Security, and Alarm Installation/Monitoring Licensing Section. If you are still seeking employment with this company, a new, complete application must be submitted with applicable fees.</p>
+
+            <p style="margin-bottom: 1.5rem;">Should you have any questions or concerns, please contact this department at 501-618-8600 or ${userEmail}.</p>
+
+            <div style="margin-bottom: 1rem;">Sincerely,</div>
+
+            <div style="margin-bottom: 0.5rem;">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='60'%3E%3Ctext x='0' y='40' font-family='Brush Script MT, cursive' font-size='24' fill='%23333'>Michael Rodriguez%3C/text%3E%3C/svg%3E" alt="Signature" style="display: block; max-width: 200px;">
+            </div>
+
+            <div style="line-height: 1.5; margin-bottom: 1.5rem;">
+              ${userName}<br>
+              Administrative Coordinator<br>
+              PI &amp; Security Licensing Section<br>
+              1 State Police Plaza Drive<br>
+              Little Rock, AR 72209<br>
+              ${userEmail}<br>
+              (501) 618-8600<br>
+              (501) 618-8125 fax
+            </div>
+
+            <div>cc: ${supervisedBy}</div>
+          </div>
+        `;
+
+        emailPreviewContent.innerHTML = emailHTML;
+        previewEmailModal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    function closeEmailPreviewModal() {
+      previewEmailModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    if (closePreviewEmailModalBtn) {
+      closePreviewEmailModalBtn.addEventListener('click', closeEmailPreviewModal);
+    }
+
+    if (closePreviewEmailBtn) {
+      closePreviewEmailBtn.addEventListener('click', closeEmailPreviewModal);
+    }
+
+    if (previewEmailModal) {
+      previewEmailModal.addEventListener('click', function(e) {
+        if (e.target === previewEmailModal) {
+          closeEmailPreviewModal();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

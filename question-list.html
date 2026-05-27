@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question List - RLP</title>
+  <!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome DNR! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/il-logo.png" alt="Illinois Department of Natural Resources agency logo"
+                  class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">Illinois Department of Natural Resources</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false"
+                        class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                        </path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z">
+                        </path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-info-bar">
+      <div class="grid-container">
+        <div class="app-info-bar__grid">
+          <div>
+            <span class="app-info-bar__label">Application/Permit Name:</span>
+            <span class="app-info-bar__value">Application Builder Application</span>
+          </div>
+          <div>
+            <span class="app-info-bar__label">License/Application Type:</span>
+            <span class="app-info-bar__value">Application Builder : AP : Authenticated, Individual, Signature, Document Upload</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="grid-container">
+      <div class="usa-step-indicator margin-top-4" aria-label="progress">
+        <ol class="usa-step-indicator__segments">
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="document-upload.html">Application Details</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="user-information.html">Applicant Information</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="question-builder.html">Question Builder</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+            <span class="usa-step-indicator__segment-label">Conditions</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Payment</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Preview</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">License</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Notification</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="usa-step-indicator__header">
+        <h1 class="usa-step-indicator__heading">
+          <span class="usa-step-indicator__heading-counter">4</span>
+          <span class="usa-step-indicator__total-steps">of 8</span>
+          <span class="usa-step-indicator__heading-text">Conditions</span>
+        </h1>
+      </div>
+
+      <div class="margin-top-4 app-builder-container">
+        <!-- Left sidebar -->
+        <div class="app-builder-sidebar">
+          <div class="usa-step-indicator usa-step-indicator--sidebar" aria-label="step progress">
+            <ol class="usa-step-indicator__segments">
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete" style="cursor: pointer;" onclick="window.location.href='conditions.html'">
+                <span class="usa-step-indicator__segment-label">Question Logic</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+                <span class="usa-step-indicator__segment-label">Question List</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right content area -->
+        <div class="app-builder-content">
+          <h1 class="app-builder-content__heading">Question List</h1>
+
+          <p class="app-builder-content__text">Below are the required yes/no; either/or questions. You may add if/then statements to create logic to show or hide follow-on questions, sections, descriptions and documents. Return to Question Builder to edit.</p>
+
+          <p class="app-builder-content__text"><strong>NOTE:</strong> You cannot change the original questions from this section. Return to Question Builder to edit or delete questions.</p>
+
+          <!-- Icon Key -->
+          <div class="usa-accordion usa-accordion--bordered margin-top-2">
+            <h3 class="usa-accordion__heading">
+              <button
+                type="button"
+                class="usa-accordion__button"
+                aria-expanded="false"
+                aria-controls="icon-key-content"
+              >
+                Icon Key
+              </button>
+            </h3>
+            <div id="icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <span><img src="assets/collapse-question.png"></span>
+                  <span>- Collapse Question</span>
+                </div>
+                <div class="icon-key-item">
+                  <span><img src="assets/expanded-question.png"></span>
+                  <span>- Expand Question</span>
+                </div>
+                <div class="icon-key-item">
+                  <span><img src="assets/added-rules.png"></span>
+                  <span>- Added Rule(s)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conditions section -->
+          <div class="questions-section" style="margin-top: 2rem;">
+            <div style="display: flex; justify-content: space-between; padding-bottom: 1rem; margin-bottom: 1.5rem;">
+              <span style="font-weight: 700; font-size: 1.6rem;">Condition(s)</span>
+              <span style="font-weight: 700; font-size: 1.6rem;">Controls</span>
+            </div>
+            <div id="conditionItems"></div>
+          </div>
+
+          <div class="app-builder-button-container">
+            <a href="conditions.html" class="usa-button usa-button--outline">Back</a>
+            <a href="payment-section.html" class="usa-button">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Success Notification -->
+  <div id="successNotification" class="notification">
+    <div class="notification-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="notification-text" id="notificationText"></div>
+  </div>
+
+  <script>
+    // Accordion toggle
+    document.querySelectorAll('.usa-accordion__button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const content = document.getElementById(this.getAttribute('aria-controls'));
+        this.setAttribute('aria-expanded', !expanded);
+        content.hidden = expanded;
+      });
+    });
+
+    let allQuestions = [];
+    let ynQuestions = [];
+    let partCounts = {};
+
+    window.addEventListener('DOMContentLoaded', function() {
+      loadData();
+      renderConditions();
+    });
+
+    function loadData() {
+      const stored = sessionStorage.getItem('reviewQuestions') || localStorage.getItem('reviewQuestions');
+      if (stored) {
+        try {
+          allQuestions = JSON.parse(stored);
+        } catch(e) {
+          allQuestions = sampleData();
+        }
+      } else {
+        allQuestions = sampleData();
+      }
+
+      // Tag each item with its original index for Part dropdowns
+      allQuestions = allQuestions.map(function(q, i) {
+        return Object.assign({}, q, { originalIndex: i });
+      });
+
+      ynQuestions = allQuestions.filter(function(q) {
+        return q.type === 'yn';
+      });
+    }
+
+    function sampleData() {
+      return [
+        { type: 'yn', question: 'Do you currently hold a license in another state?', required: 'y' },
+        { type: 'yn', question: 'Have you ever had a license revoked or suspended?', required: 'y' },
+        { type: 'ff', question: 'List the state(s) in which you currently hold a license.' },
+        { type: 'ff', question: 'Please explain the circumstances of the revocation or suspension.' },
+        { type: 'ack', question: 'I acknowledge that all information provided is accurate and complete.' },
+        { type: 'mc', question: 'Which type of license are you applying for?' }
+      ];
+    }
+
+    function renderConditions() {
+      var container = document.getElementById('conditionItems');
+
+      if (ynQuestions.length === 0) {
+        container.innerHTML = '<div style="padding:2rem;text-align:center;color:#71767a;"><p>No Yes/No or Either/Or questions found. <a href="question-builder.html">Return to Question Builder</a> to add one.</p></div>';
+        return;
+      }
+
+      container.innerHTML = ynQuestions.map(function(q, cardIndex) {
+        partCounts[cardIndex] = 1;
+        var label1 = q.ynOption1 || q.label1 || 'Yes';
+        var label2 = q.ynOption2 || q.label2 || 'No';
+
+        return (
+          '<div class="section-indicator section-indicator--small condition-card" data-section="' + (cardIndex + 1) + '" id="condition-card-' + cardIndex + '">' +
+
+            '<div class="condition-card-layout">' +
+
+              '<div id="condition-summary-' + cardIndex + '" style="display:none;padding:0.8rem 0;font-size:1.6rem;">' + escapeHtml(q.question) + '</div>' +
+
+              '<div id="condition-content-' + cardIndex + '" onchange="checkSaveEnabled(' + cardIndex + ')">' +
+
+                '<div class="condition-panel condition-panel--if">' +
+                  '<div class="condition-row condition-row--header">' +
+                    '<span class="condition-label">IF</span>' +
+                    '<span style="font-size:1.6rem;">Your Question: <strong>' + escapeHtml(q.question) + '</strong></span>' +
+                  '</div>' +
+                  '<div class="condition-row">' +
+                    '<span class="condition-label">State</span>' +
+                    '<div class="radio-group-inline">' +
+                      '<div class="usa-radio"><input class="usa-radio__input" id="state-' + cardIndex + '-equal" type="radio" name="state-' + cardIndex + '" value="equal"><label class="usa-radio__label" for="state-' + cardIndex + '-equal">Is Equal To</label></div>' +
+                      '<div class="usa-radio"><input class="usa-radio__input" id="state-' + cardIndex + '-notequal" type="radio" name="state-' + cardIndex + '" value="notEqual"><label class="usa-radio__label" for="state-' + cardIndex + '-notequal">Not Equal To</label></div>' +
+                    '</div>' +
+                    '<span class="condition-required">Required</span>' +
+                  '</div>' +
+                  '<div class="condition-row">' +
+                    '<span class="condition-label">Value</span>' +
+                    '<div class="radio-group-inline">' +
+                      '<div class="usa-radio"><input class="usa-radio__input" id="value-' + cardIndex + '-1" type="radio" name="value-' + cardIndex + '" value="' + escapeHtml(label1) + '"><label class="usa-radio__label" for="value-' + cardIndex + '-1">' + escapeHtml(label1) + '</label></div>' +
+                      '<div class="usa-radio"><input class="usa-radio__input" id="value-' + cardIndex + '-2" type="radio" name="value-' + cardIndex + '" value="' + escapeHtml(label2) + '"><label class="usa-radio__label" for="value-' + cardIndex + '-2">' + escapeHtml(label2) + '</label></div>' +
+                    '</div>' +
+                    '<span class="condition-required">Required</span>' +
+                  '</div>' +
+                '</div>' +
+
+                '<div id="parts-container-' + cardIndex + '">' +
+                  buildPartPanel(cardIndex, 0, q.originalIndex) +
+                '</div>' +
+
+                '<div style="display:flex;gap:1rem;margin-top:1.5rem;">' +
+                  '<button type="button" class="usa-button usa-button--accent-warm" onclick="addPart(' + cardIndex + ')">Add Part</button>' +
+                  '<button type="button" id="save-btn-' + cardIndex + '" class="usa-button" onclick="saveCondition(' + cardIndex + ')" disabled>Save</button>' +
+                  '<button type="button" class="usa-button usa-button--outline" onclick="clearCondition(' + cardIndex + ')">Clear</button>' +
+                '</div>' +
+
+              '</div>' +
+
+              '<div class="condition-card-controls">' +
+                '<img src="assets/added-rules.png" alt="Added Rule(s)" id="added-rule-' + cardIndex + '" style="display:none;">' +
+                '<button type="button" id="collapse-btn-' + cardIndex + '" class="condition-collapse-btn" onclick="toggleCondition(' + cardIndex + ')" title="Collapse">&#8722;</button>' +
+              '</div>' +
+
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    function buildPartPanel(cardIndex, partIndex, excludeOriginalIndex) {
+      var options = allQuestions
+        .filter(function(p) { return p.originalIndex !== excludeOriginalIndex; })
+        .map(function(p) {
+          var label = '';
+          if (p.type === 'section') label = 'Section: ' + (p.title || '');
+          else if (p.type === 'description') label = 'Description: ' + (p.content || '').substring(0, 60);
+          else label = (p.question || '').substring(0, 80);
+          return '<option value="' + p.originalIndex + '">' + escapeHtml(label) + '</option>';
+        }).join('');
+
+      return (
+        '<div class="part-panel condition-panel condition-panel--do" id="part-' + cardIndex + '-' + partIndex + '">' +
+          '<div class="condition-row">' +
+            '<span class="condition-label">Do</span>' +
+            '<div class="radio-group-inline">' +
+              '<div class="usa-radio"><input class="usa-radio__input" id="do-' + cardIndex + '-' + partIndex + '-show" type="radio" name="do-' + cardIndex + '-' + partIndex + '" value="show"><label class="usa-radio__label" for="do-' + cardIndex + '-' + partIndex + '-show">Show</label></div>' +
+              '<div class="usa-radio"><input class="usa-radio__input" id="do-' + cardIndex + '-' + partIndex + '-hide" type="radio" name="do-' + cardIndex + '-' + partIndex + '" value="hide"><label class="usa-radio__label" for="do-' + cardIndex + '-' + partIndex + '-hide">Hide</label></div>' +
+            '</div>' +
+            '<span class="condition-required">Required</span>' +
+          '</div>' +
+          '<div class="condition-row">' +
+            '<span class="condition-label">Part</span>' +
+            '<div>' +
+              '<select class="usa-select" id="part-select-' + cardIndex + '-' + partIndex + '" style="max-width:480px;">' +
+                '<option value="">Please select a part</option>' +
+                options +
+              '</select>' +
+            '</div>' +
+            '<span class="condition-required">Required</span>' +
+          '</div>' +
+          '<div class="part-delete-area" style="display:none;">' +
+            '<button type="button" class="usa-button usa-button--secondary-red" onclick="deletePart(' + cardIndex + ',' + partIndex + ')">Delete</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function addPart(cardIndex) {
+      var newPartIndex = partCounts[cardIndex]++;
+      var container = document.getElementById('parts-container-' + cardIndex);
+      var excludeIndex = ynQuestions[cardIndex].originalIndex;
+      container.insertAdjacentHTML('beforeend', buildPartPanel(cardIndex, newPartIndex, excludeIndex));
+      updateDeleteButtons(cardIndex);
+      checkSaveEnabled(cardIndex);
+    }
+
+    function deletePart(cardIndex, partIndex) {
+      var panel = document.getElementById('part-' + cardIndex + '-' + partIndex);
+      if (panel) panel.remove();
+      updateDeleteButtons(cardIndex);
+      checkSaveEnabled(cardIndex);
+    }
+
+    function updateDeleteButtons(cardIndex) {
+      var partsContainer = document.getElementById('parts-container-' + cardIndex);
+      var partPanels = partsContainer.querySelectorAll('.part-panel');
+      var showDelete = partPanels.length > 1;
+      partPanels.forEach(function(panel) {
+        var deleteArea = panel.querySelector('.part-delete-area');
+        if (deleteArea) deleteArea.style.display = showDelete ? 'block' : 'none';
+      });
+    }
+
+    function checkSaveEnabled(cardIndex) {
+      var stateSelected = document.querySelector('input[name="state-' + cardIndex + '"]:checked');
+      var valueSelected = document.querySelector('input[name="value-' + cardIndex + '"]:checked');
+
+      var partsContainer = document.getElementById('parts-container-' + cardIndex);
+      var partPanels = partsContainer.querySelectorAll('.part-panel');
+      var allPartsValid = partPanels.length > 0;
+
+      partPanels.forEach(function(panel) {
+        var doChecked = panel.querySelector('input[type="radio"]:checked');
+        var partSelect = panel.querySelector('select');
+        if (!doChecked || !partSelect || !partSelect.value) {
+          allPartsValid = false;
+        }
+      });
+
+      var saveBtn = document.getElementById('save-btn-' + cardIndex);
+      if (saveBtn) {
+        saveBtn.disabled = !(stateSelected && valueSelected && allPartsValid);
+      }
+    }
+
+    function toggleCondition(cardIndex) {
+      var content = document.getElementById('condition-content-' + cardIndex);
+      var summary = document.getElementById('condition-summary-' + cardIndex);
+      var btn = document.getElementById('collapse-btn-' + cardIndex);
+      var isCollapsed = content.style.display === 'none';
+      content.style.display = isCollapsed ? 'block' : 'none';
+      summary.style.display = isCollapsed ? 'none' : 'block';
+      btn.innerHTML = isCollapsed ? '&#8722;' : '&#43;';
+      btn.title = isCollapsed ? 'Collapse' : 'Expand';
+    }
+
+    function saveCondition(cardIndex) {
+      document.getElementById('added-rule-' + cardIndex).style.display = 'inline-block';
+      toggleCondition(cardIndex);
+      showNotification('Condition saved successfully!');
+    }
+
+    function clearCondition(cardIndex) {
+      document.getElementById('added-rule-' + cardIndex).style.display = 'none';
+      var card = document.getElementById('condition-card-' + cardIndex);
+      card.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
+      card.querySelectorAll('select').forEach(function(s) { s.value = ''; });
+      var partsContainer = document.getElementById('parts-container-' + cardIndex);
+      partsContainer.innerHTML = buildPartPanel(cardIndex, 0, ynQuestions[cardIndex].originalIndex);
+      partCounts[cardIndex] = 1;
+      updateDeleteButtons(cardIndex);
+      checkSaveEnabled(cardIndex);
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text || '';
+      return div.innerHTML;
+    }
+
+    function showNotification(message) {
+      var notification = document.getElementById('successNotification');
+      document.getElementById('notificationText').textContent = message;
+      notification.classList.add('show');
+      setTimeout(function() {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+        setTimeout(function() { notification.classList.remove('hide'); }, 400);
+      }, 4000);
+    }
+  </script>
+</body>
+
+</html>

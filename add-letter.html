@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Letter - RLP</title>
+  <!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .status-generated { color: #8F5800; font-weight: bold; }
+    .status-mailed { color: #8F5800; font-weight: bold; }
+    .status-received { color: #417505; font-weight: bold; }
+    .status-returned { color: #80252A; font-weight: bold; }
+    .status-failed { color: #CD2026; font-weight: bold; }
+
+    .form-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-field-full {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 1024px) {
+      .form-grid-3col {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid-3col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png"
+                     alt="ASP agency logo"
+                     class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png"
+                           alt="RLP logo"
+                           class="margin-right-1"
+                           height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="queues.html">Queues</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="license-types.html">License Types</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="applications.html">Applications</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="settings.html">Settings</a></span>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="search.html" class="usa-breadcrumb__link">Back to Submission Search Results</a>
+          </li>
+          <li class="usa-breadcrumb__list-item">
+            <a href="individual-profile.html" class="usa-breadcrumb__link">Sarah Johnson</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Add Letter</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="profile-header">
+        <h1 class="profile-header__title">Profile</h1>
+      </div>
+
+      <div class="profile-content">
+        <div class="profile-content__header">
+          <h2 class="profile-content__heading">Add Letter</h2>
+        </div>
+
+        <form id="add-letter-form">
+          <div class="form-grid-3col">
+            <!-- Visibility (full width fieldset) -->
+            <fieldset class="usa-fieldset form-field-full">
+              <legend class="usa-legend">Visibility <span class="field-required">Required</span></legend>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="letter-visibility-agency-only" type="radio" name="letter-visibility" value="Agency Only" required>
+                <label class="usa-radio__label" for="letter-visibility-agency-only">Agency Only</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="letter-visibility-agency-constituent" type="radio" name="letter-visibility" value="Agency + Constituent" required checked>
+                <label class="usa-radio__label" for="letter-visibility-agency-constituent">Agency + Constituent</label>
+              </div>
+            </fieldset>
+
+            <!-- Record Type + Associated Record (2-col row) -->
+            <div class="form-field-full" style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
+              <div class="usa-form-group" style="margin-bottom:0;">
+                <label class="usa-label" for="letter-record-type">Record Type</label>
+                <select class="usa-select" id="letter-record-type" name="letter-record-type">
+                  <option value="">Please Select</option>
+                  <option value="License">License</option>
+                  <option value="Application">Application</option>
+                  <option value="Case">Case</option>
+                </select>
+              </div>
+              <div class="usa-form-group" id="letter-associated-record-group" style="margin-bottom:0; visibility:hidden;">
+                <label class="usa-label" for="letter-associated-record">Associated Record <span class="field-required">Required</span></label>
+                <select class="usa-select" id="letter-associated-record" name="letter-associated-record">
+                  <option value="">Please Select</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Letter Template (full width, own row) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="letter-type">Letter Template <span class="field-required">Required</span></label>
+              <select class="usa-select" id="letter-type" name="letter-type" required>
+                <option value="">Please Select</option>
+              </select>
+            </div>
+
+            <!-- Letter Template Fields (dynamic, shown when template is selected) -->
+            <div id="letter-template-fields" style="display: none; grid-column: 1 / -1;">
+              <div id="letter-dynamic-fields"></div>
+              <hr style="border: 0; border-top: 1px solid #dfe1e2; margin: 2rem 0;">
+            </div>
+
+            <!-- Delivery Method (full width fieldset) -->
+            <fieldset class="usa-fieldset form-field-full">
+              <legend class="usa-legend">Delivery Method <span class="field-required">Required</span></legend>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="letter-delivery-standard" type="radio" name="letter-delivery-method" value="Standard" required>
+                <label class="usa-radio__label" for="letter-delivery-standard">Standard</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="letter-delivery-certified" type="radio" name="letter-delivery-method" value="Certified" required>
+                <label class="usa-radio__label" for="letter-delivery-certified">Certified</label>
+              </div>
+            </fieldset>
+
+            <!-- Delivery Notes (full width) -->
+            <div class="usa-form-group form-field-full">
+              <label class="usa-label" for="letter-delivery-notes">Delivery Notes</label>
+              <textarea class="usa-textarea" id="letter-delivery-notes" name="letter-delivery-notes" maxlength="500" rows="4"></textarea>
+              <p style="font-size: 1.4rem; color: #71767a; margin-top: 0.5rem;">Maximum 500 characters</p>
+            </div>
+          </div>
+
+          <!-- Form Buttons -->
+          <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+            <button type="submit" class="usa-button">Save</button>
+            <button type="button" class="usa-button usa-button--secondary" id="cancel-add-letter">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Preview Letter Modal -->
+  <div id="preview-letter-modal" class="modal-overlay" hidden>
+    <div class="modal-content" style="max-width: 950px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Letter Preview</h2>
+        <button type="button" class="modal-close" id="close-preview-modal" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" style="font-family: 'Times New Roman', serif; line-height: 1.6;">
+        <div id="letter-preview-content" style="padding: 2rem; background: white;">
+          <!-- Letter content will be inserted here -->
+        </div>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer" style="padding-top: 1.5rem;">
+        <button type="button" class="usa-button usa-button--secondary" id="close-preview-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ---- Seed template data if not already present ----
+    (function seedTemplates() {
+      if (localStorage.getItem('correspondenceSeeded_v4')) return;
+      const emailTemplates = [
+        { id: 'TMPL-EMAIL-001', name: 'Application Voided', appliesTo: 'Application', status: 'Active', hasUsage: true, subject: 'Your {{credential_name}} Application Has Been Voided', body: 'Dear {{contact_name}},\n\nPlease be advised that your application for {{credential_name}} has been voided based upon your failure to provide a complete application.\n\nOur office submitted a request to you for additional information on {{rejection_dates}}. As of this date, no information has been received.\n\nShould you have any questions, please contact this department at {{user_email}}.\n\nSincerely,\n{{user_name}}', version: 2, createdDate: '2025-01-10', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-04-15', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-EMAIL-002', name: 'License Approval', appliesTo: 'License', status: 'Active', hasUsage: true, subject: 'Your {{credential_name}} License Has Been Approved', body: 'Dear {{contact_name}},\n\nWe are pleased to inform you that your application for {{credential_name}} has been approved.\n\nSincerely,\n{{user_name}}\n{{user_email}}', version: 1, createdDate: '2025-01-15', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-01-15', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-EMAIL-003', name: 'Deficiency Notice', appliesTo: 'Application', status: 'Active', hasUsage: true, subject: 'Deficiency Notice - {{credential_name}} Application', body: 'Dear {{contact_name}},\n\nThis notice is to advise you that your application for {{credential_name}} requires additional information before it can be processed.\n\nPlease respond within 30 days.\n\nSincerely,\n{{user_name}}', version: 3, createdDate: '2024-11-20', createdBy: 'Jennifer Adams', lastModifiedDate: '2025-03-01', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-EMAIL-004', name: 'Renewal Reminder', appliesTo: 'License', status: 'Draft', hasUsage: false, subject: 'Your {{credential_name}} License Expires Soon', body: 'Dear {{contact_name}},\n\nThis is a reminder that your {{credential_name}} license will expire soon.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-04-01', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-04-01', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-EMAIL-005', name: 'Payment Confirmation', appliesTo: 'License', status: 'Archived', hasUsage: true, subject: 'Payment Received for {{credential_name}}', body: 'Dear {{contact_name}},\n\nThis email confirms your payment for {{credential_name}} has been received.\n\nSincerely,\n{{user_name}}', version: 2, createdDate: '2024-06-01', createdBy: 'Jennifer Adams', lastModifiedDate: '2024-09-15', lastModifiedBy: 'Jennifer Adams', versions: [] },
+        { id: 'TMPL-EMAIL-006', name: 'Out-of-Season Notice', appliesTo: 'Application', status: 'Inactive', hasUsage: false, subject: 'Out-of-Season Application Notice - {{credential_name}}', body: 'Dear {{contact_name}},\n\nThis notice is to advise you that applications for {{credential_name}} are not being accepted at this time.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-02-14', createdBy: 'Jennifer Adams', lastModifiedDate: '2025-02-14', lastModifiedBy: 'Jennifer Adams', versions: [] }
+      ];
+      const letterTemplates = [
+        { id: 'TMPL-LETTER-001', name: 'Application Held', appliesTo: 'Application', deliveryMethods: ['Standard', 'Certified'], status: 'Active', hasUsage: true, body: '{{date}}\n\n{{address_line1}}\n{{address_line2}}\n{{city}}, {{state}} {{zip}}\n\nDear {{manager_name}}:\n\nThe ASP has received the {{credential_name}} application for {{contact_name}}.\n\nSincerely,\n{{user_name}}\n{{user_email}}', version: 2, createdDate: '2025-01-10', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-04-10', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-LETTER-002', name: 'Compliance Letter', appliesTo: 'Case', deliveryMethods: ['Certified'], status: 'Active', hasUsage: true, body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter is to notify you of a compliance requirement.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-02-01', createdBy: 'Jennifer Adams', lastModifiedDate: '2025-02-01', lastModifiedBy: 'Jennifer Adams', versions: [] },
+        { id: 'TMPL-LETTER-003', name: 'Deficiency Notice', appliesTo: 'Application', deliveryMethods: ['Standard'], status: 'Active', hasUsage: false, body: '{{date}}\n\nDear {{contact_name}}:\n\nYour application for {{credential_name}} is deficient. Please provide the missing information within 30 days.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-01-20', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-01-20', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-LETTER-004', name: 'Notice of Violation', appliesTo: 'Case', deliveryMethods: ['Certified'], status: 'Draft', hasUsage: false, body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter serves as formal notification that you are in violation of applicable regulations.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-04-20', createdBy: 'Michael Rodriguez', lastModifiedDate: '2025-04-20', lastModifiedBy: 'Michael Rodriguez', versions: [] },
+        { id: 'TMPL-LETTER-005', name: 'Enforcement Communications', appliesTo: 'Case', deliveryMethods: ['Certified'], status: 'Inactive', hasUsage: true, body: '{{date}}\n\n{{address_line1}}\n{{city}}, {{state}} {{zip}}\n\nDear {{contact_name}}:\n\nThis letter is in regard to your enforcement case.\n\nSincerely,\n{{user_name}}', version: 1, createdDate: '2025-03-15', createdBy: 'Jennifer Adams', lastModifiedDate: '2025-03-15', lastModifiedBy: 'Jennifer Adams', versions: [] },
+        { id: 'TMPL-LETTER-006', name: 'Legacy Fee Notice', appliesTo: 'License', deliveryMethods: ['Standard'], status: 'Archived', hasUsage: true, body: '{{date}}\n\nDear {{contact_name}}:\n\nPlease find enclosed the current fee schedule for {{credential_name}}.\n\nSincerely,\n{{user_name}}', version: 3, createdDate: '2023-08-01', createdBy: 'Jennifer Adams', lastModifiedDate: '2024-03-10', lastModifiedBy: 'Jennifer Adams', versions: [] }
+      ];
+      localStorage.setItem('emailTemplates', JSON.stringify(emailTemplates));
+      localStorage.setItem('letterTemplates', JSON.stringify(letterTemplates));
+      localStorage.setItem('correspondenceSeeded_v4', 'true');
+    })();
+
+    // ---- Date helpers ----
+    const _today = new Date();
+    const _day   = _today.getDate();
+    const _month = _today.toLocaleString('en-US', { month: 'long' });
+    const _year  = _today.getFullYear();
+
+    function getOrdinalSuffix(d) {
+      if (d > 3 && d < 21) return 'th';
+      switch (d % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    }
+    const todayFormatted = _day + getOrdinalSuffix(_day) + ' of ' + _month + ' ' + _year;
+
+    // ---- Signature image ----
+    const SIGNATURE_SRC = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='64'%3E%3Ctext x='4' y='48' font-family='Brush Script MT%2C cursive' font-size='28' fill='%23222'%3EMichael Rodriguez%3C/text%3E%3C/svg%3E";
+
+    // ---- Merge field metadata ----
+    const FIELD_DEFS = {
+      date:            { label: 'Date',                  value: todayFormatted,                             readonly: true  },
+      contact_name:    { label: 'Contact Name',           value: 'Sarah Johnson',                            readonly: true  },
+      credential_name: { label: 'Credential Name',        value: 'Private Security License',                 readonly: true  },
+      application_type:{ label: 'Application Type',       value: 'New License Application',                  readonly: true  },
+      supervised_by:   { label: 'Supervised By',           value: 'James Patterson',                          readonly: true  },
+      address_line1:   { label: 'Address Line 1',          value: '4521 Maple Street',                        readonly: true  },
+      address_line2:   { label: 'Address Line 2',          value: '',                                         readonly: true  },
+      city:            { label: 'City',                   value: 'Chicago',                                  readonly: true  },
+      state:           { label: 'State',                  value: 'IL',                                       readonly: true  },
+      zip:             { label: 'Zip Code',                value: '60601',                                    readonly: true  },
+      user_name:       { label: 'User Name',               value: 'Michael Rodriguez',                        readonly: true  },
+      user_email:      { label: 'User Email',              value: 'michael.rodriguez@dnr.illinois.gov',       readonly: true  },
+      user_signature:  { label: 'User Signature',          value: 'Michael Rodriguez',                        readonly: true, isSignature: true },
+      manager_name:    { label: 'Manager Name',            value: 'Sarah Johnson',                            readonly: true  },
+      rejection_dates: { label: 'Rejection Date(s)',       value: '',                                         readonly: false },
+      mailed_date:     { label: 'Mailed Date',             value: '',                                         readonly: false },
+      agency_name:     { label: 'Agency Name',             value: 'ASP', readonly: true  },
+      bg_number:       { label: 'BG Number',               value: 'BG-2026-0042',                             readonly: true  },
+      tracking_number: { label: 'Tracking Number',         value: 'TRK-2026-00891',                           readonly: true  },
+      delivery_method: { label: 'Delivery Method',         value: 'Certified Mail',                           readonly: true  }
+    };
+
+    function extractMergeFields(text) {
+      const regex = /\{\{(\w+)\}\}/g;
+      const fields = [];
+      const seen = new Set();
+      let m;
+      while ((m = regex.exec(text)) !== null) {
+        if (!seen.has(m[1]) && m[1] !== 'logo') {
+          seen.add(m[1]);
+          fields.push(m[1]);
+        }
+      }
+      return fields;
+    }
+
+    // ---- Load active letter templates ----
+    const letterTypeSelect = document.getElementById('letter-type');
+    let activeTemplates = [];
+    let selectedTemplate = null;
+
+    function loadTemplates() {
+      const all = JSON.parse(localStorage.getItem('letterTemplates') || '[]');
+      activeTemplates = all
+        .filter(function(t) { return t.status === 'Active'; })
+        .sort(function(a, b) { return a.name.localeCompare(b.name); });
+      while (letterTypeSelect.options.length > 1) letterTypeSelect.remove(1);
+      activeTemplates.forEach(function(t) {
+        const opt = document.createElement('option');
+        opt.value = t.id;
+        opt.textContent = t.name;
+        letterTypeSelect.appendChild(opt);
+      });
+    }
+    loadTemplates();
+
+    // ---- Template select change handler ----
+    const letterTemplateFields = document.getElementById('letter-template-fields');
+    const letterDynamicFields  = document.getElementById('letter-dynamic-fields');
+
+    letterTypeSelect.addEventListener('change', function() {
+      const id = this.value;
+      selectedTemplate = activeTemplates.find(function(t) { return t.id === id; }) || null;
+
+      letterDynamicFields.innerHTML = '';
+      letterTemplateFields.style.display = 'none';
+
+      if (!id || !selectedTemplate) return;
+
+      const fields = extractMergeFields(selectedTemplate.body || '');
+      if (fields.length) {
+        letterTemplateFields.style.display = 'block';
+        fields.forEach(function(fieldKey) {
+          const def = FIELD_DEFS[fieldKey] || {
+            label: fieldKey.replace(/_/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); }),
+            value: '',
+            readonly: false
+          };
+          const div = document.createElement('div');
+          div.className = 'usa-form-group';
+          div.style.marginBottom = '1.5rem';
+
+          const label = document.createElement('label');
+          label.className = 'usa-label';
+          label.setAttribute('for', 'dyn-field-' + fieldKey);
+          label.textContent = def.label;
+
+          const input = document.createElement('input');
+          input.className = 'usa-input';
+          input.id   = 'dyn-field-' + fieldKey;
+          input.name = 'dyn-field-' + fieldKey;
+          input.type  = 'text';
+          input.value = def.value;
+          if (def.readonly) {
+            input.readOnly = true;
+            input.setAttribute('aria-readonly', 'true');
+            input.style.backgroundColor = '#f0f0f0';
+            input.style.color = '#71767a';
+          }
+
+          div.appendChild(label);
+          if (def.isSignature) {
+            const sigWrap = document.createElement('div');
+            sigWrap.style.cssText = 'background-color: #f0f0f0; border: 1px solid #dfe1e2; padding: 0.8rem 1rem; border-radius: 4px; display: inline-block;';
+            const sigImg = document.createElement('img');
+            sigImg.src = SIGNATURE_SRC;
+            sigImg.alt = 'User Signature';
+            sigImg.style.cssText = 'display: block; max-width: 220px;';
+            sigWrap.appendChild(sigImg);
+            div.appendChild(sigWrap);
+          } else {
+            div.appendChild(input);
+          }
+          letterDynamicFields.appendChild(div);
+        });
+
+        const previewWrap = document.createElement('div');
+        previewWrap.style.marginTop = '1.5rem';
+        const previewBtn = document.createElement('button');
+        previewBtn.type = 'button';
+        previewBtn.className = 'usa-button';
+        previewBtn.textContent = 'Preview Letter';
+        previewBtn.addEventListener('click', openLetterPreview);
+        previewWrap.appendChild(previewBtn);
+        letterDynamicFields.appendChild(previewWrap);
+      }
+    });
+
+    // ---- Record Type conditional logic ----
+    const recordTypeSelect      = document.getElementById('letter-record-type');
+    const associatedRecordGroup  = document.getElementById('letter-associated-record-group');
+    const associatedRecordSelect = document.getElementById('letter-associated-record');
+
+    recordTypeSelect.addEventListener('change', function() {
+      if (this.value) {
+        associatedRecordGroup.style.visibility = 'visible';
+        associatedRecordSelect.required = true;
+        associatedRecordSelect.innerHTML = '<option value="">Please Select</option>';
+        if (this.value === 'License') {
+          associatedRecordSelect.innerHTML += '<option value="LIC-2024-001">LIC-2024-001 - Commercial Fishing</option>';
+          associatedRecordSelect.innerHTML += '<option value="LIC-2024-002">LIC-2024-002 - Hunting</option>';
+        } else if (this.value === 'Application') {
+          associatedRecordSelect.innerHTML += '<option value="APP-2024-001">APP-2024-001 - New License Application</option>';
+          associatedRecordSelect.innerHTML += '<option value="APP-2024-002">APP-2024-002 - Renewal Application</option>';
+        } else if (this.value === 'Case') {
+          associatedRecordSelect.innerHTML += '<option value="CASE-2024-001">CASE-2024-001 - Compliance Case</option>';
+          associatedRecordSelect.innerHTML += '<option value="CASE-2024-002">CASE-2024-002 - Enforcement Case</option>';
+        }
+      } else {
+        associatedRecordGroup.style.visibility = 'hidden';
+        associatedRecordSelect.required = false;
+        associatedRecordSelect.value = '';
+      }
+    });
+
+    // ---- Form submission ----
+    document.getElementById('add-letter-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const now = new Date().toISOString().split('T')[0];
+      const templateId   = letterTypeSelect.value;
+      const templateName = selectedTemplate ? selectedTemplate.name : templateId;
+
+      const templateFields = {};
+      document.querySelectorAll('[id^="dyn-field-"]').forEach(function(input) {
+        templateFields[input.id.replace('dyn-field-', '')] = input.value;
+      });
+
+      const checkedVis      = document.querySelector('input[name="letter-visibility"]:checked');
+      const checkedDelivery = document.querySelector('input[name="letter-delivery-method"]:checked');
+      const formData = {
+        id:               'LETTER-' + Date.now(),
+        visibility:       checkedVis      ? checkedVis.value      : '',
+        letterType:       templateName,
+        templateId:       templateId,
+        deliveryMethod:   checkedDelivery ? checkedDelivery.value : '',
+        generatedDate:    now,
+        mailedDate:       '',
+        recordType:       document.getElementById('letter-record-type').value  || '-',
+        associatedRecord: document.getElementById('letter-associated-record').value || '',
+        trackingNumber:   '',
+        deliveryAttempts: 0,
+        status:           'Generated',
+        deliveryNotes:    document.getElementById('letter-delivery-notes').value || '',
+        templateFields
+      };
+
+      let letters = JSON.parse(localStorage.getItem('letters') || '[]');
+      letters.unshift(formData);
+      localStorage.setItem('letters', JSON.stringify(letters));
+      localStorage.setItem('showLetterNotification', 'true');
+      window.location.href = 'individual-profile.html';
+    });
+
+    // ---- Cancel ----
+    document.getElementById('cancel-add-letter').addEventListener('click', function() {
+      if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+        window.location.href = 'individual-profile.html';
+      }
+    });
+
+    // ---- Preview Letter ----
+    const previewLetterModal   = document.getElementById('preview-letter-modal');
+    const letterPreviewContent = document.getElementById('letter-preview-content');
+
+    function openLetterPreview() {
+      if (!selectedTemplate) return;
+
+      const fieldValues = {};
+      document.querySelectorAll('[id^="dyn-field-"]').forEach(function(input) {
+        fieldValues[input.id.replace('dyn-field-', '')] = input.value;
+      });
+
+      function sub(text) {
+        return (text || '').replace(/\{\{(\w+)\}\}/g, function(m, k) {
+          return fieldValues[k] !== undefined ? fieldValues[k] : m;
+        });
+      }
+
+      const bodyText     = sub(selectedTemplate.body || '');
+      const headerUrl    = selectedTemplate.headerEnabled    ? selectedTemplate.headerDataUrl    : null;
+      const footerUrl    = selectedTemplate.footerEnabled    ? selectedTemplate.footerDataUrl    : null;
+      const watermarkUrl = selectedTemplate.watermarkEnabled ? selectedTemplate.watermarkDataUrl : null;
+      const sidebarUrl   = selectedTemplate.sidebarEnabled   ? selectedTemplate.sidebarDataUrl   : null;
+
+      letterPreviewContent.innerHTML = '';
+      const paper = document.createElement('div');
+      paper.style.cssText = 'background: #fff; border: 1px solid #c9c9c9; overflow: hidden;';
+
+      // Header — full width
+      if (headerUrl) {
+        const hDiv = document.createElement('div');
+        hDiv.style.cssText = 'border-bottom: 1px solid #d9d9d9; line-height: 0;';
+        const hImg = document.createElement('img');
+        hImg.src = headerUrl;
+        hImg.alt = 'Header';
+        hImg.style.cssText = 'max-width: 100%; display: block;';
+        hDiv.appendChild(hImg);
+        paper.appendChild(hDiv);
+      }
+
+      // Middle row: sidebar + body
+      const middle = document.createElement('div');
+      middle.style.cssText = 'display: flex;';
+
+      if (sidebarUrl) {
+        const sDiv = document.createElement('div');
+        sDiv.style.cssText = 'flex-shrink: 0; border-right: 1px solid #d9d9d9; line-height: 0;';
+        const sImg = document.createElement('img');
+        sImg.src = sidebarUrl;
+        sImg.alt = 'Left Sidebar';
+        sImg.style.cssText = 'display: block; width: 90px; min-height: 400px; object-fit: cover;';
+        sDiv.appendChild(sImg);
+        middle.appendChild(sDiv);
+      }
+
+      const bodyWrap = document.createElement('div');
+      bodyWrap.style.cssText = 'flex: 1; position: relative; padding: 2rem 2.5rem;';
+      if (watermarkUrl) {
+        const wImg = document.createElement('img');
+        wImg.src = watermarkUrl;
+        wImg.alt = '';
+        wImg.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); max-width: 65%; max-height: 65%; opacity: 0.12; pointer-events: none; z-index: 0;';
+        bodyWrap.appendChild(wImg);
+      }
+      const bodyEl = document.createElement('div');
+      bodyEl.style.cssText = 'white-space: pre-wrap; font-family: Georgia, serif; font-size: 14px; line-height: 1.7; position: relative; z-index: 1;';
+      const bodyParts = (bodyText || '(no content)').split('{{user_signature}}');
+      bodyParts.forEach(function(part, i) {
+        bodyEl.appendChild(document.createTextNode(part));
+        if (i < bodyParts.length - 1) {
+          const sigImg = document.createElement('img');
+          sigImg.src = SIGNATURE_SRC;
+          sigImg.alt = 'Signature';
+          sigImg.style.cssText = 'display: block; max-width: 220px; margin: 0.5rem 0;';
+          bodyEl.appendChild(sigImg);
+        }
+      });
+      bodyWrap.appendChild(bodyEl);
+      middle.appendChild(bodyWrap);
+      paper.appendChild(middle);
+
+      // Footer — full width
+      if (footerUrl) {
+        const fDiv = document.createElement('div');
+        fDiv.style.cssText = 'border-top: 1px solid #d9d9d9; line-height: 0;';
+        const fImg = document.createElement('img');
+        fImg.src = footerUrl;
+        fImg.alt = 'Footer';
+        fImg.style.cssText = 'max-width: 100%; display: block;';
+        fDiv.appendChild(fImg);
+        paper.appendChild(fDiv);
+      }
+
+      letterPreviewContent.appendChild(paper);
+      previewLetterModal.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLetterPreviewModal() {
+      previewLetterModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('close-preview-modal').addEventListener('click', closeLetterPreviewModal);
+    document.getElementById('close-preview-btn').addEventListener('click', closeLetterPreviewModal);
+    previewLetterModal.addEventListener('click', function(e) {
+      if (e.target === previewLetterModal) closeLetterPreviewModal();
+    });
+  </script>
+</body>
+</html>

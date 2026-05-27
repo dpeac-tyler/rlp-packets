@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application and License Fees - RLP</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome DNR! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/il-logo.png" alt="Illinois Department of Natural Resources agency logo"
+                  class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">Illinois Department of Natural Resources</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false"
+                        class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                        </path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z">
+                        </path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-info-bar">
+      <div class="grid-container">
+        <div class="app-info-bar__grid">
+          <div>
+            <span class="app-info-bar__label">Application/Permit Name:</span>
+            <span class="app-info-bar__value">Application Builder Application</span>
+          </div>
+          <div>
+            <span class="app-info-bar__label">License/Application Type:</span>
+            <span class="app-info-bar__value">Application Builder : AP : Authenticated, Individual, Signature, Document Upload</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="grid-container">
+      <div class="usa-step-indicator margin-top-4" aria-label="progress">
+        <ol class="usa-step-indicator__segments">
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="document-upload.html">Application Details</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="user-information.html">Applicant Information</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="question-builder.html">Question Builder</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+            <a class="usa-step-indicator__segment-label" href="conditions.html">Conditions</a>
+          </li>
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+            <span class="usa-step-indicator__segment-label">Payment</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Preview</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">License</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Notification</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="usa-step-indicator__header">
+        <h1 class="usa-step-indicator__heading">
+          <span class="usa-step-indicator__heading-counter">5</span>
+          <span class="usa-step-indicator__total-steps">of 8</span>
+          <span class="usa-step-indicator__heading-text">Payment</span>
+        </h1>
+      </div>
+
+      <div class="margin-top-4 app-builder-container">
+        <!-- Left sidebar -->
+        <div class="app-builder-sidebar">
+          <div class="usa-step-indicator usa-step-indicator--sidebar" aria-label="step progress">
+            <ol class="usa-step-indicator__segments">
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete" style="cursor: pointer;"
+                onclick="window.location.href='payment-section.html'">
+                <span class="usa-step-indicator__segment-label">Payment Section</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+                <span class="usa-step-indicator__segment-label">Application and License Fees</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment">
+                <span class="usa-step-indicator__segment-label">Additional Items</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment">
+                <span class="usa-step-indicator__segment-label">Endorsements</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment">
+                <span class="usa-step-indicator__segment-label">Configuring Payment Services</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment">
+                <span class="usa-step-indicator__segment-label">Preview</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right content area -->
+        <div class="app-builder-content">
+          <h1 class="app-builder-content__heading">Fees</h1>
+
+          <p class="app-builder-content__text">The SKU is the accounting code that needs to be associated with all the
+            items on this application. These SKUs were pre-populated during your agency onboarding process. Please work
+            with your accounting team if necessary.</p>
+
+          <p class="app-builder-content__text">The Application Fee is the amount that your agency charges the user when
+            they submit their application. You must enter at least one (1) fee amount, but you can add more if
+            necessary.</p>
+
+          <p class="app-builder-content__text">The License/Permit Fee is a regulatory or statutorily required fee that's
+            associated with the license or permit that the user is applying for. This is typically a separate fee from
+            the application fee. This area is optional, but you can add up to ten (10) different fees if necessary.</p>
+
+          <p class="app-builder-content__text"><strong>NOTE:</strong> You'll have the chance to preview what you've done
+            at the end of this section.</p>
+
+          <!-- Icon Key -->
+          <div class="usa-accordion usa-accordion--bordered margin-top-2">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false"
+                aria-controls="icon-key-content">
+                Icon Key
+              </button>
+            </h3>
+            <div id="icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="24" height="24">
+                  <span>- Delete Row</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Application Fee ──────────────────────────────────── -->
+          <div class="fee-section">
+            <div class="fee-gray-container">
+              <div class="fee-white-container">
+                <h2 class="fee-section-heading">Application Fee</h2>
+                <p class="app-builder-content__text">Enter at least one (1) application fee that your agency will charge
+                  the end user.</p>
+                <div class="fee-meta-row">
+                  <div class="fee-meta-item">
+                    <span class="fee-meta-label">Form Number</span>
+                    <span class="fee-meta-value" id="displayFormNumber">1</span>
+                  </div>
+                  <div class="fee-meta-item">
+                    <span class="fee-meta-label">Application/Permit</span>
+                    <span class="fee-meta-value fee-meta-value--strong" id="displayAppTitle">2026 UX License</span>
+                  </div>
+                </div>
+                <div class="fee-questions-section">
+                  <div id="appFeeRows"></div>
+                </div>
+
+                <button type="button" class="usa-button usa-button--accent-warm" onclick="addAppFeeRow()">Add Price
+                  Point</button>
+              </div>
+            </div>
+            <div class="fee-gray-container">
+              <div class="fee-white-container" style="margin-top: -4rem;">
+                <h2 class="fee-section-heading">License/Permit Fee</h2>
+                <p class="app-builder-content__text">If necessary, enter the regulatory or statutory fee associated with
+                  this license or permit. You can add up to ten (10) different fees.</p>
+
+                <div class="usa-form-group">
+                  <label class="usa-label" for="licenseDescText">License/Permit Fee Description</label>
+                  <div class="mock-editor">
+                    <div class="mock-editor__toolbar">
+                      <button type="button" class="mock-editor__btn" title="Undo">↩</button>
+                      <button type="button" class="mock-editor__btn" title="Redo">↪</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Style" style="font-size:1.2rem;">Normal ▾</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Bold"><strong>B</strong></button>
+                      <button type="button" class="mock-editor__btn" title="Italic"><em>I</em></button>
+                      <button type="button" class="mock-editor__btn" title="Underline"><u>U</u></button>
+                      <button type="button" class="mock-editor__btn" title="Text Color"><u style="text-decoration-color:#e00; text-decoration-thickness:2px;">A</u></button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Link">&#128279;</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Bullet List">&#8226;&#8801;</button>
+                      <button type="button" class="mock-editor__btn" title="Numbered List">1.&#8801;</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Horizontal Rule">—</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Align Left">&#8676;</button>
+                      <button type="button" class="mock-editor__btn" title="Align Right">&#8677;</button>
+                      <span class="mock-editor__separator">|</span>
+                      <button type="button" class="mock-editor__btn" title="Blockquote">&ldquo;</button>
+                      <button type="button" class="mock-editor__btn" title="Clear Formatting">T&#x2093;</button>
+                    </div>
+                    <textarea class="mock-editor__textarea" id="licenseDescText" maxlength="1000" rows="4"
+                      oninput="updateLicenseDesc(this)"></textarea>
+                  </div>
+                  <span class="fee-char-count" id="licenseDescCounter">1000 characters left</span>
+                </div>
+                <div class="fee-questions-section">
+                  <div id="licenseFeeRows"></div>
+                </div>
+                <button type="button" class="usa-button usa-button--accent-warm margin-top-2"
+                  onclick="addLicenseFeeRow()">Add Price Point</button>
+              </div>
+              <div class="fee-clear-row">
+                <button type="button" class="usa-button usa-button--accent-cool">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-builder-button-container">
+            <a href="payment-section.html" class="usa-button usa-button--outline">Back</a>
+            <a href="additional-items.html" class="usa-button">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <script>
+    var appFeeCount = 1;
+    var licenseFeeCount = 1;
+
+    var skuOptions =
+      '<option value="">Please Select</option>' +
+      '<option value="SKU-001">SKU-001 &mdash; Application Processing</option>' +
+      '<option value="SKU-002">SKU-002 &mdash; License Fee</option>' +
+      '<option value="SKU-003">SKU-003 &mdash; Permit Fee</option>';
+
+    window.addEventListener('DOMContentLoaded', function () {
+      // Accordion
+      document.querySelectorAll('.usa-accordion__button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var expanded = this.getAttribute('aria-expanded') === 'true';
+          document.getElementById(this.getAttribute('aria-controls')).hidden = expanded;
+          this.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
+
+      // Render initial fee rows
+      document.getElementById('appFeeRows').innerHTML = buildAppFeeRowHTML(0);
+      document.getElementById('licenseFeeRows').innerHTML = buildLicenseFeeRowHTML(0);
+    });
+
+    function buildAppFeeRowHTML(idx) {
+      return (
+        '<div class="section-indicator section-indicator--small fee-row-wrapper" data-section="' + (idx + 1) + '">' +
+        '<div class="fee-row-grid">' +
+        '<div>' +
+        '<label class="usa-label">SKU <span class="field-required">Required</span></label>' +
+        '<select class="usa-select">' + skuOptions + '</select>' +
+        '</div>' +
+        '<div>' +
+        '<label class="usa-label">Application Fee Name <span class="field-required">Required</span></label>' +
+        '<input class="usa-input fee-name-input" type="text" maxlength="50" oninput="updateFeeCounter(this)">' +
+        '<span class="fee-char-count">50 of 50 remaining</span>' +
+        '</div>' +
+        '<div>' +
+        '<label class="usa-label">Price Point</label>' +
+        '<input class="usa-input" type="text" value="$0.00">' +
+        '</div>' +
+        '<div class="fee-delete-col">' +
+        '<button type="button" class="fee-delete-btn" onclick="deleteFeeRow(this, \'appFeeRows\')" title="Delete Row" style="display:none;">' +
+        '<img src="assets/icon-delete.png" alt="Delete Row" width="24" height="24">' +
+        '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    }
+
+    function buildLicenseFeeRowHTML(idx) {
+      return (
+        '<div class="section-indicator section-indicator--small fee-row-wrapper" data-section="' + (idx + 1) + '">' +
+        '<div class="fee-row-grid">' +
+        '<div>' +
+        '<label class="usa-label">SKU</label>' +
+        '<select class="usa-select">' + skuOptions + '</select>' +
+        '</div>' +
+        '<div>' +
+        '<label class="usa-label">License Permit Fee Name</label>' +
+        '<input class="usa-input fee-name-input" type="text" maxlength="50" oninput="updateFeeCounter(this)">' +
+        '<span class="fee-char-count">50 of 50 remaining</span>' +
+        '</div>' +
+        '<div>' +
+        '<label class="usa-label">Price Point</label>' +
+        '<input class="usa-input" type="text" value="$0.00">' +
+        '</div>' +
+        '<div class="fee-delete-col">' +
+        '<button type="button" class="fee-delete-btn" onclick="deleteFeeRow(this, \'licenseFeeRows\')" title="Delete Row" style="display:none;">' +
+        '<img src="assets/icon-delete.png" alt="Delete Row" width="24" height="24">' +
+        '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>'
+      );
+    }
+
+    function addAppFeeRow() {
+      var container = document.getElementById('appFeeRows');
+      container.insertAdjacentHTML('beforeend', buildAppFeeRowHTML(appFeeCount));
+      appFeeCount++;
+      updateAllDeleteButtons('appFeeRows', appFeeCount);
+    }
+
+    function addLicenseFeeRow() {
+      if (licenseFeeCount >= 10) {
+        alert('You can add up to ten (10) different fees.');
+        return;
+      }
+      var container = document.getElementById('licenseFeeRows');
+      container.insertAdjacentHTML('beforeend', buildLicenseFeeRowHTML(licenseFeeCount));
+      licenseFeeCount++;
+      updateAllDeleteButtons('licenseFeeRows', licenseFeeCount);
+    }
+
+    function deleteFeeRow(btn, containerId) {
+      var row = btn.closest('.fee-row-wrapper');
+      row.parentNode.removeChild(row);
+      if (containerId === 'appFeeRows') {
+        appFeeCount--;
+        updateAllDeleteButtons('appFeeRows', appFeeCount);
+      } else {
+        licenseFeeCount--;
+        updateAllDeleteButtons('licenseFeeRows', licenseFeeCount);
+      }
+      renumberRows(containerId);
+    }
+
+    function renumberRows(containerId) {
+      var rows = document.querySelectorAll('#' + containerId + ' .fee-row-wrapper');
+      rows.forEach(function (row, i) {
+        row.setAttribute('data-section', i + 1);
+      });
+    }
+
+    function updateAllDeleteButtons(containerId, count) {
+      document.querySelectorAll('#' + containerId + ' .fee-delete-btn').forEach(function (btn) {
+        btn.style.display = count > 1 ? '' : 'none';
+      });
+    }
+
+    function updateFeeCounter(input) {
+      var counter = input.nextElementSibling;
+      if (counter && counter.classList.contains('fee-char-count')) {
+        var remaining = 50 - input.value.length;
+        counter.textContent = remaining + ' of 50 remaining';
+      }
+    }
+
+    function updateLicenseDesc(textarea) {
+      var remaining = 1000 - textarea.value.length;
+      document.getElementById('licenseDescCounter').textContent = remaining + ' characters left';
+    }
+  </script>
+</body>
+
+</html>

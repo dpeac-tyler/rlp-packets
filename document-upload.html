@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Upload - RLP</title>
+  <!-- Custom RLP Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .wysiwyg-wrapper {
+      border: 1px solid #565c65;
+      background: #fff;
+      margin-top: 0.8rem;
+    }
+    .wysiwyg-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      padding: 0.5rem 0.8rem;
+      border-bottom: 1px solid #dfe1e2;
+      background: #f0f0f0;
+    }
+    .wysiwyg-toolbar button {
+      min-width: 3rem;
+      height: 2.8rem;
+      border: 1px solid #a9aeb1;
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.4rem;
+      font-family: inherit;
+      padding: 0 0.6rem;
+      border-radius: 2px;
+    }
+    .wysiwyg-toolbar button:hover {
+      background: #dfe1e2;
+    }
+    .wysiwyg-toolbar .toolbar-sep {
+      width: 1px;
+      background: #a9aeb1;
+      margin: 0.2rem 0.2rem;
+    }
+    .wysiwyg-content {
+      min-height: 12rem;
+      padding: 0.8rem;
+      font-size: 1.6rem;
+      font-family: "Public Sans Web", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.5;
+      outline: none;
+      overflow-y: auto;
+    }
+    .wysiwyg-content:focus {
+      outline: 0.25rem solid #2491ff;
+      outline-offset: 0;
+    }
+    .wysiwyg-footer {
+      padding: 0.3rem 0.8rem;
+      font-size: 1.3rem;
+      color: #71767a;
+      text-align: right;
+      border-top: 1px solid #dfe1e2;
+    }
+    .wysiwyg-footer .char-count.over-limit {
+      color: #b50909;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome DNR! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/il-logo.png" alt="Illinois Department of Natural Resources agency logo"
+                  class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">Illinois Department of Natural Resources</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false"
+                        class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                        </path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z">
+                        </path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-info-bar">
+      <div class="grid-container">
+        <div class="app-info-bar__grid">
+          <div>
+            <span class="app-info-bar__label">Application/Permit Name:</span>
+            <span class="app-info-bar__value">Application Builder Application</span>
+          </div>
+          <div>
+            <span class="app-info-bar__label">License/Application Type:</span>
+            <span class="app-info-bar__value">Application Builder : AP : Authenticated, Individual, Signature, Document Upload</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="main-content" class="grid-container">
+      <div class="usa-step-indicator margin-top-4" aria-label="progress">
+        <ol class="usa-step-indicator__segments">
+          <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+            <a class="usa-step-indicator__segment-label" href="document-upload.html">Application Details</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <a class="usa-step-indicator__segment-label" href="user-information.html">Applicant Information</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <a class="usa-step-indicator__segment-label" href="question-builder.html">Question Builder</a>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Conditions</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Payment</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Preview</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">License</span>
+          </li>
+          <li class="usa-step-indicator__segment">
+            <span class="usa-step-indicator__segment-label">Notification</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="usa-step-indicator__header">
+        <h1 class="usa-step-indicator__heading">
+          <span class="usa-step-indicator__heading-counter">1</span>
+          <span class="usa-step-indicator__total-steps">of 8</span>
+          <span class="usa-step-indicator__heading-text">Application Details</span>
+        </h1>
+      </div>
+
+      <div class="margin-top-4 app-builder-container">
+        <!-- Left sidebar -->
+        <div class="app-builder-sidebar">
+          <div class="usa-step-indicator usa-step-indicator--sidebar" aria-label="step progress">
+            <ol class="usa-step-indicator__segments">
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <span class="usa-step-indicator__segment-label">Getting Started</span>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <a class="usa-step-indicator__segment-label" href="application-type.html">Application Type</a>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <a class="usa-step-indicator__segment-label" href="title-information.html">Title Information</a>
+              </li>
+              <div class="step-connector-line"></div>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
+                <a class="usa-step-indicator__segment-label" href="form-number-deactivation.html">Form No., Deactivation &amp; Search Terms</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Right content area -->
+        <div class="app-builder-content">
+          <h1 class="app-builder-content__heading">Document Upload</h1>
+
+          <p class="app-builder-content__text">Define the documents included on application submissions.</p>
+
+          <ul class="app-builder-content__text" style="margin-top: 0; padding-left: 2.4rem;">
+            <li style="margin-bottom: 0.8rem;">First provide the applicant with instructions and information about the documents needed.</li>
+            <li style="margin-bottom: 0.8rem;">Then, add documents up to the maximum of 25. For each document, define details that will help constituents understand what is being requested and enable your organization to effectively manage the documents.</li>
+            <li style="margin-bottom: 0.8rem;">Later, in the Question Builder and Conditions sections, optionally map these documents to questions in your application. Documents that are part of conditions cannot be changed. To change them, first go to the Conditions tab and remove the condition(s). Then, return to this page and make any edits. Finally, return to the Conditions tab and reapply any rules. If you do not map a document to a question, then it will appear in a separate Document Upload section on the application.</li>
+          </ul>
+
+          <!-- Icon Key (above section) -->
+          <div class="usa-accordion usa-accordion--bordered" style="margin-bottom: 20px;">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="doc-upload-icon-key">
+                Icon Key
+              </button>
+            </h3>
+            <div id="doc-upload-icon-key" class="usa-accordion__content usa-prose" hidden>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="Delete Document icon" width="24" height="24">
+                  <span>- Delete Document</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 13: Instructions -->
+          <div class="section-indicator" data-section="13">
+            <label class="usa-label" style="font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem;">Instructions <span class="field-required">Required</span></label>
+            <div class="wysiwyg-wrapper">
+              <div class="wysiwyg-toolbar">
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('bold')"><strong>B</strong></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('italic')"><em>I</em></button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('underline')"><u>U</u></button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertUnorderedList')">&#8226; List</button>
+                <button type="button" onmousedown="event.preventDefault(); document.execCommand('insertOrderedList')">1. List</button>
+                <div class="toolbar-sep"></div>
+                <button type="button" onmousedown="event.preventDefault(); insertLink()">&#128279; Link</button>
+              </div>
+              <div class="wysiwyg-content" id="instructions" contenteditable="true" aria-label="Instructions" role="textbox" aria-multiline="true"></div>
+              <div class="wysiwyg-footer"><span class="char-count" data-for="instructions">0</span>/5000</div>
+            </div>
+
+            <p style="font-weight: 700; margin-top: 2rem;">Please configure the documents you will collect with this application.</p>
+
+            <!-- Document 1 -->
+            <div class="section-indicator section-indicator--small" data-section="1" style="background-color: #fff; padding: 2.4rem 2.4rem 2.4rem 5rem; border: 1px solid #dfe1e2; border-radius: 0.5rem; margin-top: 2rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.8rem; font-weight: 700; margin: 0;">Document 1</h3>
+                <button type="button" style="background: none; border: none; cursor: pointer; padding: 0;" aria-label="Delete Document 1">
+                  <img src="assets/icon-delete.png" alt="Delete" width="24" height="24">
+                </button>
+              </div>
+              <hr style="border: none; border-top: 1px solid #dfe1e2; margin-bottom: 2rem;">
+              <div style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; gap: 2rem; align-items: end;">
+                <div class="usa-form-group" style="margin: 0;">
+                  <label class="usa-label" for="doc1-type">1. Type <span class="field-required">Required</span></label>
+                  <select class="usa-select" id="doc1-type" name="doc1-type">
+                    <option value="">Please Select</option>
+                  </select>
+                </div>
+                <div class="usa-form-group" style="margin: 0;">
+                  <label class="usa-label" for="doc1-subtype">1. Sub Type</label>
+                  <select class="usa-select" id="doc1-subtype" name="doc1-subtype">
+                    <option value="">Please Select</option>
+                  </select>
+                </div>
+                <div class="usa-checkbox" style="padding-bottom: 0.8rem;">
+                  <input class="usa-checkbox__input" id="doc1-required" type="checkbox" name="doc1-required">
+                  <label class="usa-checkbox__label" for="doc1-required">Required</label>
+                </div>
+                <div class="usa-checkbox" style="padding-bottom: 0.8rem;">
+                  <input class="usa-checkbox__input" id="doc1-instructions" type="checkbox" name="doc1-instructions">
+                  <label class="usa-checkbox__label" for="doc1-instructions">Instructions</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Document 2 -->
+            <div class="section-indicator section-indicator--small" data-section="2" style="background-color: #fff; padding: 2.4rem 2.4rem 2.4rem 5rem; border: 1px solid #dfe1e2; border-radius: 0.5rem; margin-top: 2rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.8rem; font-weight: 700; margin: 0;">Document 2</h3>
+                <button type="button" style="background: none; border: none; cursor: pointer; padding: 0;" aria-label="Delete Document 2">
+                  <img src="assets/icon-delete.png" alt="Delete" width="24" height="24">
+                </button>
+              </div>
+              <hr style="border: none; border-top: 1px solid #dfe1e2; margin-bottom: 2rem;">
+              <div style="display: grid; grid-template-columns: 2fr 2fr 1fr 1fr; gap: 2rem; align-items: end;">
+                <div class="usa-form-group" style="margin: 0;">
+                  <label class="usa-label" for="doc2-type">2. Type <span class="field-required">Required</span></label>
+                  <select class="usa-select" id="doc2-type" name="doc2-type">
+                    <option value="">Please Select</option>
+                  </select>
+                </div>
+                <div class="usa-form-group" style="margin: 0;">
+                  <label class="usa-label" for="doc2-subtype">2. Sub Type</label>
+                  <select class="usa-select" id="doc2-subtype" name="doc2-subtype">
+                    <option value="">Please Select</option>
+                  </select>
+                </div>
+                <div class="usa-checkbox" style="padding-bottom: 0.8rem;">
+                  <input class="usa-checkbox__input" id="doc2-required" type="checkbox" name="doc2-required">
+                  <label class="usa-checkbox__label" for="doc2-required">Required</label>
+                </div>
+                <div class="usa-checkbox" style="padding-bottom: 0.8rem;">
+                  <input class="usa-checkbox__input" id="doc2-instructions" type="checkbox" name="doc2-instructions">
+                  <label class="usa-checkbox__label" for="doc2-instructions">Instructions</label>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="usa-button usa-button--accent-warm" style="margin-top: 2rem;">Add More</button>
+
+          </div>
+
+          <div class="app-builder-button-container">
+            <a href="external-integration.html" class="usa-button usa-button--outline">Back</a>
+            <a href="user-information.html" class="usa-button">Next</a>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    var MAX_CHARS = 5000;
+
+    document.querySelectorAll('.wysiwyg-content').forEach(function(editor) {
+      var id = editor.id;
+      var counter = document.querySelector('.char-count[data-for="' + id + '"]');
+
+      editor.addEventListener('input', function() {
+        var text = editor.innerText.replace(/\n$/, '');
+        if (text.length > MAX_CHARS) {
+          editor.innerText = text.substring(0, MAX_CHARS);
+          var range = document.createRange();
+          range.selectNodeContents(editor);
+          range.collapse(false);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        var count = editor.innerText.replace(/\n$/, '').length;
+        counter.textContent = count;
+        counter.classList.toggle('over-limit', count >= MAX_CHARS);
+      });
+    });
+
+    function insertLink() {
+      var url = prompt('Enter URL:');
+      if (url) {
+        document.execCommand('createLink', false, url);
+      }
+    }
+
+
+    document.querySelectorAll('.usa-accordion__button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var content = document.getElementById(this.getAttribute('aria-controls'));
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          content.setAttribute('hidden', '');
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          content.removeAttribute('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
