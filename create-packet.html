@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create New Packet - RLP</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .section-heading {
+      font-size: 1.9rem;
+      font-weight: 700;
+      border-bottom: 2px solid #dfe1e2;
+      padding-bottom: 8px;
+      margin: 32px 0 16px;
+    }
+    .section-description {
+      margin: 0 0 16px;
+      font-size: 1.6rem;
+      color: #3d4551;
+    }
+    .add-secondary-form {
+      background-color: #f0f0f0;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+    }
+    .add-secondary-grid {
+      display: grid;
+      grid-template-columns: 70% 15% 15%;
+      gap: 2rem;
+      align-items: end;
+    }
+    .type-radios {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      padding-top: 4px;
+    }
+    .type-radios label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .type-radios input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #1a4480;
+      cursor: pointer;
+    }
+    .type-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+    .type-badge--required { background: #1a4480; color: white; }
+    .type-badge--optional { background: #f0f0f0; color: #3d4551; border: 1px solid #a9aeb1; }
+    .secondaries-table { width: 100%; }
+    .settings-card {
+      background: #f9f9f9;
+      border: 1px solid #dfe1e2;
+      padding: 20px;
+    }
+    .settings-card .usa-checkbox__label {
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+    .settings-hint {
+      font-size: 1.4rem;
+      color: #71767a;
+      margin: 4px 0 0 2.8rem;
+    }
+
+    /* Combobox */
+    .combo-box { position: relative; }
+    .combo-box__list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid #a9aeb1;
+      border-top: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 240px;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+    }
+    .combo-box__list[hidden] { display: none; }
+    .combo-box__option {
+      padding: 10px 12px;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .combo-box__option:hover { background: #e8f0fe; }
+    .combo-box__option--no-results {
+      color: #71767a;
+      font-style: italic;
+      cursor: default;
+    }
+    .combo-box__option--no-results:hover { background: white; }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header management">
+      <a class="usa-skipnav" href="#main-content">Skip to Main Content</a>
+
+      <header class="usa-header">
+        <div class="skinny-header-container">
+          <div class="grid-container">
+            <div class="welcome-agency usa-banner__header-text">
+              Welcome ASP! &nbsp;<a href="#"><u>Logout</u></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="border-bottom-2px border-base-lighter">
+        <div class="grid-container navigation">
+          <div class="grid-row">
+            <div class="tablet:grid-col-6 logo-flex">
+              <a class="agency-logo-link" href="index.html">
+                <img src="assets/agency-logo.png" alt="ASP agency logo" class="agency-logo">
+              </a>
+              <a class="agency-name-link" href="index.html">
+                <div class="agency-name">ASP</div>
+              </a>
+            </div>
+            <div class="tablet:grid-col-6">
+              <nav class="grid-container">
+                <div class="grid-row header--nav-links">
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="index.html">
+                      <img src="assets/rlp-logo.png" alt="RLP logo" class="margin-right-1" height="30">Home
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col-auto nav__item">
+                    <a class="usa-link" href="search.html">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      </svg>Search
+                    </a>
+                  </div>
+                  <div class="tablet:grid-col nav__item">
+                    <a class="usa-link" href="#" target="_blank">
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      </svg>Help
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="horizontalNav main-menu">
+      <ul class="usa-nav__primary display-flex padding-left-0">
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="queues.html">Queues</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="my-tasks.html">My Tasks</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="license-types.html">License Types</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="applications.html">Applications</a></span>
+        </li>
+        <li class="usa-nav__primary-item">
+          <span class="menuItem-inner"><a href="settings.html">Settings</a></span>
+        </li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="grid-container">
+      <nav class="usa-breadcrumb margin-top-2" aria-label="Breadcrumbs">
+        <ol class="usa-breadcrumb__list">
+          <li class="usa-breadcrumb__list-item">
+            <a href="packets.html" class="usa-breadcrumb__link">All Packets</a>
+          </li>
+          <li class="usa-breadcrumb__list-item usa-current" aria-current="page">
+            <span>Create New Packet</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="profile-header">
+        <h1 class="profile-header__title">Create New Packet</h1>
+      </div>
+
+      <!-- Error Alert -->
+      <div id="error-alert" class="usa-alert usa-alert--error" hidden>
+        <div class="usa-alert__body">
+          <h3 class="usa-alert__heading">Error status</h3>
+          <p class="usa-alert__text">Please correct the following errors before submitting.</p>
+        </div>
+      </div>
+
+      <div class="profile-content">
+        <div class="inspection-content">
+
+          <!-- ── Packet Name ───────────────────────────────── -->
+          <div class="margin-bottom-4 margin-top-3" id="packet-name-group">
+            <label class="usa-label" for="packet-name">
+              Packet Name <span class="field-required">Required</span>
+            </label>
+            <span class="usa-error-message" id="packet-name-error" hidden>Enter a packet name</span>
+            <input class="usa-input" id="packet-name" name="packet-name" type="text" required>
+          </div>
+
+          <!-- ── Primary Application Type ─────────────────── -->
+          <h2 class="section-heading">Primary Application Type</h2>
+
+          <div class="margin-bottom-2" id="primary-license-group">
+            <label class="usa-label" for="primary-license">
+              Primary Application Type <span class="field-required">Required</span>
+            </label>
+            <span class="usa-hint">
+              Only application types configured with an AFQ review step are eligible.
+            </span>
+            <span class="usa-error-message" id="primary-license-error" hidden>Select a primary application type</span>
+            <div class="combo-box" id="primary-combo">
+              <input class="usa-input combo-box__input" type="text" id="primary-license-input"
+                     placeholder="Please Select" autocomplete="off"
+                     aria-expanded="false" aria-controls="primary-combo-list">
+              <input type="hidden" id="primary-license" name="primary-license">
+              <ul class="combo-box__list" id="primary-combo-list" role="listbox" hidden></ul>
+            </div>
+          </div>
+
+          <!-- ── Secondary Application Types ──────────────── -->
+          <h2 class="section-heading">Secondary Application Types</h2>
+          <p class="section-description">
+            Define child application types. At least one required secondary must be defined before saving.
+          </p>
+          <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required secondary application type</span>
+
+          <!-- Add secondary inline form -->
+          <div class="add-secondary-form">
+            <div class="add-secondary-grid">
+
+              <!-- Col 1: Application Type -->
+              <div>
+                <label class="usa-label margin-top-0" for="child-license-input">Application Type</label>
+                <div class="combo-box" id="child-combo">
+                  <input class="usa-input combo-box__input" type="text" id="child-license-input"
+                         placeholder="Please Select" autocomplete="off"
+                         aria-expanded="false" aria-controls="child-combo-list">
+                  <input type="hidden" id="child-license" name="child-license">
+                  <ul class="combo-box__list" id="child-combo-list" role="listbox" hidden></ul>
+                </div>
+              </div>
+
+              <!-- Col 2: Required Yes/No -->
+              <div>
+                <span class="usa-label margin-top-0 display-block">Required</span>
+                <div class="type-radios">
+                  <label><input type="radio" name="secondary-type" value="required" checked> Yes</label>
+                  <label><input type="radio" name="secondary-type" value="optional"> No</label>
+                </div>
+              </div>
+
+              <!-- Col 3: Add button -->
+              <div>
+                <button type="button" class="usa-button usa-button--accent-warm" id="add-secondary-btn">Add Application Type</button>
+              </div>
+
+            </div>
+            <span class="usa-error-message" id="add-form-error" hidden></span>
+          </div>
+
+          <!-- Secondaries table -->
+          <table
+            class="usa-table usa-table--borderless usa-table--striped secondaries-table"
+            id="secondaries-table"
+            style="display: none;">
+            <thead>
+              <tr>
+                <th scope="col">Application Type</th>
+                <th scope="col">Type</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody id="secondaries-body"></tbody>
+          </table>
+          <p id="no-secondaries-msg" class="text-base">No secondary application types added yet.</p>
+
+          <!-- ── Packet Settings ───────────────────────────── -->
+          <h2 class="section-heading">Packet Settings</h2>
+
+          <div class="settings-card">
+            <p class="margin-top-0">When enabled, the packet automatically submits to the agency once all required secondary submissions are complete. When disabled, the primary applicant must review and sign off before submission.</p>
+            <div class="usa-checkbox">
+              <input class="usa-checkbox__input" id="auto-submit" type="checkbox" name="auto-submit">
+              <label class="usa-checkbox__label" for="auto-submit">Auto-submit</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="margin-top-4">
+        <button type="button" class="usa-button" id="submit-button">Save</button>
+        <a href="packets.html" class="usa-button usa-button--secondary">Cancel</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const LICENSE_TYPE_LABELS = {
+      'firearm-business':    'Firearm Business License',
+      'professional-engineer': 'Professional Engineer License',
+      'general-contractor':  'General Contractor License',
+      'fishing-guide':       'Commercial Fishing Guide Permit',
+      'wildlife-rehab':      'Wildlife Rehabilitation Facility License',
+    };
+
+    let secondaries = []; // { licenseTypeKey, type }
+
+    const secondariesTable = document.getElementById('secondaries-table');
+    const secondariesBody  = document.getElementById('secondaries-body');
+    const noSecondariesMsg = document.getElementById('no-secondaries-msg');
+
+    // ── Render secondaries table ──────────────────────────────
+    function renderSecondaries() {
+      secondariesBody.innerHTML = '';
+
+      if (secondaries.length === 0) {
+        secondariesTable.style.display = 'none';
+        noSecondariesMsg.style.display = 'block';
+        return;
+      }
+
+      secondariesTable.style.display = 'table';
+      noSecondariesMsg.style.display = 'none';
+
+      secondaries.forEach((entry, idx) => {
+        const tr = document.createElement('tr');
+
+        const licenseTd = document.createElement('td');
+        licenseTd.textContent = LICENSE_TYPE_LABELS[entry.licenseTypeKey] || entry.licenseTypeKey;
+
+        const typeTd = document.createElement('td');
+        typeTd.textContent = entry.type.charAt(0).toUpperCase() + entry.type.slice(1);
+
+        const actionTd = document.createElement('td');
+        actionTd.style.textAlign = 'right';
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'usa-button usa-button--unstyled icon-button';
+        removeBtn.setAttribute('aria-label', 'Remove ' + entry.role);
+        removeBtn.innerHTML = '<img src="assets/icon-delete.png" alt="" width="24" height="24">';
+        removeBtn.addEventListener('click', () => {
+          secondaries.splice(idx, 1);
+          renderSecondaries();
+        });
+
+        actionTd.appendChild(removeBtn);
+        tr.appendChild(licenseTd);
+        tr.appendChild(typeTd);
+        tr.appendChild(actionTd);
+        secondariesBody.appendChild(tr);
+      });
+    }
+
+    // ── Add secondary ─────────────────────────────────────────
+    document.getElementById('add-secondary-btn').addEventListener('click', () => {
+      const licenseInput = document.getElementById('child-license');
+      const typeInput    = document.querySelector('input[name="secondary-type"]:checked');
+      const errorEl      = document.getElementById('add-form-error');
+
+      const childInput = document.getElementById('child-license-input');
+      errorEl.setAttribute('hidden', '');
+      errorEl.textContent = '';
+      childInput.classList.remove('usa-input--error');
+
+      const licenseKey = licenseInput.value;
+      const type       = typeInput ? typeInput.value : 'required';
+
+      if (!licenseKey) {
+        errorEl.textContent = 'Select an application type.';
+        errorEl.removeAttribute('hidden');
+        childInput.classList.add('usa-input--error');
+        return;
+      }
+
+      secondaries.push({ licenseTypeKey: licenseKey, type });
+      licenseInput.value = '';
+      document.querySelector('input[name="secondary-type"][value="required"]').checked = true;
+      renderSecondaries();
+
+      // Clear secondaries-level error if we now have a required entry
+      if (secondaries.some(s => s.type === 'required')) {
+        document.getElementById('secondaries-error').setAttribute('hidden', '');
+        document.getElementById('secondaries-error').parentElement.classList.remove('usa-form-group--error');
+      }
+    });
+
+    // ── Validation ────────────────────────────────────────────
+    function validateForm() {
+      let isValid = true;
+      clearErrors();
+
+      const packetName = document.getElementById('packet-name');
+      if (!packetName.value.trim()) {
+        showFieldError('packet-name-group', 'packet-name-error', 'packet-name');
+        isValid = false;
+      }
+
+      const primaryLicense = document.getElementById('primary-license');
+      if (!primaryLicense.value) {
+        showFieldError('primary-license-group', 'primary-license-error', 'primary-license-input');
+        isValid = false;
+      }
+
+      const hasRequiredSecondary = secondaries.some(s => s.type === 'required');
+      if (!hasRequiredSecondary) {
+        document.getElementById('secondaries-error').removeAttribute('hidden');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        document.getElementById('error-alert').removeAttribute('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      return isValid;
+    }
+
+    function showFieldError(groupId, errorId, fieldId) {
+      const group = document.getElementById(groupId);
+      if (group) group.classList.add('usa-form-group--error');
+      const err = document.getElementById(errorId);
+      if (err) err.removeAttribute('hidden');
+      if (fieldId) {
+        const field = document.getElementById(fieldId);
+        if (field) field.classList.add('usa-input--error');
+      }
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.usa-form-group--error').forEach(g => g.classList.remove('usa-form-group--error'));
+      document.querySelectorAll('.usa-error-message').forEach(e => e.setAttribute('hidden', ''));
+      document.querySelectorAll('.usa-input--error').forEach(f => f.classList.remove('usa-input--error'));
+      document.getElementById('error-alert').setAttribute('hidden', '');
+    }
+
+    document.getElementById('packet-name').addEventListener('input', function() {
+      if (this.value.trim()) {
+        document.getElementById('packet-name-group').classList.remove('usa-form-group--error');
+        document.getElementById('packet-name-error').setAttribute('hidden', '');
+        this.classList.remove('usa-input--error');
+      }
+    });
+
+    document.getElementById('submit-button').addEventListener('click', () => {
+      if (validateForm()) {
+        window.location.href = 'packets.html';
+      }
+    });
+
+    // ── Combobox ──────────────────────────────────────────────
+    const APP_TYPE_OPTIONS = [
+      { value: 'firearm-business',    label: 'Firearm Business License' },
+      { value: 'professional-engineer', label: 'Professional Engineer License' },
+      { value: 'general-contractor',  label: 'General Contractor License' },
+      { value: 'fishing-guide',       label: 'Commercial Fishing Guide Permit' },
+      { value: 'wildlife-rehab',      label: 'Wildlife Rehabilitation Facility License' },
+    ];
+
+    function initComboBox(textInputId, hiddenInputId, listId, options) {
+      const textInput   = document.getElementById(textInputId);
+      const hiddenInput = document.getElementById(hiddenInputId);
+      const list        = document.getElementById(listId);
+
+      function renderList(query) {
+        const q = query.toLowerCase().trim();
+        const matches = q ? options.filter(o => o.label.toLowerCase().includes(q)) : options;
+        list.innerHTML = '';
+
+        if (matches.length === 0) {
+          const li = document.createElement('li');
+          li.className = 'combo-box__option combo-box__option--no-results';
+          li.textContent = 'No matching options';
+          list.appendChild(li);
+        } else {
+          matches.forEach(opt => {
+            const li = document.createElement('li');
+            li.className = 'combo-box__option';
+            li.textContent = opt.label;
+            li.setAttribute('role', 'option');
+            li.addEventListener('mousedown', e => {
+              e.preventDefault();
+              textInput.value  = opt.label;
+              hiddenInput.value = opt.value;
+              list.setAttribute('hidden', '');
+              textInput.setAttribute('aria-expanded', 'false');
+              textInput.classList.remove('usa-input--error');
+              // clear primary error on selection
+              if (hiddenInputId === 'primary-license') {
+                document.getElementById('primary-license-group').classList.remove('usa-form-group--error');
+                document.getElementById('primary-license-error').setAttribute('hidden', '');
+              }
+              if (hiddenInputId === 'child-license') {
+                document.getElementById('add-form-error').setAttribute('hidden', '');
+              }
+            });
+            list.appendChild(li);
+          });
+        }
+
+        list.removeAttribute('hidden');
+        textInput.setAttribute('aria-expanded', 'true');
+      }
+
+      textInput.addEventListener('input', function() {
+        hiddenInput.value = '';
+        renderList(this.value);
+      });
+
+      textInput.addEventListener('focus', function() {
+        renderList(this.value);
+      });
+
+      textInput.addEventListener('blur', function() {
+        setTimeout(() => {
+          list.setAttribute('hidden', '');
+          textInput.setAttribute('aria-expanded', 'false');
+          // if typed text doesn't match a selection, clear it
+          if (!hiddenInput.value) textInput.value = '';
+        }, 150);
+      });
+    }
+
+    initComboBox('primary-license-input', 'primary-license', 'primary-combo-list', APP_TYPE_OPTIONS);
+    initComboBox('child-license-input',   'child-license',   'child-combo-list',   APP_TYPE_OPTIONS);
+  </script>
+</body>
+</html>
