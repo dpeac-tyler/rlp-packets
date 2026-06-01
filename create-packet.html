@@ -525,7 +525,7 @@
     // ── Render secondary rows ─────────────────────────────
     function renderSecondaryRows() {
       const container = document.getElementById('secondaries-list');
-      const noMsg = document.getElementById('no-secondaries-msg');
+      const noMsg     = document.getElementById('no-secondaries-msg');
 
       container.querySelectorAll('.question-row-container').forEach(el => el.remove());
 
@@ -533,7 +533,6 @@
         noMsg.style.display = 'block';
         return;
       }
-
       noMsg.style.display = 'none';
 
       secondaries.forEach((entry, idx) => {
