@@ -157,7 +157,7 @@
               <td>01/15/2026</td>
               <td>Agency Username</td>
               <td style="white-space: nowrap;">
-                <a href="#" class="icon-button" aria-label="View Packet"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="0"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
@@ -169,7 +169,7 @@
               <td>02/03/2026</td>
               <td>Sarah Johnson</td>
               <td style="white-space: nowrap;">
-                <a href="#" class="icon-button" aria-label="View Packet"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="1"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
@@ -181,7 +181,7 @@
               <td>03/10/2026</td>
               <td>Alan Jones</td>
               <td style="white-space: nowrap;">
-                <a href="#" class="icon-button" aria-label="View Packet"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="2"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
@@ -193,7 +193,7 @@
               <td>04/22/2026</td>
               <td>Michael Chen</td>
               <td style="white-space: nowrap;">
-                <a href="#" class="icon-button" aria-label="View Packet"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="3"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
@@ -203,7 +203,119 @@
       </div>
     </main>
   </div>
+  <!-- View Packet Modal -->
+  <div class="modal-overlay" id="view-packet-modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">View Packet</h2>
+        <button type="button" class="modal-close" id="close-view-modal" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-body" style="font-size: 1.6rem;">
+        <p style="margin: 0 0 10px;"><strong>Packet Name:</strong> <span id="view-packet-name"></span></p>
+        <p style="margin: 0 0 10px;"><strong>Primary Application Type:</strong> <span id="view-primary-type"></span></p>
+        <div id="view-secondaries-container" style="margin: 0 0 10px;">
+          <p style="margin: 0 0 4px;"><strong>Secondary Application Types:</strong></p>
+          <ul id="view-secondaries" style="margin: 0; padding-left: 2.4rem;"></ul>
+        </div>
+        <p style="margin: 0 0 10px;"><strong>Auto-submit:</strong> <span id="view-auto-submit"></span></p>
+        <p style="margin: 0;"><strong>Created:</strong> <span id="view-created"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button" id="close-view-modal-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    const PACKETS = [
+      {
+        name: 'Firearms Business Bundle',
+        primary: 'Firearm Business License Application',
+        secondaries: [
+          { name: 'General Contractor License', required: true }
+        ],
+        autoSubmit: true,
+        created: '01/15/2026',
+        createdBy: 'Agency Username'
+      },
+      {
+        name: 'Professional Licensing Packet',
+        primary: 'Professional Engineer License',
+        secondaries: [
+          { name: 'Commercial Fishing Guide Permit', required: false }
+        ],
+        autoSubmit: false,
+        created: '02/03/2026',
+        createdBy: 'Sarah Johnson'
+      },
+      {
+        name: 'Outdoor Commerce Packet',
+        primary: 'Commercial Fishing Guide Permit',
+        secondaries: [
+          { name: 'Wildlife Rehabilitation Facility License', required: true }
+        ],
+        autoSubmit: true,
+        created: '03/10/2026',
+        createdBy: 'Alan Jones'
+      },
+      {
+        name: 'Full Licensing Suite',
+        primary: 'Firearm Business License Application',
+        secondaries: [
+          { name: 'Professional Engineer License',             required: true  },
+          { name: 'General Contractor License',               required: true  },
+          { name: 'Commercial Fishing Guide Permit',          required: false },
+          { name: 'Wildlife Rehabilitation Facility License', required: false }
+        ],
+        autoSubmit: false,
+        created: '04/22/2026',
+        createdBy: 'Michael Chen'
+      }
+    ];
+
+    function openViewModal(idx) {
+      const p = PACKETS[idx];
+      document.getElementById('view-packet-name').textContent  = p.name;
+      document.getElementById('view-primary-type').textContent = p.primary;
+      document.getElementById('view-auto-submit').textContent  = p.autoSubmit ? 'Yes' : 'No';
+      document.getElementById('view-created').textContent      = p.created + ' by ' + p.createdBy;
+
+      const list = document.getElementById('view-secondaries');
+      list.innerHTML = p.secondaries.map(s =>
+        `<li><strong>${s.name}</strong> — Required: ${s.required ? 'Yes' : 'No'}</li>`
+      ).join('');
+
+      document.getElementById('view-packet-modal').removeAttribute('hidden');
+    }
+
+    function closeViewModal() {
+      document.getElementById('view-packet-modal').setAttribute('hidden', '');
+    }
+
+    document.getElementById('close-view-modal').addEventListener('click', closeViewModal);
+    document.getElementById('close-view-modal-btn').addEventListener('click', closeViewModal);
+
+    document.getElementById('view-packet-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeViewModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !document.getElementById('view-packet-modal').hidden) closeViewModal();
+    });
+
+    document.querySelectorAll('[data-packet-idx]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        openViewModal(parseInt(this.getAttribute('data-packet-idx')));
+      });
+    });
+
     document.querySelectorAll('.usa-accordion__button').forEach(button => {
       button.addEventListener('click', function() {
         const expanded = this.getAttribute('aria-expanded') === 'true';
