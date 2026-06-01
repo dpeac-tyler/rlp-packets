@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,29 +14,28 @@
       padding-bottom: 8px;
       margin: 32px 0 16px;
     }
+
     .section-description {
       margin: 0 0 16px;
       font-size: 1.6rem;
       color: #3d4551;
     }
+
     .add-secondary-form {
       background-color: #f0f0f0;
       padding: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       border-radius: 0.5rem;
+      min-height: 6rem;
     }
-    .add-secondary-grid {
-      display: grid;
-      grid-template-columns: 70% 15% 15%;
-      gap: 2rem;
-      align-items: end;
-    }
+
     .type-radios {
       display: flex;
       flex-direction: row;
       gap: 16px;
       padding-top: 4px;
     }
+
     .type-radios label {
       display: flex;
       align-items: center;
@@ -43,41 +43,37 @@
       font-size: 1.6rem;
       cursor: pointer;
     }
+
     .type-radios input[type="radio"] {
       width: 16px;
       height: 16px;
       accent-color: #1a4480;
       cursor: pointer;
     }
-    .type-badge {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 3px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .03em;
-    }
-    .type-badge--required { background: #1a4480; color: white; }
-    .type-badge--optional { background: #f0f0f0; color: #3d4551; border: 1px solid #a9aeb1; }
-    .secondaries-table { width: 100%; }
-    .settings-card {
-      background: #f9f9f9;
-      border: 1px solid #dfe1e2;
-      padding: 20px;
-    }
-    .settings-card .usa-checkbox__label {
-      font-weight: 700;
-      font-size: 1.6rem;
-    }
-    .settings-hint {
-      font-size: 1.4rem;
-      color: #71767a;
-      margin: 4px 0 0 2.8rem;
-    }
 
     /* Combobox */
-    .combo-box { position: relative; }
+    .combo-box {
+      position: relative;
+    }
+
+    .combo-box::after {
+      content: '';
+      position: absolute;
+      right: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.8rem;
+      height: 1.8rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    .combo-box__input {
+      padding-right: 3rem;
+    }
+
     .combo-box__list {
       position: absolute;
       top: 100%;
@@ -91,24 +87,36 @@
       padding: 0;
       max-height: 240px;
       overflow-y: auto;
-      z-index: 100;
-      box-shadow: 0 4px 8px rgba(0,0,0,.1);
+      z-index: 10001;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
     }
-    .combo-box__list[hidden] { display: none; }
+
+    .combo-box__list[hidden] {
+      display: none;
+    }
+
     .combo-box__option {
       padding: 10px 12px;
       font-size: 1.6rem;
       cursor: pointer;
     }
-    .combo-box__option:hover { background: #e8f0fe; }
+
+    .combo-box__option:hover {
+      background: #e8f0fe;
+    }
+
     .combo-box__option--no-results {
       color: #71767a;
       font-style: italic;
       cursor: default;
     }
-    .combo-box__option--no-results:hover { background: white; }
+
+    .combo-box__option--no-results:hover {
+      background: white;
+    }
   </style>
 </head>
+
 <body>
   <div class="app-container">
     <div class="header management">
@@ -145,15 +153,22 @@
                   </div>
                   <div class="tablet:grid-col-auto nav__item">
                     <a class="usa-link" href="search.html">
-                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
-                        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+                      <svg aria-hidden="true" focusable="false"
+                        class="svg-inline--fa fa-magnifying-glass fa-xl margin-right-1" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z">
+                        </path>
                       </svg>Search
                     </a>
                   </div>
                   <div class="tablet:grid-col nav__item">
                     <a class="usa-link" href="#" target="_blank">
-                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
-                        <path fill="currentColor" d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"></path>
+                      <svg aria-hidden="true" focusable="false" class="svg-inline--fa fa-life-ring fa-xl margin-right-1"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="30">
+                        <path fill="currentColor"
+                          d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z">
+                        </path>
                       </svg>Help
                     </a>
                   </div>
@@ -212,6 +227,13 @@
       <div class="profile-content">
         <div class="inspection-content">
 
+          <p class="section-description margin-top-3">Packets group a primary application type with one or more
+            secondary application types. When a packet is created, the primary applicant completes the primary
+            application, after which affiliated users are prompted to complete the associated secondary applications.
+            Each secondary can be marked as Required, meaning it must be completed before the packet can be submitted
+            or Optional, allowing it to be skipped. At least one required secondary must be defined before a packet can
+            be saved.</p>
+
           <!-- ── Packet Name ───────────────────────────────── -->
           <div class="margin-bottom-4 margin-top-3" id="packet-name-group">
             <label class="usa-label" for="packet-name">
@@ -223,19 +245,16 @@
 
           <!-- ── Primary Application Type ─────────────────── -->
           <h2 class="section-heading">Primary Application Type</h2>
+          <p class="section-description">Only application types configured with an AFQ review step are eligible.</p>
 
           <div class="margin-bottom-2" id="primary-license-group">
             <label class="usa-label" for="primary-license">
               Primary Application Type <span class="field-required">Required</span>
             </label>
-            <span class="usa-hint">
-              Only application types configured with an AFQ review step are eligible.
-            </span>
             <span class="usa-error-message" id="primary-license-error" hidden>Select a primary application type</span>
             <div class="combo-box" id="primary-combo">
               <input class="usa-input combo-box__input" type="text" id="primary-license-input"
-                     placeholder="Please Select" autocomplete="off"
-                     aria-expanded="false" aria-controls="primary-combo-list">
+                placeholder="Please Select" autocomplete="off" aria-expanded="false" aria-controls="primary-combo-list">
               <input type="hidden" id="primary-license" name="primary-license">
               <ul class="combo-box__list" id="primary-combo-list" role="listbox" hidden></ul>
             </div>
@@ -246,68 +265,64 @@
           <p class="section-description">
             Define child application types. At least one required secondary must be defined before saving.
           </p>
-          <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required secondary application type</span>
+          <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required secondary application
+            type</span>
 
-          <!-- Add secondary inline form -->
-          <div class="add-secondary-form">
-            <div class="add-secondary-grid">
-
-              <!-- Col 1: Application Type -->
-              <div>
-                <label class="usa-label margin-top-0" for="child-license-input">Application Type</label>
-                <div class="combo-box" id="child-combo">
-                  <input class="usa-input combo-box__input" type="text" id="child-license-input"
-                         placeholder="Please Select" autocomplete="off"
-                         aria-expanded="false" aria-controls="child-combo-list">
-                  <input type="hidden" id="child-license" name="child-license">
-                  <ul class="combo-box__list" id="child-combo-list" role="listbox" hidden></ul>
+          <!-- Icon Key -->
+          <div class="usa-accordion usa-accordion--bordered" style="margin-bottom: 20px;">
+            <h3 class="usa-accordion__heading">
+              <button type="button" class="usa-accordion__button" aria-expanded="false"
+                aria-controls="secondary-icon-key-content">
+                Icon Key
+              </button>
+            </h3>
+            <div id="secondary-icon-key-content" class="usa-accordion__content usa-prose" hidden>
+              <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+              <div class="icon-key-grid">
+                <div class="icon-key-item">
+                  <span class="question-row__badge">R</span>
+                  <span>- Required</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/edit-icon.png" alt="" width="24" height="24">
+                  <span>- Edit Application Type</span>
+                </div>
+                <div class="icon-key-item">
+                  <img src="assets/icon-delete.png" alt="" width="24" height="24">
+                  <span>- Remove Application Type</span>
                 </div>
               </div>
-
-              <!-- Col 2: Required Yes/No -->
-              <div>
-                <span class="usa-label margin-top-0 display-block">Required</span>
-                <div class="type-radios">
-                  <label><input type="radio" name="secondary-type" value="required" checked> Yes</label>
-                  <label><input type="radio" name="secondary-type" value="optional"> No</label>
-                </div>
-              </div>
-
-              <!-- Col 3: Add button -->
-              <div>
-                <button type="button" class="usa-button usa-button--accent-warm" id="add-secondary-btn">Add Application Type</button>
-              </div>
-
             </div>
-            <span class="usa-error-message" id="add-form-error" hidden></span>
           </div>
 
-          <!-- Secondaries table -->
-          <table
-            class="usa-table usa-table--borderless usa-table--striped secondaries-table"
-            id="secondaries-table"
-            style="display: none;">
-            <thead>
-              <tr>
-                <th scope="col">Application Type</th>
-                <th scope="col">Type</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody id="secondaries-body"></tbody>
-          </table>
-          <p id="no-secondaries-msg" class="text-base">No secondary application types added yet.</p>
+          <!-- Secondaries list container -->
+          <div class="add-secondary-form" id="secondaries-list">
+            <div class="questions-section__header">
+              <div class="questions-section__header-title">Application Type</div>
+              <div class="questions-section__header-title">Options</div>
+              <div class="questions-section__header-title">Controls</div>
+            </div>
+            <p id="no-secondaries-msg" class="text-base margin-0" style="color: #71767a;">No secondary application types
+              added yet.</p>
+          </div>
+
+          <!-- Add button -->
+          <div class="app-builder-button-container" style="margin-bottom: 2rem;">
+            <button type="button" class="usa-button usa-button--accent-warm" id="open-add-secondary-btn">Add Application
+              Type</button>
+          </div>
 
           <!-- ── Packet Settings ───────────────────────────── -->
           <h2 class="section-heading">Packet Settings</h2>
 
-          <div class="settings-card">
-            <p class="margin-top-0">When enabled, the packet automatically submits to the agency once all required secondary submissions are complete. When disabled, the primary applicant must review and sign off before submission.</p>
-            <div class="usa-checkbox">
-              <input class="usa-checkbox__input" id="auto-submit" type="checkbox" name="auto-submit">
-              <label class="usa-checkbox__label" for="auto-submit">Auto-submit</label>
-            </div>
+          <p class="margin-top-0">When enabled, the packet automatically submits to the agency once all required
+            secondary submissions are complete. When disabled, the primary applicant must review and sign off before
+            submission.</p>
+          <div class="usa-checkbox">
+            <input class="usa-checkbox__input" id="auto-submit" type="checkbox" name="auto-submit">
+            <label class="usa-checkbox__label" for="auto-submit">Auto-submit</label>
           </div>
+
 
         </div>
       </div>
@@ -319,97 +334,220 @@
     </main>
   </div>
 
+  <!-- ── Add Secondary Modal ────────────────────────────── -->
+  <div class="modal-overlay" id="add-secondary-modal" hidden>
+    <div class="modal-content" style="overflow: visible;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Add Application Type</h2>
+        <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-body" style="overflow: visible;">
+        <div id="modal-app-type-group">
+          <label class="usa-label" for="modal-child-license-input">
+            Application Type <span class="field-required">Required</span>
+          </label>
+          <span class="usa-error-message" id="modal-app-type-error" hidden>Select an application type.</span>
+          <div class="combo-box" id="modal-child-combo">
+            <input class="usa-input combo-box__input" type="text" id="modal-child-license-input"
+              placeholder="Please Select" autocomplete="off" aria-expanded="false"
+              aria-controls="modal-child-combo-list">
+            <input type="hidden" id="modal-child-license">
+            <ul class="combo-box__list" id="modal-child-combo-list" role="listbox" hidden></ul>
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
+          <span class="usa-label display-block">Required</span>
+          <div class="type-radios">
+            <label><input type="radio" name="modal-secondary-type" value="required" checked> Yes</label>
+            <label><input type="radio" name="modal-secondary-type" value="optional"> No</label>
+          </div>
+        </div>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-footer">
+        <button type="button" class="usa-button" id="save-secondary-btn">Save</button>
+        <button type="button" class="usa-button usa-button--outline" id="cancel-secondary-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Notification -->
+  <div id="successNotification" class="notification">
+    <div class="notification-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="notification-text" id="notificationText"></div>
+  </div>
+
   <script>
-    const LICENSE_TYPE_LABELS = {
-      'firearm-business':    'Firearm Business License',
-      'professional-engineer': 'Professional Engineer License',
-      'general-contractor':  'General Contractor License',
-      'fishing-guide':       'Commercial Fishing Guide Permit',
-      'wildlife-rehab':      'Wildlife Rehabilitation Facility License',
-    };
+    // ── Accordion ─────────────────────────────────────────
+    document.querySelectorAll('.usa-accordion__button').forEach(button => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const content = document.getElementById(this.getAttribute('aria-controls'));
+        this.setAttribute('aria-expanded', !expanded);
+        content.hidden = expanded;
+      });
+    });
 
-    let secondaries = []; // { licenseTypeKey, type }
+    let secondaries = []; // { licenseTypeKey, label, type }
 
-    const secondariesTable = document.getElementById('secondaries-table');
-    const secondariesBody  = document.getElementById('secondaries-body');
-    const noSecondariesMsg = document.getElementById('no-secondaries-msg');
+    // ── Modal ─────────────────────────────────────────────
+    let editingIndex = null;
 
-    // ── Render secondaries table ──────────────────────────────
-    function renderSecondaries() {
-      secondariesBody.innerHTML = '';
+    function openModal(idx) {
+      editingIndex = (idx !== undefined) ? idx : null;
+      document.getElementById('modal-title').textContent = editingIndex !== null ? 'Edit Application Type' : 'Add Application Type';
+      document.getElementById('add-secondary-modal').removeAttribute('hidden');
 
-      if (secondaries.length === 0) {
-        secondariesTable.style.display = 'none';
-        noSecondariesMsg.style.display = 'block';
-        return;
+      const errorEl = document.getElementById('modal-app-type-error');
+      errorEl.setAttribute('hidden', '');
+      errorEl.textContent = 'Select an application type.';
+      document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
+      document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
+
+      if (editingIndex !== null) {
+        const entry = secondaries[editingIndex];
+        document.getElementById('modal-child-license-input').value = entry.label;
+        document.getElementById('modal-child-license').value = entry.licenseTypeKey;
+        document.querySelector(`input[name="modal-secondary-type"][value="${entry.type}"]`).checked = true;
+      } else {
+        document.getElementById('modal-child-license-input').value = '';
+        document.getElementById('modal-child-license').value = '';
+        document.querySelector('input[name="modal-secondary-type"][value="required"]').checked = true;
       }
 
-      secondariesTable.style.display = 'table';
-      noSecondariesMsg.style.display = 'none';
-
-      secondaries.forEach((entry, idx) => {
-        const tr = document.createElement('tr');
-
-        const licenseTd = document.createElement('td');
-        licenseTd.textContent = LICENSE_TYPE_LABELS[entry.licenseTypeKey] || entry.licenseTypeKey;
-
-        const typeTd = document.createElement('td');
-        typeTd.textContent = entry.type.charAt(0).toUpperCase() + entry.type.slice(1);
-
-        const actionTd = document.createElement('td');
-        actionTd.style.textAlign = 'right';
-        const removeBtn = document.createElement('button');
-        removeBtn.type = 'button';
-        removeBtn.className = 'usa-button usa-button--unstyled icon-button';
-        removeBtn.setAttribute('aria-label', 'Remove ' + entry.role);
-        removeBtn.innerHTML = '<img src="assets/icon-delete.png" alt="" width="24" height="24">';
-        removeBtn.addEventListener('click', () => {
-          secondaries.splice(idx, 1);
-          renderSecondaries();
-        });
-
-        actionTd.appendChild(removeBtn);
-        tr.appendChild(licenseTd);
-        tr.appendChild(typeTd);
-        tr.appendChild(actionTd);
-        secondariesBody.appendChild(tr);
-      });
+      setTimeout(() => document.getElementById('modal-child-license-input').focus(), 50);
     }
 
-    // ── Add secondary ─────────────────────────────────────────
-    document.getElementById('add-secondary-btn').addEventListener('click', () => {
-      const licenseInput = document.getElementById('child-license');
-      const typeInput    = document.querySelector('input[name="secondary-type"]:checked');
-      const errorEl      = document.getElementById('add-form-error');
+    function closeModal() {
+      document.getElementById('add-secondary-modal').setAttribute('hidden', '');
+      editingIndex = null;
+    }
 
-      const childInput = document.getElementById('child-license-input');
+    document.getElementById('open-add-secondary-btn').addEventListener('click', () => openModal());
+    document.getElementById('close-modal-btn').addEventListener('click', closeModal);
+    document.getElementById('cancel-secondary-btn').addEventListener('click', closeModal);
+
+    document.getElementById('add-secondary-modal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !document.getElementById('add-secondary-modal').hidden) {
+        closeModal();
+      }
+    });
+
+    document.getElementById('save-secondary-btn').addEventListener('click', function () {
+      const licenseKey = document.getElementById('modal-child-license').value;
+      const label = document.getElementById('modal-child-license-input').value;
+      const type = document.querySelector('input[name="modal-secondary-type"]:checked').value;
+      const errorEl = document.getElementById('modal-app-type-error');
+
       errorEl.setAttribute('hidden', '');
-      errorEl.textContent = '';
-      childInput.classList.remove('usa-input--error');
-
-      const licenseKey = licenseInput.value;
-      const type       = typeInput ? typeInput.value : 'required';
+      document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
+      document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
 
       if (!licenseKey) {
         errorEl.textContent = 'Select an application type.';
         errorEl.removeAttribute('hidden');
-        childInput.classList.add('usa-input--error');
+        document.getElementById('modal-app-type-group').classList.add('usa-form-group--error');
+        document.getElementById('modal-child-license-input').classList.add('usa-input--error');
         return;
       }
 
-      secondaries.push({ licenseTypeKey: licenseKey, type });
-      licenseInput.value = '';
-      document.querySelector('input[name="secondary-type"][value="required"]').checked = true;
-      renderSecondaries();
+      if (secondaries.some((s, i) => s.licenseTypeKey === licenseKey && i !== editingIndex)) {
+        errorEl.textContent = 'This application type has already been added.';
+        errorEl.removeAttribute('hidden');
+        document.getElementById('modal-app-type-group').classList.add('usa-form-group--error');
+        document.getElementById('modal-child-license-input').classList.add('usa-input--error');
+        return;
+      }
 
-      // Clear secondaries-level error if we now have a required entry
+      if (editingIndex !== null) {
+        secondaries[editingIndex] = { licenseTypeKey: licenseKey, label, type };
+      } else {
+        secondaries.push({ licenseTypeKey: licenseKey, label, type });
+      }
+
+      const wasEditing = editingIndex !== null;
+      closeModal();
+      renderSecondaryRows();
+
       if (secondaries.some(s => s.type === 'required')) {
         document.getElementById('secondaries-error').setAttribute('hidden', '');
-        document.getElementById('secondaries-error').parentElement.classList.remove('usa-form-group--error');
       }
+
+      showSuccessNotification(wasEditing ? 'Application type updated successfully!' : 'Application type added successfully!');
     });
 
-    // ── Validation ────────────────────────────────────────────
+    // ── Render secondary rows ─────────────────────────────
+    function renderSecondaryRows() {
+      const container = document.getElementById('secondaries-list');
+      const noMsg = document.getElementById('no-secondaries-msg');
+
+      container.querySelectorAll('.question-row-container').forEach(el => el.remove());
+
+      if (secondaries.length === 0) {
+        noMsg.style.display = 'block';
+        return;
+      }
+
+      noMsg.style.display = 'none';
+
+      secondaries.forEach((entry, idx) => {
+        const row = document.createElement('div');
+        row.className = 'question-row-container';
+        row.setAttribute('data-question-number', idx + 1);
+
+        row.innerHTML = `
+          <div class="question-row-grid">
+            <div class="question-row__question-col">
+              <p class="question-row__question-text">${escapeHtml(entry.label)}</p>
+            </div>
+            <div class="question-row__options-col">
+              ${entry.type === 'required' ? '<span class="question-row__badge">R</span>' : ''}
+            </div>
+            <div class="question-row__controls-col">
+              <button type="button" class="question-row__control-btn" title="Edit" aria-label="Edit ${escapeHtml(entry.label)}" data-edit-idx="${idx}">
+                <img src="assets/edit-icon.png" alt="Edit">
+              </button>
+              <button type="button" class="question-row__control-btn" title="Remove" aria-label="Remove ${escapeHtml(entry.label)}" data-idx="${idx}">
+                <img src="assets/icon-delete.png" alt="Remove">
+              </button>
+            </div>
+          </div>
+        `;
+
+        row.querySelector('[data-edit-idx]').addEventListener('click', function () {
+          openModal(parseInt(this.getAttribute('data-edit-idx')));
+        });
+
+        row.querySelector('[data-idx]').addEventListener('click', function () {
+          removeSecondary(parseInt(this.getAttribute('data-idx')));
+        });
+
+        container.appendChild(row);
+      });
+    }
+
+    function removeSecondary(idx) {
+      secondaries.splice(idx, 1);
+      renderSecondaryRows();
+    }
+
+    // ── Validation ────────────────────────────────────────
     function validateForm() {
       let isValid = true;
       clearErrors();
@@ -426,8 +564,7 @@
         isValid = false;
       }
 
-      const hasRequiredSecondary = secondaries.some(s => s.type === 'required');
-      if (!hasRequiredSecondary) {
+      if (!secondaries.some(s => s.type === 'required')) {
         document.getElementById('secondaries-error').removeAttribute('hidden');
         isValid = false;
       }
@@ -445,10 +582,8 @@
       if (group) group.classList.add('usa-form-group--error');
       const err = document.getElementById(errorId);
       if (err) err.removeAttribute('hidden');
-      if (fieldId) {
-        const field = document.getElementById(fieldId);
-        if (field) field.classList.add('usa-input--error');
-      }
+      const field = document.getElementById(fieldId);
+      if (field) field.classList.add('usa-input--error');
     }
 
     function clearErrors() {
@@ -458,7 +593,7 @@
       document.getElementById('error-alert').setAttribute('hidden', '');
     }
 
-    document.getElementById('packet-name').addEventListener('input', function() {
+    document.getElementById('packet-name').addEventListener('input', function () {
       if (this.value.trim()) {
         document.getElementById('packet-name-group').classList.remove('usa-form-group--error');
         document.getElementById('packet-name-error').setAttribute('hidden', '');
@@ -472,19 +607,32 @@
       }
     });
 
-    // ── Combobox ──────────────────────────────────────────────
+    // ── Success notification ──────────────────────────────
+    function showSuccessNotification(message) {
+      const notification = document.getElementById('successNotification');
+      const notificationText = document.getElementById('notificationText');
+      notificationText.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+        setTimeout(() => notification.classList.remove('hide'), 400);
+      }, 4000);
+    }
+
+    // ── Combobox ──────────────────────────────────────────
     const APP_TYPE_OPTIONS = [
-      { value: 'firearm-business',    label: 'Firearm Business License' },
+      { value: 'firearm-business', label: 'Firearm Business License' },
       { value: 'professional-engineer', label: 'Professional Engineer License' },
-      { value: 'general-contractor',  label: 'General Contractor License' },
-      { value: 'fishing-guide',       label: 'Commercial Fishing Guide Permit' },
-      { value: 'wildlife-rehab',      label: 'Wildlife Rehabilitation Facility License' },
+      { value: 'general-contractor', label: 'General Contractor License' },
+      { value: 'fishing-guide', label: 'Commercial Fishing Guide Permit' },
+      { value: 'wildlife-rehab', label: 'Wildlife Rehabilitation Facility License' },
     ];
 
-    function initComboBox(textInputId, hiddenInputId, listId, options) {
-      const textInput   = document.getElementById(textInputId);
+    function initComboBox(textInputId, hiddenInputId, listId, options, onSelectCallback) {
+      const textInput = document.getElementById(textInputId);
       const hiddenInput = document.getElementById(hiddenInputId);
-      const list        = document.getElementById(listId);
+      const list = document.getElementById(listId);
 
       function renderList(query) {
         const q = query.toLowerCase().trim();
@@ -504,19 +652,12 @@
             li.setAttribute('role', 'option');
             li.addEventListener('mousedown', e => {
               e.preventDefault();
-              textInput.value  = opt.label;
+              textInput.value = opt.label;
               hiddenInput.value = opt.value;
               list.setAttribute('hidden', '');
               textInput.setAttribute('aria-expanded', 'false');
               textInput.classList.remove('usa-input--error');
-              // clear primary error on selection
-              if (hiddenInputId === 'primary-license') {
-                document.getElementById('primary-license-group').classList.remove('usa-form-group--error');
-                document.getElementById('primary-license-error').setAttribute('hidden', '');
-              }
-              if (hiddenInputId === 'child-license') {
-                document.getElementById('add-form-error').setAttribute('hidden', '');
-              }
+              if (onSelectCallback) onSelectCallback(opt);
             });
             list.appendChild(li);
           });
@@ -526,27 +667,40 @@
         textInput.setAttribute('aria-expanded', 'true');
       }
 
-      textInput.addEventListener('input', function() {
+      textInput.addEventListener('input', function () {
         hiddenInput.value = '';
         renderList(this.value);
       });
 
-      textInput.addEventListener('focus', function() {
+      textInput.addEventListener('focus', function () {
         renderList(this.value);
       });
 
-      textInput.addEventListener('blur', function() {
+      textInput.addEventListener('blur', function () {
         setTimeout(() => {
           list.setAttribute('hidden', '');
           textInput.setAttribute('aria-expanded', 'false');
-          // if typed text doesn't match a selection, clear it
           if (!hiddenInput.value) textInput.value = '';
         }, 150);
       });
     }
 
-    initComboBox('primary-license-input', 'primary-license', 'primary-combo-list', APP_TYPE_OPTIONS);
-    initComboBox('child-license-input',   'child-license',   'child-combo-list',   APP_TYPE_OPTIONS);
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    initComboBox('primary-license-input', 'primary-license', 'primary-combo-list', APP_TYPE_OPTIONS, function () {
+      document.getElementById('primary-license-group').classList.remove('usa-form-group--error');
+      document.getElementById('primary-license-error').setAttribute('hidden', '');
+    });
+
+    initComboBox('modal-child-license-input', 'modal-child-license', 'modal-child-combo-list', APP_TYPE_OPTIONS, function () {
+      document.getElementById('modal-app-type-error').setAttribute('hidden', '');
+      document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
+    });
   </script>
 </body>
+
 </html>
