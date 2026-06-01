@@ -244,12 +244,12 @@
           </div>
 
           <!-- ── Primary Application Type ─────────────────── -->
-          <h2 class="section-heading">Primary Application Type</h2>
+          <h2 class="section-heading">Primary Application</h2>
           <p class="section-description">Only application types configured with an AFQ review step are eligible.</p>
 
           <div class="margin-bottom-2" id="primary-license-group">
             <label class="usa-label" for="primary-license">
-              Primary Application Type <span class="field-required">Required</span>
+              Primary Application <span class="field-required">Required</span>
             </label>
             <span class="usa-error-message" id="primary-license-error" hidden>Select a primary application type</span>
             <div class="combo-box" id="primary-combo">
@@ -261,9 +261,9 @@
           </div>
 
           <!-- ── Secondary Application Types ──────────────── -->
-          <h2 class="section-heading">Secondary Application Types</h2>
+          <h2 class="section-heading">Secondary Application(s)</h2>
           <p class="section-description">
-            Define child application types. At least one required secondary must be defined before saving.
+            Define child applications. At least one required secondary must be defined before saving.
           </p>
           <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required secondary application
             type</span>
@@ -285,11 +285,11 @@
                 </div>
                 <div class="icon-key-item">
                   <img src="assets/edit-icon.png" alt="" width="24" height="24">
-                  <span>- Edit Application Type</span>
+                  <span>- Edit Application</span>
                 </div>
                 <div class="icon-key-item">
                   <img src="assets/icon-delete.png" alt="" width="24" height="24">
-                  <span>- Remove Application Type</span>
+                  <span>- Remove Application</span>
                 </div>
               </div>
             </div>
@@ -297,8 +297,9 @@
 
           <!-- Secondaries list container -->
           <div class="add-secondary-form" id="secondaries-list">
-            <div class="questions-section__header">
-              <div class="questions-section__header-title">Application Type</div>
+            <div class="questions-section__header" style="grid-template-columns: 38% 24% 14% 24%;">
+              <div class="questions-section__header-title">Application</div>
+              <div class="questions-section__header-title">Role</div>
               <div class="questions-section__header-title">Options</div>
               <div class="questions-section__header-title">Controls</div>
             </div>
@@ -308,8 +309,7 @@
 
           <!-- Add button -->
           <div class="app-builder-button-container" style="margin-bottom: 2rem;">
-            <button type="button" class="usa-button usa-button--accent-warm" id="open-add-secondary-btn">Add Application
-              Type</button>
+            <button type="button" class="usa-button usa-button--accent-warm" id="open-add-secondary-btn">Add Application</button>
           </div>
 
           <!-- ── Packet Settings ───────────────────────────── -->
@@ -338,7 +338,7 @@
   <div class="modal-overlay" id="add-secondary-modal" hidden>
     <div class="modal-content" style="overflow: visible;">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Add Application Type</h2>
+        <h2 class="modal-title" id="modal-title">Add Application</h2>
         <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close modal">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -351,7 +351,7 @@
       <div class="modal-body" style="overflow: visible;">
         <div id="modal-app-type-group">
           <label class="usa-label" for="modal-child-license-input">
-            Application Type <span class="field-required">Required</span>
+            Application <span class="field-required">Required</span>
           </label>
           <span class="usa-error-message" id="modal-app-type-error" hidden>Select an application type.</span>
           <div class="combo-box" id="modal-child-combo">
@@ -361,6 +361,18 @@
             <input type="hidden" id="modal-child-license">
             <ul class="combo-box__list" id="modal-child-combo-list" role="listbox" hidden></ul>
           </div>
+        </div>
+        <div id="modal-role-group" style="margin-top: 30px;">
+          <label class="usa-label" for="modal-role">
+            Role <span class="field-required">Required</span>
+          </label>
+          <span class="usa-error-message" id="modal-role-error" hidden>Select a role.</span>
+          <select class="usa-select" id="modal-role">
+            <option value="">Please Select</option>
+            <option value="Owner">Owner</option>
+            <option value="Manager">Manager</option>
+            <option value="Officer">Officer</option>
+          </select>
         </div>
         <div style="margin-top: 30px;">
           <span class="usa-label display-block">Required</span>
@@ -406,7 +418,7 @@
 
     function openModal(idx) {
       editingIndex = (idx !== undefined) ? idx : null;
-      document.getElementById('modal-title').textContent = editingIndex !== null ? 'Edit Application Type' : 'Add Application Type';
+      document.getElementById('modal-title').textContent = editingIndex !== null ? 'Edit Application' : 'Add Application';
       document.getElementById('add-secondary-modal').removeAttribute('hidden');
 
       const errorEl = document.getElementById('modal-app-type-error');
@@ -414,15 +426,20 @@
       errorEl.textContent = 'Select an application type.';
       document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
       document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
+      document.getElementById('modal-role-error').setAttribute('hidden', '');
+      document.getElementById('modal-role-group').classList.remove('usa-form-group--error');
+      document.getElementById('modal-role').classList.remove('usa-select--error');
 
       if (editingIndex !== null) {
         const entry = secondaries[editingIndex];
         document.getElementById('modal-child-license-input').value = entry.label;
-        document.getElementById('modal-child-license').value = entry.licenseTypeKey;
+        document.getElementById('modal-child-license').value       = entry.licenseTypeKey;
+        document.getElementById('modal-role').value                = entry.role || '';
         document.querySelector(`input[name="modal-secondary-type"][value="${entry.type}"]`).checked = true;
       } else {
         document.getElementById('modal-child-license-input').value = '';
-        document.getElementById('modal-child-license').value = '';
+        document.getElementById('modal-child-license').value       = '';
+        document.getElementById('modal-role').value                = '';
         document.querySelector('input[name="modal-secondary-type"][value="required"]').checked = true;
       }
 
@@ -450,34 +467,48 @@
 
     document.getElementById('save-secondary-btn').addEventListener('click', function () {
       const licenseKey = document.getElementById('modal-child-license').value;
-      const label = document.getElementById('modal-child-license-input').value;
-      const type = document.querySelector('input[name="modal-secondary-type"]:checked').value;
-      const errorEl = document.getElementById('modal-app-type-error');
+      const label      = document.getElementById('modal-child-license-input').value;
+      const role       = document.getElementById('modal-role').value;
+      const type       = document.querySelector('input[name="modal-secondary-type"]:checked').value;
+      const errorEl    = document.getElementById('modal-app-type-error');
+      const roleErrorEl = document.getElementById('modal-role-error');
 
       errorEl.setAttribute('hidden', '');
       document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
       document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
+      roleErrorEl.setAttribute('hidden', '');
+      document.getElementById('modal-role-group').classList.remove('usa-form-group--error');
+      document.getElementById('modal-role').classList.remove('usa-select--error');
+
+      let valid = true;
 
       if (!licenseKey) {
         errorEl.textContent = 'Select an application type.';
         errorEl.removeAttribute('hidden');
         document.getElementById('modal-app-type-group').classList.add('usa-form-group--error');
         document.getElementById('modal-child-license-input').classList.add('usa-input--error');
-        return;
-      }
-
-      if (secondaries.some((s, i) => s.licenseTypeKey === licenseKey && i !== editingIndex)) {
-        errorEl.textContent = 'This application type has already been added.';
+        valid = false;
+      } else if (secondaries.some((s, i) => s.licenseTypeKey === licenseKey && i !== editingIndex)) {
+        errorEl.textContent = 'This application has already been added.';
         errorEl.removeAttribute('hidden');
         document.getElementById('modal-app-type-group').classList.add('usa-form-group--error');
         document.getElementById('modal-child-license-input').classList.add('usa-input--error');
-        return;
+        valid = false;
       }
 
+      if (!role) {
+        roleErrorEl.removeAttribute('hidden');
+        document.getElementById('modal-role-group').classList.add('usa-form-group--error');
+        document.getElementById('modal-role').classList.add('usa-select--error');
+        valid = false;
+      }
+
+      if (!valid) return;
+
       if (editingIndex !== null) {
-        secondaries[editingIndex] = { licenseTypeKey: licenseKey, label, type };
+        secondaries[editingIndex] = { licenseTypeKey: licenseKey, label, role, type };
       } else {
-        secondaries.push({ licenseTypeKey: licenseKey, label, type });
+        secondaries.push({ licenseTypeKey: licenseKey, label, role, type });
       }
 
       const wasEditing = editingIndex !== null;
@@ -488,7 +519,7 @@
         document.getElementById('secondaries-error').setAttribute('hidden', '');
       }
 
-      showSuccessNotification(wasEditing ? 'Application type updated successfully!' : 'Application type added successfully!');
+      showSuccessNotification(wasEditing ? 'Application updated successfully!' : 'Application added successfully!');
     });
 
     // ── Render secondary rows ─────────────────────────────
@@ -511,9 +542,12 @@
         row.setAttribute('data-question-number', idx + 1);
 
         row.innerHTML = `
-          <div class="question-row-grid">
+          <div class="question-row-grid" style="grid-template-columns: 38% 24% 14% 24%;">
             <div class="question-row__question-col">
               <p class="question-row__question-text">${escapeHtml(entry.label)}</p>
+            </div>
+            <div class="question-row__question-col">
+              <p class="question-row__question-text">${escapeHtml(entry.role || '')}</p>
             </div>
             <div class="question-row__options-col">
               ${entry.type === 'required' ? '<span class="question-row__badge">R</span>' : ''}
@@ -621,11 +655,59 @@
 
     // ── Combobox ──────────────────────────────────────────
     const APP_TYPE_OPTIONS = [
-      { value: 'firearm-business', label: 'Firearm Business License' },
+      { value: 'fbla-company',          label: 'FBLA - Company' },
+      { value: 'fbla-owner',            label: 'FBLA - Owner' },
+      { value: 'fbla-manager',          label: 'FBLA - Manager' },
+      { value: 'fbla-officer',          label: 'FBLA - Officer' },
+      { value: 'firearm-business',      label: 'Firearm Business License' },
       { value: 'professional-engineer', label: 'Professional Engineer License' },
-      { value: 'general-contractor', label: 'General Contractor License' },
-      { value: 'fishing-guide', label: 'Commercial Fishing Guide Permit' },
-      { value: 'wildlife-rehab', label: 'Wildlife Rehabilitation Facility License' },
+      { value: 'general-contractor',    label: 'General Contractor License' },
+      { value: 'fishing-guide',         label: 'Commercial Fishing Guide Permit' },
+      { value: 'wildlife-rehab',        label: 'Wildlife Rehabilitation Facility License' },
+    ];
+
+    const PACKETS = [
+      {
+        name: 'Firearms Business Bundle',
+        primaryValue: 'fbla-company',
+        primaryLabel: 'FBLA - Company',
+        secondaries: [
+          { licenseTypeKey: 'fbla-owner',   label: 'FBLA - Owner',   role: 'Owner',   type: 'required' },
+          { licenseTypeKey: 'fbla-manager', label: 'FBLA - Manager', role: 'Manager', type: 'required' },
+          { licenseTypeKey: 'fbla-officer', label: 'FBLA - Officer', role: 'Officer', type: 'required' }
+        ],
+        autoSubmit: false
+      },
+      {
+        name: 'Professional Licensing Packet',
+        primaryValue: 'professional-engineer',
+        primaryLabel: 'Professional Engineer License',
+        secondaries: [
+          { licenseTypeKey: 'fishing-guide', label: 'Commercial Fishing Guide Permit', type: 'optional' }
+        ],
+        autoSubmit: false
+      },
+      {
+        name: 'Outdoor Commerce Packet',
+        primaryValue: 'fishing-guide',
+        primaryLabel: 'Commercial Fishing Guide Permit',
+        secondaries: [
+          { licenseTypeKey: 'wildlife-rehab', label: 'Wildlife Rehabilitation Facility License', type: 'required' }
+        ],
+        autoSubmit: true
+      },
+      {
+        name: 'Full Licensing Suite',
+        primaryValue: 'firearm-business',
+        primaryLabel: 'Firearm Business License',
+        secondaries: [
+          { licenseTypeKey: 'professional-engineer', label: 'Professional Engineer License',             type: 'required' },
+          { licenseTypeKey: 'general-contractor',    label: 'General Contractor License',               type: 'required' },
+          { licenseTypeKey: 'fishing-guide',         label: 'Commercial Fishing Guide Permit',          type: 'optional' },
+          { licenseTypeKey: 'wildlife-rehab',        label: 'Wildlife Rehabilitation Facility License', type: 'optional' }
+        ],
+        autoSubmit: false
+      }
     ];
 
     function initComboBox(textInputId, hiddenInputId, listId, options, onSelectCallback) {
@@ -699,6 +781,35 @@
       document.getElementById('modal-app-type-error').setAttribute('hidden', '');
       document.getElementById('modal-app-type-group').classList.remove('usa-form-group--error');
     });
+
+    // ── Edit mode pre-population ──────────────────────────
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const idx    = params.get('packet');
+      if (idx === null) return;
+
+      const packet = PACKETS[parseInt(idx)];
+      if (!packet) return;
+
+      // Switch page to edit mode
+      document.title = 'Edit Packet - RLP';
+      document.querySelector('.profile-header__title').textContent = 'Edit Packet';
+      document.querySelector('.usa-breadcrumb__list-item.usa-current span').textContent = 'Edit Packet';
+
+      // Packet name
+      document.getElementById('packet-name').value = packet.name;
+
+      // Primary application
+      document.getElementById('primary-license-input').value = packet.primaryLabel;
+      document.getElementById('primary-license').value       = packet.primaryValue;
+
+      // Auto-submit
+      document.getElementById('auto-submit').checked = packet.autoSubmit;
+
+      // Secondaries
+      packet.secondaries.forEach(s => secondaries.push(s));
+      renderSecondaryRows();
+    })();
   </script>
 </body>
 
