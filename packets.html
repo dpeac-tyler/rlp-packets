@@ -144,6 +144,7 @@
               <th scope="col">Packet Name</th>
               <th scope="col">Applications</th>
               <th scope="col">Auto-submit</th>
+              <th scope="col">Packet URL</th>
               <th scope="col">Created Date</th>
               <th scope="col">Created By</th>
               <th scope="col" style="white-space: nowrap; width: 120px;">Controls</th>
@@ -154,6 +155,7 @@
               <td>Firearms Business Bundle</td>
               <td>FBLA - Company <span class="usa-tag">Primary</span>, FBLA - Owner, FBLA - Manager, FBLA - Officer</td>
               <td>No</td>
+              <td><a href="#" class="usa-link copy-url-link" data-url="https://rlp.asp.gov/packets/firearms-business-bundle">Copy URL</a></td>
               <td>01/15/2026</td>
               <td>Agency Username</td>
               <td style="white-space: nowrap;">
@@ -166,6 +168,7 @@
               <td>Professional Licensing Packet</td>
               <td>Professional Engineer License <span class="usa-tag">Primary</span>, Commercial Fishing Guide Permit</td>
               <td>No</td>
+              <td><a href="#" class="usa-link copy-url-link" data-url="https://rlp.asp.gov/packets/professional-licensing-packet">Copy URL</a></td>
               <td>02/03/2026</td>
               <td>Sarah Johnson</td>
               <td style="white-space: nowrap;">
@@ -178,6 +181,7 @@
               <td>Outdoor Commerce Packet</td>
               <td>Commercial Fishing Guide Permit <span class="usa-tag">Primary</span>, Wildlife Rehabilitation Facility License</td>
               <td>Yes</td>
+              <td><a href="#" class="usa-link copy-url-link" data-url="https://rlp.asp.gov/packets/outdoor-commerce-packet">Copy URL</a></td>
               <td>03/10/2026</td>
               <td>Alan Jones</td>
               <td style="white-space: nowrap;">
@@ -190,6 +194,7 @@
               <td>Full Licensing Suite</td>
               <td>Firearm Business License Application <span class="usa-tag">Primary</span>, Professional Engineer License, General Contractor License, Commercial Fishing Guide Permit, Wildlife Rehabilitation Facility License</td>
               <td>No</td>
+              <td><a href="#" class="usa-link copy-url-link" data-url="https://rlp.asp.gov/packets/full-licensing-suite">Copy URL</a></td>
               <td>04/22/2026</td>
               <td>Michael Chen</td>
               <td style="white-space: nowrap;">
@@ -315,6 +320,18 @@
       link.addEventListener('click', function(e) {
         e.preventDefault();
         openViewModal(parseInt(this.getAttribute('data-packet-idx')));
+      });
+    });
+
+    document.querySelectorAll('.copy-url-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const url = this.getAttribute('data-url');
+        navigator.clipboard.writeText(url).then(() => {
+          const original = this.textContent;
+          this.textContent = 'Copied!';
+          setTimeout(() => { this.textContent = original; }, 2000);
+        });
       });
     });
 
