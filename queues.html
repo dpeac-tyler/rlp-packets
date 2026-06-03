@@ -161,6 +161,11 @@
               <label class="usa-label" for="application-title">Application Title</label>
               <select class="usa-select" id="application-title" name="application-title">
                 <option value="">Please Select</option>
+                <option value="fbla-company">FBLA - Company</option>
+                <option value="fbla-owner">FBLA - Owner</option>
+                <option value="professional-engineer">Professional Engineer License</option>
+                <option value="general-contractor">General Contractor License</option>
+                <option value="fishing-guide">Commercial Fishing Guide Permit</option>
               </select>
             </div>
             <div class="tablet:grid-col-4">
@@ -252,7 +257,7 @@
       <div id="open-view" class="margin-top-2">
         <div class="table-controls">
           <div class="table-controls__left">
-            <strong>Showing 1 - 5 of 5 Entries</strong>
+            <strong id="open-count-label">Showing 1 - 5 of 5 Entries</strong>
           </div>
           <div class="table-controls__right">
             <label for="entries-per-page" class="table-controls__label">Show</label>
@@ -264,8 +269,8 @@
             </select>
           </div>
         </div>
-
-        <table class="usa-table usa-table--borderless usa-table--striped">
+        <p id="no-open-msg" class="text-base" hidden>No open tasks.</p>
+        <table id="open-table" class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
@@ -277,121 +282,47 @@
               <th scope="col" role="columnheader">Controls</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Business Application 123</td>
-              <td>Task 1 of 1</td>
-              <td>John Smith</td>
-              <td>Alan Jones</td>
-              <td>03/15/2026</td>
-              <td>License Reviewers</td>
-              <td>
-                <a href="task-detail.html?id=1" class="icon-button" aria-label="View Task">
-                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
-                </a>
-                <a href="#" class="icon-button" aria-label="Claim Task">
-                  <img src="assets/claim-task.png" alt="" width="30" height="30">
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Professional Engineer Application</td>
-              <td>Task 1 of 2</td>
-              <td>Maria Garcia</td>
-              <td>Sarah Johnson</td>
-              <td>03/16/2026</td>
-              <td>Application Processors</td>
-              <td>
-                <a href="task-detail.html?id=2" class="icon-button" aria-label="View Task">
-                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
-                </a>
-                <a href="#" class="icon-button" aria-label="Claim Task">
-                  <img src="assets/claim-task.png" alt="" width="30" height="30">
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Contractor License Renewal</td>
-              <td>Task 1 of 1</td>
-              <td>Robert Williams</td>
-              <td>Michael Chen</td>
-              <td>03/17/2026</td>
-              <td>License Reviewers</td>
-              <td>
-                <a href="task-detail.html?id=3" class="icon-button" aria-label="View Task">
-                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
-                </a>
-                <a href="#" class="icon-button" aria-label="Claim Task">
-                  <img src="assets/claim-task.png" alt="" width="30" height="30">
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Business Application 456</td>
-              <td>Task 2 of 2</td>
-              <td>Jennifer Lee</td>
-              <td>Alan Jones</td>
-              <td>03/18/2026</td>
-              <td>Application Processors</td>
-              <td>
-                <a href="task-detail.html?id=4" class="icon-button" aria-label="View Task">
-                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
-                </a>
-                <a href="#" class="icon-button" aria-label="Claim Task">
-                  <img src="assets/claim-task.png" alt="" width="30" height="30">
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>Professional Engineer Application</td>
-              <td>Task 1 of 1</td>
-              <td>David Brown</td>
-              <td>Sarah Johnson</td>
-              <td>03/19/2026</td>
-              <td>License Reviewers</td>
-              <td>
-                <a href="task-detail.html?id=5" class="icon-button" aria-label="View Task">
-                  <img src="assets/eye-icon.png" alt="" width="30" height="30">
-                </a>
-                <a href="#" class="icon-button" aria-label="Claim Task">
-                  <img src="assets/claim-task.png" alt="" width="30" height="30">
-                </a>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="open-tbody"></tbody>
         </table>
+      </div>
 
-        <nav aria-label="Pagination" class="usa-pagination" style="display: flex; justify-content: center; margin-top: 2rem;">
-          <ul class="usa-pagination__list">
-            <li class="usa-pagination__item usa-pagination__arrow">
-              <a href="#" class="usa-pagination__link usa-pagination__previous-page" aria-label="Previous page">
-                <span>‹</span>
-                <span class="usa-pagination__link-text">Previous</span>
-              </a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__page-no">
-              <a href="#" class="usa-pagination__button usa-current" aria-label="Page 1" aria-current="page">1</a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__page-no">
-              <a href="#" class="usa-pagination__button" aria-label="Page 2">2</a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__page-no">
-              <a href="#" class="usa-pagination__button" aria-label="Page 3">3</a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__page-no">
-              <a href="#" class="usa-pagination__button" aria-label="Page 4">4</a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__page-no">
-              <a href="#" class="usa-pagination__button" aria-label="Page 5">5</a>
-            </li>
-            <li class="usa-pagination__item usa-pagination__arrow">
-              <a href="#" class="usa-pagination__link usa-pagination__next-page" aria-label="Next page">
-                <span class="usa-pagination__link-text">Next</span>
-                <span>›</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+      <!-- Pending View -->
+      <div id="pending-view" class="margin-top-2" hidden>
+        <div class="table-controls">
+          <div class="table-controls__left">
+            <strong id="pending-count-label">Showing 0 Entries</strong>
+          </div>
+          <div class="table-controls__right">
+            <label for="pending-entries-per-page" class="table-controls__label">Show</label>
+            <select class="usa-select table-controls__select" id="pending-entries-per-page" name="pending-entries-per-page">
+              <option value="100" selected>100</option>
+              <option value="50">50</option>
+              <option value="25">25</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+        <p id="no-pending-msg" class="text-base" hidden>No pending tasks.</p>
+        <table id="pending-table" class="usa-table usa-table--borderless usa-table--striped">
+          <thead>
+            <tr>
+              <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">Constituent Name <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">Submitted Date <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">Claimed Date <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">Claimed By <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" aria-sort="none">User Group <span class="sort-arrows"></span></th>
+              <th scope="col" role="columnheader" style="white-space:nowrap; width:100px;">Controls</th>
+            </tr>
+          </thead>
+          <tbody id="pending-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Closed View -->
+      <div id="closed-view" class="margin-top-2" hidden>
+        <p class="text-base">No closed tasks.</p>
       </div>
 
       <!-- Denied View -->
@@ -427,7 +358,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>Business Application 456</td>
+              <td>
+                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Firearms Business Bundle</span>
+                FBLA - Officer
+              </td>
               <td>Background Check</td>
               <td>Jennifer Lee</td>
               <td>03/18/2026</td>
@@ -442,7 +376,7 @@
               </td>
             </tr>
             <tr>
-              <td>Contractor License Application</td>
+              <td>General Contractor License</td>
               <td>Eligibility Review</td>
               <td>Kevin Martinez</td>
               <td>03/10/2026</td>
@@ -457,7 +391,10 @@
               </td>
             </tr>
             <tr>
-              <td>Professional Engineer Application</td>
+              <td>
+                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Professional Licensing Packet</span>
+                Professional Engineer License
+              </td>
               <td>Document Review</td>
               <td>Lisa Thompson</td>
               <td>02/25/2026</td>
@@ -472,7 +409,10 @@
               </td>
             </tr>
             <tr>
-              <td>Business Application 789</td>
+              <td>
+                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Outdoor Commerce Packet</span>
+                Commercial Fishing Guide Permit
+              </td>
               <td>Background Check</td>
               <td>Thomas Wilson</td>
               <td>03/01/2026</td>
@@ -514,42 +454,166 @@
   </div>
 
   <script>
-    // Category filter button switching
-    (function() {
-      const filterBtns = document.querySelectorAll('.category-filter-btn');
-      const openView = document.getElementById('open-view');
-      const deniedView = document.getElementById('denied-view');
-      const pageTitle = document.querySelector('.page-title');
-      const breadcrumbCurrent = document.querySelector('.usa-breadcrumb__list-item.usa-current span');
+    // ── Task data ─────────────────────────────────────────
+    const OPEN_TASKS = [
+      { id: 'task-1', packetName: 'Firearms Business Bundle',     applicationTitle: 'FBLA - Company',                  taskName: 'Task 1 of 1', constituentName: 'John Smith',      submittedBy: 'Alan Jones',    submittedDate: '03/15/2026', userGroup: 'License Reviewers',      taskDetailUrl: 'task-detail.html?id=1' },
+      { id: 'task-2', packetName: 'Professional Licensing Packet', applicationTitle: 'Professional Engineer License',   taskName: 'Task 1 of 2', constituentName: 'Maria Garcia',    submittedBy: 'Sarah Johnson', submittedDate: '03/16/2026', userGroup: 'Application Processors', taskDetailUrl: 'task-detail.html?id=2' },
+      { id: 'task-3', packetName: null,                            applicationTitle: 'General Contractor License',      taskName: 'Task 1 of 1', constituentName: 'Robert Williams', submittedBy: 'Michael Chen',  submittedDate: '03/17/2026', userGroup: 'License Reviewers',      taskDetailUrl: 'task-detail.html?id=3' },
+      { id: 'task-4', packetName: 'Firearms Business Bundle',     applicationTitle: 'FBLA - Owner',                    taskName: 'Task 2 of 2', constituentName: 'Jennifer Lee',   submittedBy: 'Alan Jones',    submittedDate: '03/18/2026', userGroup: 'Application Processors', taskDetailUrl: 'task-detail.html?id=4' },
+      { id: 'task-5', packetName: null,                            applicationTitle: 'Commercial Fishing Guide Permit', taskName: 'Task 1 of 1', constituentName: 'David Brown',    submittedBy: 'Sarah Johnson', submittedDate: '03/19/2026', userGroup: 'License Reviewers',      taskDetailUrl: 'task-detail.html?id=5' }
+    ];
 
+    const CLAIMED_BY = 'Agency Username';
+
+    // ── localStorage helpers ──────────────────────────────
+    function getClaimedTasks() {
+      try { return JSON.parse(localStorage.getItem('rlp_claimed_tasks') || '[]'); }
+      catch(e) { return []; }
+    }
+    function saveClaimedTasks(tasks) {
+      localStorage.setItem('rlp_claimed_tasks', JSON.stringify(tasks));
+    }
+    function todayFormatted() {
+      const d = new Date();
+      return (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0') + '/' + d.getFullYear();
+    }
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = String(text || '');
+      return div.innerHTML;
+    }
+    function appTitleCell(task) {
+      if (task.packetName) {
+        return `<span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">${escapeHtml(task.packetName)}</span>${escapeHtml(task.applicationTitle)}`;
+      }
+      return escapeHtml(task.applicationTitle);
+    }
+
+    // ── Seed initial claimed tasks on first visit ─────────
+    // Seeds only when the key doesn't exist at all — preserves any claim/unclaim activity
+    (function() {
+      if (localStorage.getItem('rlp_claimed_tasks') !== null) return;
+      saveClaimedTasks([
+        { ...OPEN_TASKS[0], claimedDate: '05/28/2026', claimedBy: CLAIMED_BY },
+        { ...OPEN_TASKS[2], claimedDate: '05/30/2026', claimedBy: CLAIMED_BY }
+      ]);
+    })();
+
+    // ── Render Open view ──────────────────────────────────
+    function renderOpenView() {
+      const claimedIds = new Set(getClaimedTasks().map(t => t.id));
+      const unclaimed  = OPEN_TASKS.filter(t => !claimedIds.has(t.id));
+      const tbody      = document.getElementById('open-tbody');
+      const noMsg      = document.getElementById('no-open-msg');
+      const table      = document.getElementById('open-table');
+      const label      = document.getElementById('open-count-label');
+      tbody.innerHTML  = '';
+      if (unclaimed.length === 0) {
+        noMsg.hidden = false; table.hidden = true;
+        label.textContent = 'Showing 0 Entries'; return;
+      }
+      noMsg.hidden = true; table.hidden = false;
+      label.textContent = `Showing 1 - ${unclaimed.length} of ${unclaimed.length} Entries`;
+      unclaimed.forEach(task => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${appTitleCell(task)}</td>
+          <td>${escapeHtml(task.taskName)}</td>
+          <td>${escapeHtml(task.constituentName)}</td>
+          <td>${escapeHtml(task.submittedBy)}</td>
+          <td>${escapeHtml(task.submittedDate)}</td>
+          <td>${escapeHtml(task.userGroup)}</td>
+          <td style="white-space:nowrap;">
+            <a href="${escapeHtml(task.taskDetailUrl)}" class="icon-button" aria-label="View Task"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+            <a href="#" class="icon-button claim-btn" aria-label="Claim Task" data-task-id="${escapeHtml(task.id)}"><img src="assets/claim-task.png" alt="" width="30" height="30"></a>
+          </td>`;
+        tr.querySelector('.claim-btn').addEventListener('click', function(e) {
+          e.preventDefault(); claimTask(this.getAttribute('data-task-id'));
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ── Render Pending view ───────────────────────────────
+    function renderPendingView() {
+      const claimed = getClaimedTasks();
+      const tbody   = document.getElementById('pending-tbody');
+      const noMsg   = document.getElementById('no-pending-msg');
+      const table   = document.getElementById('pending-table');
+      const label   = document.getElementById('pending-count-label');
+      tbody.innerHTML = '';
+      if (claimed.length === 0) {
+        noMsg.hidden = false; table.hidden = true;
+        label.textContent = 'Showing 0 Entries'; return;
+      }
+      noMsg.hidden = true; table.hidden = false;
+      label.textContent = `Showing 1 - ${claimed.length} of ${claimed.length} Entries`;
+      claimed.forEach(task => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${appTitleCell(task)}</td>
+          <td>${escapeHtml(task.taskName)}</td>
+          <td>${escapeHtml(task.constituentName)}</td>
+          <td>${escapeHtml(task.submittedDate)}</td>
+          <td>${escapeHtml(task.claimedDate)}</td>
+          <td>${escapeHtml(task.claimedBy)}</td>
+          <td>${escapeHtml(task.userGroup)}</td>
+          <td style="white-space:nowrap;">
+            <a href="${escapeHtml(task.taskDetailUrl)}" class="icon-button" aria-label="View Task"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
+            <a href="#" class="icon-button unclaim-btn" aria-label="Unclaim Task" data-task-id="${escapeHtml(task.id)}"><img src="assets/unclaim-task.png" alt="" width="30" height="30"></a>
+          </td>`;
+        tr.querySelector('.unclaim-btn').addEventListener('click', function(e) {
+          e.preventDefault(); unclaimTask(this.getAttribute('data-task-id'));
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ── Claim / Unclaim ───────────────────────────────────
+    function claimTask(taskId) {
+      const task = OPEN_TASKS.find(t => t.id === taskId);
+      if (!task) return;
+      const claimed = getClaimedTasks();
+      if (claimed.some(t => t.id === taskId)) return;
+      claimed.push({ ...task, claimedDate: todayFormatted(), claimedBy: CLAIMED_BY });
+      saveClaimedTasks(claimed);
+      renderOpenView();
+      renderPendingView();
+    }
+    function unclaimTask(taskId) {
+      saveClaimedTasks(getClaimedTasks().filter(t => t.id !== taskId));
+      renderOpenView();
+      renderPendingView();
+    }
+
+    // ── Filter buttons ────────────────────────────────────
+    (function() {
+      const filterBtns  = document.querySelectorAll('.category-filter-btn');
+      const views       = { Open: 'open-view', Pending: 'pending-view', Denied: 'denied-view', Closed: 'closed-view' };
+      const pageTitle   = document.querySelector('.page-title');
+      const breadcrumb  = document.querySelector('.usa-breadcrumb__list-item.usa-current span');
       filterBtns.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          filterBtns.forEach(function(b) { b.classList.remove('active'); });
+          filterBtns.forEach(b => b.classList.remove('active'));
           this.classList.add('active');
-
           const label = this.textContent.trim();
           pageTitle.textContent = label + ' Applications';
-          breadcrumbCurrent.textContent = label;
-
-          openView.hidden = (label !== 'Open');
-          deniedView.hidden = (label !== 'Denied');
+          breadcrumb.textContent = label;
+          Object.entries(views).forEach(([key, id]) => {
+            const el = document.getElementById(id);
+            if (el) el.hidden = (key !== label);
+          });
         });
       });
     })();
 
-    // Accordion functionality
+    // ── Accordion ─────────────────────────────────────────
     document.querySelectorAll('.usa-accordion__button').forEach(button => {
       button.addEventListener('click', function() {
         const expanded = this.getAttribute('aria-expanded') === 'true';
         const content = document.getElementById(this.getAttribute('aria-controls'));
-
-        if (expanded) {
-          this.setAttribute('aria-expanded', 'false');
-          content.setAttribute('hidden', '');
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          content.removeAttribute('hidden');
-        }
+        this.setAttribute('aria-expanded', !expanded);
+        content.hidden = expanded;
       });
     });
 
@@ -616,6 +680,10 @@
         });
       }
     })();
+
+    // ── Initialize views ──────────────────────────────────
+    renderOpenView();
+    renderPendingView();
   </script>
 </body>
 </html>

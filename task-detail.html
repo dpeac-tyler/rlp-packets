@@ -108,11 +108,18 @@
       <div class="task-container margin-top-2">
         <div class="task-header">
           <div class="task-header-line"><strong>License Type:</strong> ASP Individual Line</div>
-          <div class="task-header-line"><strong>Application Title:</strong> <span id="header-application-title">Loading...</span></div>
+          <div class="task-header-line" id="application-title-line"><strong>Application Title:</strong> <span id="header-application-title">Loading...</span></div>
           <div class="task-header-line"><strong>Submission Number:</strong> <span id="submission-number">Loading...</span></div>
         </div>
-
+        
+        <div id="packet-warning" class="usa-alert usa-alert--warning" hidden style="margin-bottom: 1.6rem; margin: 20px;">
+            <div class="usa-alert__body">
+              <h4 class="usa-alert__heading">Warning</h4>
+              <p class="usa-alert__text">This application is part of a packet and the license will not be issued until all the applications within the packet are approved.</p>
+            </div>
+          </div>
         <div class="task-control-actions">
+          
           <div class="task-controls">
             <button type="button" class="usa-button">Approve</button>
             <button type="button" class="usa-button usa-button--outline" id="deny-btn">Deny</button>
@@ -334,25 +341,27 @@
   </div>
 
   <script>
-    // Task data - matches the table from my-tasks.html
+    // Task data - matches OPEN_TASKS in queues.html
     const taskData = {
       1: {
-        applicationTitle: "Professional Engineer License",
+        packetName: "Firearms Business Bundle",
+        applicationTitle: "FBLA - Company",
         taskName: "Task 1 of 1",
         constituentName: "John Smith",
-        submittedBy: "Sarah Johnson",
+        submittedBy: "Alan Jones",
         submittedDate: "03/15/2026",
-        claimedDate: "03/18/2026",
+        claimedDate: "05/28/2026",
         userGroup: "License Reviewers",
         submissionNumber: "123456789",
         customerNumber: "CUST-10001",
         username: "jsmith2024"
       },
       2: {
-        applicationTitle: "Contractor License Renewal",
+        packetName: "Professional Licensing Packet",
+        applicationTitle: "Professional Engineer License",
         taskName: "Task 1 of 2",
         constituentName: "Maria Garcia",
-        submittedBy: "Michael Chen",
+        submittedBy: "Sarah Johnson",
         submittedDate: "03/16/2026",
         claimedDate: "03/19/2026",
         userGroup: "Application Processors",
@@ -361,31 +370,34 @@
         username: "mgarcia2024"
       },
       3: {
-        applicationTitle: "Professional Engineer License",
+        packetName: null,
+        applicationTitle: "General Contractor License",
         taskName: "Task 1 of 1",
         constituentName: "Robert Williams",
-        submittedBy: "Sarah Johnson",
+        submittedBy: "Michael Chen",
         submittedDate: "03/17/2026",
-        claimedDate: "03/20/2026",
+        claimedDate: "05/30/2026",
         userGroup: "License Reviewers",
         submissionNumber: "345678901",
         customerNumber: "CUST-10003",
         username: "rwilliams2024"
       },
       4: {
-        applicationTitle: "Contractor License Renewal",
+        packetName: "Firearms Business Bundle",
+        applicationTitle: "FBLA - Owner",
         taskName: "Task 2 of 2",
         constituentName: "Jennifer Lee",
-        submittedBy: "Michael Chen",
+        submittedBy: "Alan Jones",
         submittedDate: "03/18/2026",
         claimedDate: "03/21/2026",
-        userGroup: "License Reviewers",
+        userGroup: "Application Processors",
         submissionNumber: "456789012",
         customerNumber: "CUST-10004",
         username: "jlee2024"
       },
       5: {
-        applicationTitle: "Professional Engineer License",
+        packetName: null,
+        applicationTitle: "Commercial Fishing Guide Permit",
         taskName: "Task 1 of 1",
         constituentName: "David Brown",
         submittedBy: "Sarah Johnson",
@@ -409,8 +421,18 @@
       // Update breadcrumb with task name
       document.getElementById('breadcrumb-task-name').textContent = task.taskName;
 
+      // Show packet warning if applicable
+      if (task.packetName) {
+        document.getElementById('packet-warning').removeAttribute('hidden');
+      }
+
       // Update header information
-      document.getElementById('header-application-title').textContent = task.applicationTitle;
+      const titleLine = document.getElementById('application-title-line');
+      if (task.packetName) {
+        titleLine.innerHTML = `<strong>Packet Name:</strong> ${task.packetName} &nbsp;|&nbsp; <strong>Application Title:</strong> ${task.applicationTitle}`;
+      } else {
+        titleLine.innerHTML = `<strong>Application Title:</strong> ${task.applicationTitle}`;
+      }
       document.getElementById('submission-number').textContent = task.submissionNumber;
 
       // Update submitter profile

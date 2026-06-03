@@ -1956,6 +1956,11 @@ input[type="date"].usa-input {
   border-left-color: #00bde3;
 }
 
+.usa-alert--warning {
+  background-color: #faf3d1;
+  border-left-color: #e5a000;
+}
+
 .usa-alert__body {
   position: relative;
 }
@@ -2013,6 +2018,23 @@ input[type="date"].usa-input {
   content: "i";
   left: 3rem;
   font-style: italic;
+}
+
+.usa-alert--warning::before {
+  display: none;
+}
+
+.usa-alert--warning::after {
+  content: "";
+  left: 1.6rem;
+  top: 1.6rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-image: url('../assets/warning.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+  font-size: 0;
 }
 
 /* Field Level Error Styles */
