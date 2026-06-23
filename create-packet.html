@@ -233,11 +233,11 @@
       <div class="profile-content">
         <div class="inspection-content">
 
-          <p class="section-description margin-top-3">Packets group a primary application type with one or more
-            secondary application types. When a packet is created, the primary applicant completes the primary
-            application, after which affiliated users are prompted to complete the associated secondary applications.
-            Each secondary can be marked as Required, meaning it must be completed before the packet can be submitted
-            or Optional, allowing it to be skipped. At least one required secondary must be defined before a packet can
+          <p class="section-description margin-top-3">Packets group an owner application type with one or more
+            participant application types. When a packet is created, the owner applicant completes the owner
+            application, after which affiliated users are prompted to complete the associated participant applications.
+            Each participant application can be marked as Required, meaning it must be completed before the packet can be submitted,
+            or Optional, allowing it to be skipped. At least one required participant application must be defined before a packet can
             be saved.</p>
 
           <!-- ── Packet Name ───────────────────────────────── -->
@@ -249,8 +249,8 @@
             <input class="usa-input" id="packet-name" name="packet-name" type="text" required>
           </div>
 
-          <!-- ── Primary Application Type ─────────────────── -->
-          <h2 class="section-heading">Primary Application</h2>
+          <!-- ── Owner Application Type ─────────────────── -->
+          <h2 class="section-heading">Owner Application</h2>
           <p class="section-description">Only application types configured with an AFQ review step are eligible.</p>
 
           <div class="grid-row grid-gap" style="margin-bottom: 2.4rem;">
@@ -265,7 +265,7 @@
             </div>
             <div class="tablet:grid-col-6" id="primary-license-group" style="padding-left: 1.6rem;">
               <label class="usa-label" for="primary-license-input">
-                Primary Application <span class="field-required">Required</span>
+                Owner Application <span class="field-required">Required</span>
               </label>
               <span class="usa-error-message" id="primary-license-error" hidden>Select a primary application type</span>
               <div class="combo-box" id="primary-combo">
@@ -278,12 +278,12 @@
             </div>
           </div>
 
-          <!-- ── Secondary Application Types ──────────────── -->
-          <h2 class="section-heading">Secondary Application(s)</h2>
+          <!-- ── Participant Application Types ──────────────── -->
+          <h2 class="section-heading">Participant Application(s)</h2>
           <p class="section-description">
-            Define child applications. At least one required secondary must be defined before saving.
+            Define participant applications. At least one required participant application must be defined before saving.
           </p>
-          <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required secondary application
+          <span class="usa-error-message" id="secondaries-error" hidden>Add at least one required participant application
             type</span>
 
           <!-- Icon Key -->
@@ -316,9 +316,9 @@
           <!-- Secondaries list container -->
           <div class="add-secondary-form" id="secondaries-list">
             <div style="padding: 2rem; padding-left: 3rem; padding-bottom: 0;">
-              <div class="questions-section__header" style="grid-template-columns: 38% 24% 14% 24%;">
-                <div class="questions-section__header-title">Application</div>
+              <div class="questions-section__header" style="grid-template-columns: 24% 38% 14% 24%;">
                 <div class="questions-section__header-title">Role</div>
+                <div class="questions-section__header-title">Application</div>
                 <div class="questions-section__header-title">Options</div>
                 <div class="questions-section__header-title">Controls</div>
               </div>
@@ -329,7 +329,7 @@
 
           <!-- Add button -->
           <div class="app-builder-button-container" style="margin-bottom: 2rem;">
-            <button type="button" class="usa-button usa-button--accent-warm" id="open-add-secondary-btn">Add Application</button>
+            <button type="button" class="usa-button usa-button--accent-warm" id="open-add-secondary-btn">Add Participant Application</button>
           </div>
 
           <!-- ── Packet Settings ───────────────────────────── -->
@@ -353,11 +353,11 @@
     </main>
   </div>
 
-  <!-- ── Add Secondary Application Modal ───────────────────── -->
+  <!-- ── Add Participant Application Modal ───────────────────── -->
   <div class="modal-overlay" id="add-secondary-modal" hidden>
     <div class="modal-content" style="overflow: visible;">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Add Secondary Application</h2>
+        <h2 class="modal-title" id="modal-title">Add Participant Application</h2>
         <button type="button" class="modal-close" id="close-modal-btn" aria-label="Close modal">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -368,7 +368,19 @@
       </div>
       <hr class="modal-divider">
       <div class="modal-body" style="overflow: visible;">
-        <div id="modal-license-type-group">
+        <div id="modal-role-group">
+          <label class="usa-label" for="modal-role">
+            Role <span class="field-required">Required</span>
+          </label>
+          <span class="usa-error-message" id="modal-role-error" hidden>Select a role.</span>
+          <select class="usa-select" id="modal-role">
+            <option value="">Please Select</option>
+            <option value="Owner">Owner</option>
+            <option value="Manager">Manager</option>
+            <option value="Officer">Officer</option>
+          </select>
+        </div>
+        <div id="modal-license-type-group" style="margin-top: 30px;">
           <label class="usa-label" for="modal-license-type">
             License Type <span class="field-required">Required</span>
           </label>
@@ -389,18 +401,6 @@
             <input type="hidden" id="modal-child-license">
             <ul class="combo-box__list" id="modal-child-combo-list" role="listbox" hidden></ul>
           </div>
-        </div>
-        <div id="modal-role-group" style="margin-top: 30px;">
-          <label class="usa-label" for="modal-role">
-            Role <span class="field-required">Required</span>
-          </label>
-          <span class="usa-error-message" id="modal-role-error" hidden>Select a role.</span>
-          <select class="usa-select" id="modal-role">
-            <option value="">Please Select</option>
-            <option value="Owner">Owner</option>
-            <option value="Manager">Manager</option>
-            <option value="Officer">Officer</option>
-          </select>
         </div>
         <div style="margin-top: 30px;">
           <span class="usa-label display-block">Required</span>
@@ -507,7 +507,7 @@
 
     function openModal(idx) {
       editingIndex = (idx !== undefined) ? idx : null;
-      document.getElementById('modal-title').textContent = editingIndex !== null ? 'Edit Secondary Application' : 'Add Secondary Application';
+      document.getElementById('modal-title').textContent = editingIndex !== null ? 'Edit Participant Application' : 'Add Participant Application';
       document.getElementById('add-secondary-modal').removeAttribute('hidden');
       clearModalErrors();
 
@@ -530,7 +530,7 @@
         document.querySelector('input[name="modal-secondary-type"][value="required"]').checked = true;
       }
 
-      setTimeout(() => document.getElementById('modal-license-type').focus(), 50);
+      setTimeout(() => document.getElementById('modal-role').focus(), 50);
     }
 
     function closeModal() {
@@ -619,7 +619,7 @@
         document.getElementById('secondaries-error').setAttribute('hidden', '');
       }
 
-      showSuccessNotification(wasEditing ? 'Application updated successfully!' : 'Application added successfully!');
+      showSuccessNotification(wasEditing ? 'Participant application updated successfully!' : 'Participant application added successfully!');
     });
 
     // ── Render secondary rows ─────────────────────────────
@@ -641,12 +641,12 @@
         row.setAttribute('data-question-number', idx + 1);
 
         row.innerHTML = `
-          <div class="question-row-grid" style="grid-template-columns: 38% 24% 14% 24%;">
-            <div class="question-row__question-col">
-              <p class="question-row__question-text">${escapeHtml(entry.appLabel)}</p>
-            </div>
+          <div class="question-row-grid" style="grid-template-columns: 24% 38% 14% 24%;">
             <div class="question-row__question-col">
               <p class="question-row__question-text">${escapeHtml(entry.role || '')}</p>
+            </div>
+            <div class="question-row__question-col">
+              <p class="question-row__question-text">${escapeHtml(entry.appLabel)}</p>
             </div>
             <div class="question-row__options-col">
               ${entry.type === 'required' ? '<span class="question-row__badge">R</span>' : ''}

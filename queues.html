@@ -273,6 +273,7 @@
         <table id="open-table" class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
+              <th scope="col" role="columnheader" aria-sort="none">Packet Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Constituent Name <span class="sort-arrows"></span></th>
@@ -306,6 +307,7 @@
         <table id="pending-table" class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
+              <th scope="col" role="columnheader" aria-sort="none">Packet Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Constituent Name <span class="sort-arrows"></span></th>
@@ -345,6 +347,7 @@
         <table class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
+              <th scope="col" role="columnheader" aria-sort="none">Packet Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Constituent Name <span class="sort-arrows"></span></th>
@@ -358,10 +361,8 @@
           </thead>
           <tbody>
             <tr>
-              <td>
-                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Firearms Business Bundle</span>
-                FBLA - Officer
-              </td>
+              <td><em>Firearms Business Bundle</em></td>
+              <td>FBLA - Officer</td>
               <td>Background Check</td>
               <td>Jennifer Lee</td>
               <td>03/18/2026</td>
@@ -376,6 +377,7 @@
               </td>
             </tr>
             <tr>
+              <td></td>
               <td>General Contractor License</td>
               <td>Eligibility Review</td>
               <td>Kevin Martinez</td>
@@ -391,10 +393,8 @@
               </td>
             </tr>
             <tr>
-              <td>
-                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Professional Licensing Packet</span>
-                Professional Engineer License
-              </td>
+              <td><em>Professional Licensing Packet</em></td>
+              <td>Professional Engineer License</td>
               <td>Document Review</td>
               <td>Lisa Thompson</td>
               <td>02/25/2026</td>
@@ -409,10 +409,8 @@
               </td>
             </tr>
             <tr>
-              <td>
-                <span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">Outdoor Commerce Packet</span>
-                Commercial Fishing Guide Permit
-              </td>
+              <td><em>Outdoor Commerce Packet</em></td>
+              <td>Commercial Fishing Guide Permit</td>
               <td>Background Check</td>
               <td>Thomas Wilson</td>
               <td>03/01/2026</td>
@@ -482,11 +480,8 @@
       div.textContent = String(text || '');
       return div.innerHTML;
     }
-    function appTitleCell(task) {
-      if (task.packetName) {
-        return `<span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">${escapeHtml(task.packetName)}</span>${escapeHtml(task.applicationTitle)}`;
-      }
-      return escapeHtml(task.applicationTitle);
+    function packetNameCell(task) {
+      return task.packetName ? `<em>${escapeHtml(task.packetName)}</em>` : '';
     }
 
     // ── Seed initial claimed tasks on first visit ─────────
@@ -517,7 +512,8 @@
       unclaimed.forEach(task => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td>${appTitleCell(task)}</td>
+          <td>${packetNameCell(task)}</td>
+          <td>${escapeHtml(task.applicationTitle)}</td>
           <td>${escapeHtml(task.taskName)}</td>
           <td>${escapeHtml(task.constituentName)}</td>
           <td>${escapeHtml(task.submittedBy)}</td>
@@ -551,7 +547,8 @@
       claimed.forEach(task => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td>${appTitleCell(task)}</td>
+          <td>${packetNameCell(task)}</td>
+          <td>${escapeHtml(task.applicationTitle)}</td>
           <td>${escapeHtml(task.taskName)}</td>
           <td>${escapeHtml(task.constituentName)}</td>
           <td>${escapeHtml(task.submittedDate)}</td>
