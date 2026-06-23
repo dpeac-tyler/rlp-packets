@@ -210,6 +210,7 @@
         <table id="my-tasks-table" class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
+              <th scope="col" role="columnheader" aria-sort="none">Packet Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Constituent Name <span class="sort-arrows"></span></th>
@@ -238,13 +239,6 @@
       div.textContent = String(text || '');
       return div.innerHTML;
     }
-    function appTitleCell(task) {
-      if (task.packetName) {
-        return `<span style="display:block; font-size:1.6rem; font-style:italic; color:#3d4551; margin-bottom:2px;">${escapeHtml(task.packetName)}</span>${escapeHtml(task.applicationTitle)}`;
-      }
-      return escapeHtml(task.applicationTitle);
-    }
-
     function renderMyTasks() {
       const claimed = getClaimedTasks();
       const tbody   = document.getElementById('my-tasks-tbody');
@@ -261,7 +255,8 @@
       claimed.forEach(task => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td>${appTitleCell(task)}</td>
+          <td>${task.packetName ? escapeHtml(task.packetName) : ''}</td>
+          <td>${escapeHtml(task.applicationTitle)}</td>
           <td>${escapeHtml(task.taskName)}</td>
           <td>${escapeHtml(task.constituentName)}</td>
           <td>${escapeHtml(task.submittedDate)}</td>
