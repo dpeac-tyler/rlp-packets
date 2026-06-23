@@ -106,10 +106,13 @@
       </div>
 
       <div class="task-container margin-top-2">
-        <div class="task-header">
+        <div class="task-header" style="position:relative;">
+          <strong style="position:absolute; top:20px; right:20px; font-size:1.6rem;" id="task-name-label"></strong>
           <div class="task-header-line"><strong>License Type:</strong> ASP Individual Line</div>
           <div class="task-header-line" id="application-title-line"><strong>Application Title:</strong> <span id="header-application-title">Loading...</span></div>
           <div class="task-header-line"><strong>Submission Number:</strong> <span id="submission-number">Loading...</span></div>
+          <hr style="margin: 0.8rem 0; border: none; border-top: 1px solid #dfe1e2;">
+          <div class="task-header-line"><strong>External Status:</strong> Background Check</div>
         </div>
         
         <div id="packet-warning" class="usa-alert usa-alert--warning" hidden style="margin-bottom: 1.6rem; margin: 20px;">
@@ -417,8 +420,9 @@
     if (taskId && taskData[taskId]) {
       const task = taskData[taskId];
 
-      // Update breadcrumb with task name
+      // Update breadcrumb and task name label
       document.getElementById('breadcrumb-task-name').textContent = task.taskName;
+      document.getElementById('task-name-label').textContent = task.taskName;
 
       // Show packet warning if applicable
       if (task.packetName) {
