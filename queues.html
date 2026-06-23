@@ -128,6 +128,10 @@
                 <img src="assets/eye-icon.png" alt="" width="24" height="24">
                 <span>- View Task</span>
               </div>
+              <div class="icon-key-item">
+                <img src="assets/packet-status.png" alt="" width="24" height="24">
+                <span>- Packet Status</span>
+              </div>
             </div>
           </div>
         </div>
@@ -158,11 +162,22 @@
         <form class="search-form">
           <div class="grid-row grid-gap-2">
             <div class="tablet:grid-col-4">
+              <label class="usa-label" for="packet-name">Packet Name</label>
+              <select class="usa-select" id="packet-name" name="packet-name">
+                <option value="">Please Select</option>
+                <option value="firearms-business-bundle">Firearms Business Bundle</option>
+                <option value="professional-licensing-packet">Professional Licensing Packet</option>
+                <option value="outdoor-commerce-packet">Outdoor Commerce Packet</option>
+              </select>
+            </div>
+            <div class="tablet:grid-col-4">
               <label class="usa-label" for="application-title">Application Title</label>
               <select class="usa-select" id="application-title" name="application-title">
                 <option value="">Please Select</option>
                 <option value="fbla-company">FBLA - Company</option>
                 <option value="fbla-owner">FBLA - Owner</option>
+                <option value="fbla-manager">FBLA - Manager</option>
+                <option value="fbla-officer">FBLA - Officer</option>
                 <option value="professional-engineer">Professional Engineer License</option>
                 <option value="general-contractor">General Contractor License</option>
                 <option value="fishing-guide">Commercial Fishing Guide Permit</option>
@@ -176,22 +191,22 @@
                 <option value="child-support-check">Child Support Check</option>
               </select>
             </div>
-            <div class="tablet:grid-col-4">
-              <label class="usa-label" for="constituent-name">Constituent Name</label>
-              <input class="usa-input" id="constituent-name" name="constituent-name" type="text">
-            </div>
           </div>
 
           <div class="grid-row grid-gap-2 margin-top-2">
-            <div class="tablet:grid-col-4">
+            <div class="tablet:grid-col-3">
+              <label class="usa-label" for="constituent-name">Constituent Name</label>
+              <input class="usa-input" id="constituent-name" name="constituent-name" type="text">
+            </div>
+            <div class="tablet:grid-col-3">
               <label class="usa-label" for="submitted-by">Submitted By</label>
               <input class="usa-input" id="submitted-by" name="submitted-by" type="text">
             </div>
-            <div class="tablet:grid-col-4">
+            <div class="tablet:grid-col-3">
               <label class="usa-label" for="submitted-date">Submitted Date</label>
               <input class="usa-input usa-date-picker" id="submitted-date" name="submitted-date" type="date">
             </div>
-            <div class="tablet:grid-col-4">
+            <div class="tablet:grid-col-3">
               <label class="usa-label" for="user-group">User Group</label>
               <div class="multiselect-wrapper">
                 <button type="button" class="usa-select multiselect-button" id="user-group-button" aria-haspopup="listbox" aria-expanded="false">
@@ -255,6 +270,9 @@
 
       <!-- Open View -->
       <div id="open-view" class="margin-top-2">
+        <div style="margin-top:20px; margin-bottom:20px;">
+          <button type="button" class="usa-button" id="claim-selected-btn" disabled>Claim Selected</button>
+        </div>
         <div class="table-controls">
           <div class="table-controls__left">
             <strong id="open-count-label">Showing 1 - 5 of 5 Entries</strong>
@@ -273,6 +291,7 @@
         <table id="open-table" class="usa-table usa-table--borderless usa-table--striped">
           <thead>
             <tr>
+              <th scope="col" style="width:40px;"><input type="checkbox" id="select-all-open" aria-label="Select all open tasks"></th>
               <th scope="col" role="columnheader" aria-sort="none">Packet Name <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Application Title <span class="sort-arrows"></span></th>
               <th scope="col" role="columnheader" aria-sort="none">Task Name <span class="sort-arrows"></span></th>
@@ -361,7 +380,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><em>Firearms Business Bundle</em></td>
+              <td>Firearms Business Bundle</td>
               <td>FBLA - Officer</td>
               <td>Background Check</td>
               <td>Jennifer Lee</td>
@@ -370,7 +389,10 @@
               <td>Sarah Johnson</td>
               <td>Application Processors</td>
               <td class="status-denied">Denied</td>
-              <td>
+              <td style="white-space:nowrap;">
+                <a href="#" class="icon-button packet-status-btn" aria-label="View Packet Status" data-packet="Firearms Business Bundle">
+                  <img src="assets/packet-status.png" alt="" width="30" height="30">
+                </a>
                 <a href="task-detail-denied.html" class="icon-button" aria-label="View Task">
                   <img src="assets/eye-icon.png" alt="" width="30" height="30">
                 </a>
@@ -393,7 +415,7 @@
               </td>
             </tr>
             <tr>
-              <td><em>Professional Licensing Packet</em></td>
+              <td>Professional Licensing Packet</td>
               <td>Professional Engineer License</td>
               <td>Document Review</td>
               <td>Lisa Thompson</td>
@@ -402,14 +424,17 @@
               <td>Alan Jones</td>
               <td>License Reviewers</td>
               <td class="status-denied">Denied</td>
-              <td>
+              <td style="white-space:nowrap;">
+                <a href="#" class="icon-button packet-status-btn" aria-label="View Packet Status" data-packet="Professional Licensing Packet">
+                  <img src="assets/packet-status.png" alt="" width="30" height="30">
+                </a>
                 <a href="task-detail-denied.html" class="icon-button" aria-label="View Task">
                   <img src="assets/eye-icon.png" alt="" width="30" height="30">
                 </a>
               </td>
             </tr>
             <tr>
-              <td><em>Outdoor Commerce Packet</em></td>
+              <td>Outdoor Commerce Packet</td>
               <td>Commercial Fishing Guide Permit</td>
               <td>Background Check</td>
               <td>Thomas Wilson</td>
@@ -418,7 +443,10 @@
               <td>Sarah Johnson</td>
               <td>Application Processors</td>
               <td class="status-denied">Denied</td>
-              <td>
+              <td style="white-space:nowrap;">
+                <a href="#" class="icon-button packet-status-btn" aria-label="View Packet Status" data-packet="Outdoor Commerce Packet">
+                  <img src="assets/packet-status.png" alt="" width="30" height="30">
+                </a>
                 <a href="task-detail-denied.html" class="icon-button" aria-label="View Task">
                   <img src="assets/eye-icon.png" alt="" width="30" height="30">
                 </a>
@@ -451,6 +479,38 @@
     </main>
   </div>
 
+  <!-- Packet Status Modal -->
+  <div class="modal-overlay" id="packet-modal-overlay" hidden>
+    <div class="modal-content" style="max-width:1000px;">
+      <div class="modal-header">
+        <h2 class="modal-title" id="packet-modal-title"></h2>
+        <button type="button" class="modal-close" id="packet-modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <hr class="modal-divider">
+      <div class="modal-body">
+        <table class="usa-table usa-table--borderless usa-table--striped" style="width:100%;">
+          <thead>
+            <tr>
+              <th scope="col">Application Name</th>
+              <th scope="col">Constituent Name</th>
+              <th scope="col">Submission #</th>
+              <th scope="col">Workflow Status</th>
+            </tr>
+          </thead>
+          <tbody id="packet-modal-tbody"></tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="usa-button" id="packet-modal-close-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // ── Task data ─────────────────────────────────────────
     const OPEN_TASKS = [
@@ -460,6 +520,23 @@
       { id: 'task-4', packetName: 'Firearms Business Bundle',     applicationTitle: 'FBLA - Owner',                    taskName: 'Task 2 of 2', constituentName: 'Jennifer Lee',   submittedBy: 'Alan Jones',    submittedDate: '03/18/2026', userGroup: 'Application Processors', taskDetailUrl: 'task-detail.html?id=4' },
       { id: 'task-5', packetName: null,                            applicationTitle: 'Commercial Fishing Guide Permit', taskName: 'Task 1 of 1', constituentName: 'David Brown',    submittedBy: 'Sarah Johnson', submittedDate: '03/19/2026', userGroup: 'License Reviewers',      taskDetailUrl: 'task-detail.html?id=5' }
     ];
+
+    const PACKET_MEMBERS = {
+      'Firearms Business Bundle': [
+        { applicationName: 'FBLA - Company', constituentName: 'Marcus Webb',    submissionNumber: 'SUB-2026-0142', workflowStatus: 'In Review'  },
+        { applicationName: 'FBLA - Owner',   constituentName: 'Patricia Holt',  submissionNumber: 'SUB-2026-0143', workflowStatus: 'Pending'    },
+        { applicationName: 'FBLA - Manager', constituentName: 'Derek Simmons',  submissionNumber: 'SUB-2026-0144', workflowStatus: 'Not Started'},
+        { applicationName: 'FBLA - Officer', constituentName: 'Jennifer Lee',   submissionNumber: 'SUB-2026-0145', workflowStatus: 'Not Started'},
+      ],
+      'Professional Licensing Packet': [
+        { applicationName: 'Professional Engineer License',    constituentName: 'Maria Garcia', submissionNumber: 'SUB-2026-0198', workflowStatus: 'In Review'},
+        { applicationName: 'PE Continuing Education Renewal', constituentName: 'Maria Garcia', submissionNumber: 'SUB-2026-0199', workflowStatus: 'Pending'  },
+      ],
+      'Outdoor Commerce Packet': [
+        { applicationName: 'Commercial Fishing Guide Permit', constituentName: 'Thomas Wilson', submissionNumber: 'SUB-2026-0211', workflowStatus: 'Open'       },
+        { applicationName: 'Boating Safety Certification',   constituentName: 'Thomas Wilson', submissionNumber: 'SUB-2026-0212', workflowStatus: 'Not Started'},
+      ],
+    };
 
     const CLAIMED_BY = 'Agency Username';
 
@@ -481,7 +558,7 @@
       return div.innerHTML;
     }
     function packetNameCell(task) {
-      return task.packetName ? `<em>${escapeHtml(task.packetName)}</em>` : '';
+      return task.packetName ? escapeHtml(task.packetName) : '';
     }
 
     // ── Seed initial claimed tasks on first visit ─────────
@@ -503,6 +580,9 @@
       const table      = document.getElementById('open-table');
       const label      = document.getElementById('open-count-label');
       tbody.innerHTML  = '';
+      const selectAll = document.getElementById('select-all-open');
+      if (selectAll) { selectAll.checked = false; selectAll.indeterminate = false; }
+      document.getElementById('claim-selected-btn').disabled = true;
       if (unclaimed.length === 0) {
         noMsg.hidden = false; table.hidden = true;
         label.textContent = 'Showing 0 Entries'; return;
@@ -512,6 +592,7 @@
       unclaimed.forEach(task => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
+          <td><input type="checkbox" class="open-row-checkbox" aria-label="Select task" data-task-id="${escapeHtml(task.id)}"></td>
           <td>${packetNameCell(task)}</td>
           <td>${escapeHtml(task.applicationTitle)}</td>
           <td>${escapeHtml(task.taskName)}</td>
@@ -520,11 +601,16 @@
           <td>${escapeHtml(task.submittedDate)}</td>
           <td>${escapeHtml(task.userGroup)}</td>
           <td style="white-space:nowrap;">
+            ${task.packetName ? `<a href="#" class="icon-button packet-status-btn" aria-label="View Packet Status" data-packet="${escapeHtml(task.packetName)}"><img src="assets/packet-status.png" alt="" width="30" height="30"></a>` : ''}
             <a href="${escapeHtml(task.taskDetailUrl)}" class="icon-button" aria-label="View Task"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
             <a href="#" class="icon-button claim-btn" aria-label="Claim Task" data-task-id="${escapeHtml(task.id)}"><img src="assets/claim-task.png" alt="" width="30" height="30"></a>
           </td>`;
         tr.querySelector('.claim-btn').addEventListener('click', function(e) {
           e.preventDefault(); claimTask(this.getAttribute('data-task-id'));
+        });
+        const openPsBtn = tr.querySelector('.packet-status-btn');
+        if (openPsBtn) openPsBtn.addEventListener('click', function(e) {
+          e.preventDefault(); openPacketModal(this.getAttribute('data-packet'));
         });
         tbody.appendChild(tr);
       });
@@ -556,11 +642,16 @@
           <td>${escapeHtml(task.claimedBy)}</td>
           <td>${escapeHtml(task.userGroup)}</td>
           <td style="white-space:nowrap;">
+            ${task.packetName ? `<a href="#" class="icon-button packet-status-btn" aria-label="View Packet Status" data-packet="${escapeHtml(task.packetName)}"><img src="assets/packet-status.png" alt="" width="30" height="30"></a>` : ''}
             <a href="${escapeHtml(task.taskDetailUrl)}" class="icon-button" aria-label="View Task"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
             <a href="#" class="icon-button unclaim-btn" aria-label="Unclaim Task" data-task-id="${escapeHtml(task.id)}"><img src="assets/unclaim-task.png" alt="" width="30" height="30"></a>
           </td>`;
         tr.querySelector('.unclaim-btn').addEventListener('click', function(e) {
           e.preventDefault(); unclaimTask(this.getAttribute('data-task-id'));
+        });
+        const pendingPsBtn = tr.querySelector('.packet-status-btn');
+        if (pendingPsBtn) pendingPsBtn.addEventListener('click', function(e) {
+          e.preventDefault(); openPacketModal(this.getAttribute('data-packet'));
         });
         tbody.appendChild(tr);
       });
@@ -677,6 +768,89 @@
         });
       }
     })();
+
+    // ── Select-all + Claim Selected ──────────────────────
+    (function() {
+      const tbody      = document.getElementById('open-tbody');
+      const claimBtn   = document.getElementById('claim-selected-btn');
+      const selectAll  = document.getElementById('select-all-open');
+
+      function updateSelectAllState() {
+        const boxes = tbody.querySelectorAll('.open-row-checkbox');
+        const checkedCount = Array.from(boxes).filter(cb => cb.checked).length;
+        selectAll.checked       = checkedCount === boxes.length && boxes.length > 0;
+        selectAll.indeterminate = checkedCount > 0 && checkedCount < boxes.length;
+        claimBtn.disabled       = checkedCount === 0;
+      }
+
+      selectAll.addEventListener('change', function() {
+        tbody.querySelectorAll('.open-row-checkbox').forEach(cb => cb.checked = this.checked);
+        claimBtn.disabled = !this.checked || tbody.querySelectorAll('.open-row-checkbox').length === 0;
+      });
+
+      tbody.addEventListener('change', function(e) {
+        if (e.target.classList.contains('open-row-checkbox')) updateSelectAllState();
+      });
+
+      claimBtn.addEventListener('click', function() {
+        const ids = Array.from(tbody.querySelectorAll('.open-row-checkbox:checked'))
+          .map(cb => cb.getAttribute('data-task-id'));
+        ids.forEach(id => claimTask(id));
+      });
+    })();
+
+    // ── Packet Status Modal ───────────────────────────────
+    const packetModalOverlay = document.getElementById('packet-modal-overlay');
+    const packetModalTitle   = document.getElementById('packet-modal-title');
+    const packetModalTbody   = document.getElementById('packet-modal-tbody');
+
+    const STATUS_CLASS = {
+      'In Review':   'status-in-review',
+      'Pending':     'status-pending',
+      'Open':        'status-open',
+      'Completed':   'status-completed',
+      'Approved':    'status-approved',
+      'Denied':      'status-denied',
+      'In Progress': 'status-in-progress',
+      'On Hold':     'status-on-hold',
+    };
+
+    function openPacketModal(packetName) {
+      packetModalTitle.textContent = packetName;
+      packetModalTbody.innerHTML = '';
+      const members = PACKET_MEMBERS[packetName] || [];
+      members.forEach(function(m) {
+        const cls = STATUS_CLASS[m.workflowStatus] || '';
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${escapeHtml(m.applicationName)}</td>
+          <td>${escapeHtml(m.constituentName)}</td>
+          <td>${escapeHtml(m.submissionNumber)}</td>
+          <td class="${cls}">${escapeHtml(m.workflowStatus)}</td>`;
+        packetModalTbody.appendChild(tr);
+      });
+      packetModalOverlay.removeAttribute('hidden');
+    }
+
+    function closePacketModal() {
+      packetModalOverlay.setAttribute('hidden', '');
+    }
+
+    document.getElementById('packet-modal-close').addEventListener('click', closePacketModal);
+    document.getElementById('packet-modal-close-btn').addEventListener('click', closePacketModal);
+    packetModalOverlay.addEventListener('click', function(e) {
+      if (e.target === packetModalOverlay) closePacketModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !packetModalOverlay.hidden) closePacketModal();
+    });
+
+    // Wire packet status buttons in static (denied) rows
+    document.querySelectorAll('.packet-status-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault(); openPacketModal(this.getAttribute('data-packet'));
+      });
+    });
 
     // ── Initialize views ──────────────────────────────────
     renderOpenView();
