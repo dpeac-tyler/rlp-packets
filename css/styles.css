@@ -2019,13 +2019,17 @@ input[type="date"].usa-input {
 }
 
 .usa-alert--info::before {
-  background-color: #00bde3;
+  background-color: #000;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .usa-alert--info::after {
   content: "i";
-  left: 3rem;
-  font-style: italic;
+  left: 2.6rem;
+  top: 2.1rem;
+  font-size: 1.8rem;
+  font-style: normal;
 }
 
 .usa-alert--warning::before {
