@@ -316,9 +316,10 @@
           <!-- Secondaries list container -->
           <div class="add-secondary-form" id="secondaries-list">
             <div style="padding: 2rem; padding-left: 3rem; padding-bottom: 0;">
-              <div class="questions-section__header" style="grid-template-columns: 24% 38% 14% 24%;">
+              <div class="questions-section__header" style="grid-template-columns: 20% 30% 18% 12% 20%;">
                 <div class="questions-section__header-title">Role</div>
                 <div class="questions-section__header-title">Application</div>
+                <div class="questions-section__header-title">Maximum Number Per Role</div>
                 <div class="questions-section__header-title">Options</div>
                 <div class="questions-section__header-title">Controls</div>
               </div>
@@ -674,12 +675,15 @@
         row.setAttribute('data-question-number', idx + 1);
 
         row.innerHTML = `
-          <div class="question-row-grid" style="grid-template-columns: 24% 38% 14% 24%;">
+          <div class="question-row-grid" style="grid-template-columns: 20% 30% 18% 12% 20%;">
             <div class="question-row__question-col">
               <p class="question-row__question-text">${escapeHtml(entry.role || '')}</p>
             </div>
             <div class="question-row__question-col">
               <p class="question-row__question-text">${escapeHtml(entry.appLabel)}</p>
+            </div>
+            <div class="question-row__question-col">
+              <p class="question-row__question-text">${entry.maxPerRole || 1}</p>
             </div>
             <div class="question-row__options-col">
               ${entry.type === 'required' ? '<span class="question-row__badge">R</span>' : ''}
