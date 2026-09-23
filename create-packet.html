@@ -403,18 +403,12 @@
             <ul class="combo-box__list" id="modal-child-combo-list" role="listbox" hidden></ul>
           </div>
         </div>
-        <div style="margin-top: 30px;">
+        <div id="modal-max-per-role-group" style="margin-top: 30px;">
           <label class="usa-label" for="modal-max-per-role">Maximum Number Per Role</label>
-          <div class="number-stepper" style="display: flex; align-items: stretch; margin-top: 0.8rem;">
-            <button type="button" class="usa-button usa-button--outline margin-0" id="modal-max-decrement"
-              aria-label="Decrease maximum number per role" aria-controls="modal-max-per-role"
-              style="width: 4rem; padding: 0; border-radius: 0.4rem 0 0 0.4rem;">&minus;</button>
-            <input class="usa-input margin-0 text-center" id="modal-max-per-role" type="number" min="1" max="99" value="1"
-              inputmode="numeric" style="width: 6rem; border-left: 0; border-right: 0;">
-            <button type="button" class="usa-button usa-button--outline margin-0" id="modal-max-increment"
-              aria-label="Increase maximum number per role" aria-controls="modal-max-per-role"
-              style="width: 4rem; padding: 0; border-radius: 0 0.4rem 0.4rem 0;">+</button>
-          </div>
+          <span class="usa-hint" id="modal-max-per-role-hint">Enter a number from 1 to 99</span>
+          <span class="usa-error-message" id="modal-max-per-role-error" hidden>Enter a number from 1 to 99.</span>
+          <input class="usa-input" id="modal-max-per-role" type="number" min="1" max="99"
+            step="1" value="1" aria-describedby="modal-max-per-role-hint" style="max-width: 8rem;">
         </div>
         <div style="margin-top: 30px;">
           <span class="usa-label display-block">Required</span>
@@ -517,6 +511,9 @@
       document.getElementById('modal-role-error').setAttribute('hidden', '');
       document.getElementById('modal-role-group').classList.remove('usa-form-group--error');
       document.getElementById('modal-role').classList.remove('usa-select--error');
+      document.getElementById('modal-max-per-role-error').setAttribute('hidden', '');
+      document.getElementById('modal-max-per-role-group').classList.remove('usa-form-group--error');
+      document.getElementById('modal-max-per-role').classList.remove('usa-input--error');
     }
 
     function openModal(idx) {
@@ -568,22 +565,14 @@
       document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
     });
 
-    // ── Maximum Number Per Role stepper ───────────────────
-    function clampMaxPerRole(val) {
-      const n = parseInt(val, 10);
-      if (isNaN(n) || n < 1) return 1;
-      return Math.min(n, 99);
+    // ── Maximum Number Per Role ───────────────────────────
+    // Returns the integer 1–99, or null if the entry is invalid.
+    function parseMaxPerRole(val) {
+      const s = String(val).trim();
+      if (!/^[0-9]+$/.test(s)) return null;
+      const n = parseInt(s, 10);
+      return (n >= 1 && n <= 99) ? n : null;
     }
-    const maxPerRoleInput = document.getElementById('modal-max-per-role');
-    document.getElementById('modal-max-decrement').addEventListener('click', () => {
-      maxPerRoleInput.value = clampMaxPerRole(maxPerRoleInput.value) - 1 || 1;
-    });
-    document.getElementById('modal-max-increment').addEventListener('click', () => {
-      maxPerRoleInput.value = clampMaxPerRole(parseInt(maxPerRoleInput.value, 10) + 1 || 1);
-    });
-    maxPerRoleInput.addEventListener('blur', () => {
-      maxPerRoleInput.value = clampMaxPerRole(maxPerRoleInput.value);
-    });
 
     document.getElementById('open-add-secondary-btn').addEventListener('click', () => openModal());
     document.getElementById('close-modal-btn').addEventListener('click', closeModal);
@@ -603,7 +592,7 @@
       const appLabel    = document.getElementById('modal-child-license-input').value;
       const role        = document.getElementById('modal-role').value;
       const type        = document.querySelector('input[name="modal-secondary-type"]:checked').value;
-      const maxPerRole  = clampMaxPerRole(document.getElementById('modal-max-per-role').value);
+      const maxPerRole  = parseMaxPerRole(document.getElementById('modal-max-per-role').value);
 
       clearModalErrors();
       let valid = true;
@@ -634,6 +623,13 @@
         document.getElementById('modal-role-error').removeAttribute('hidden');
         document.getElementById('modal-role-group').classList.add('usa-form-group--error');
         document.getElementById('modal-role').classList.add('usa-select--error');
+        valid = false;
+      }
+
+      if (maxPerRole === null) {
+        document.getElementById('modal-max-per-role-error').removeAttribute('hidden');
+        document.getElementById('modal-max-per-role-group').classList.add('usa-form-group--error');
+        document.getElementById('modal-max-per-role').classList.add('usa-input--error');
         valid = false;
       }
 
