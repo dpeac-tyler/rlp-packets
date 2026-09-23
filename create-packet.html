@@ -689,21 +689,19 @@
               ${entry.type === 'required' ? '<span class="question-row__badge">R</span>' : ''}
             </div>
             <div class="question-row__controls-col">
-              <button type="button" class="question-row__control-btn" title="Edit" aria-label="Edit ${escapeHtml(entry.appLabel)}" data-edit-idx="${idx}">
-                <img src="assets/edit-icon.png" alt="Edit">
-              </button>
-              <button type="button" class="question-row__control-btn" title="Remove" aria-label="Remove ${escapeHtml(entry.appLabel)}" data-idx="${idx}">
-                <img src="assets/icon-delete.png" alt="Remove">
-              </button>
+              <a href="#" class="icon-button" aria-label="Edit ${escapeHtml(entry.appLabel)}" data-edit-idx="${idx}"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
+              <a href="#" class="icon-button" aria-label="Remove ${escapeHtml(entry.appLabel)}" data-idx="${idx}"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
             </div>
           </div>
         `;
 
-        row.querySelector('[data-edit-idx]').addEventListener('click', function () {
+        row.querySelector('[data-edit-idx]').addEventListener('click', function (e) {
+          e.preventDefault();
           openModal(parseInt(this.getAttribute('data-edit-idx')));
         });
 
-        row.querySelector('[data-idx]').addEventListener('click', function () {
+        row.querySelector('[data-idx]').addEventListener('click', function (e) {
+          e.preventDefault();
           removeSecondary(parseInt(this.getAttribute('data-idx')));
         });
 

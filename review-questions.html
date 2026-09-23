@@ -515,14 +515,10 @@
 
                 <!-- Controls Column -->
                 <div class="question-row__controls-col">
-                  <button type="button" onclick="editItem(${index})" class="question-row__control-btn" title="Edit">
-                    <img src="assets/edit-icon.png" alt="Edit">
-                  </button>
+                  <a href="#" onclick="editItem(${index}); return false;" class="icon-button" aria-label="Edit Question"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                   <button type="button" onclick="moveDown(${index})" class="question-row__control-btn ${index === reviewQuestions.length - 1 ? 'question-row__control-btn--hidden' : ''}">↓</button>
                   <button type="button" onclick="moveUp(${index})" class="question-row__control-btn ${index === 0 ? 'question-row__control-btn--hidden' : ''}">↑</button>
-                  <button type="button" onclick="deleteItem(${index})" class="question-row__control-btn" title="Delete">
-                    <img src="assets/icon-delete.png" alt="Delete">
-                  </button>
+                  <a href="#" onclick="deleteItem(${index}); return false;" class="icon-button" aria-label="Delete Question"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
                 </div>
               </div>
             </div>
@@ -547,14 +543,10 @@
 
                 <!-- Controls Column -->
                 <div class="question-row__controls-col">
-                  <button type="button" onclick="editItem(${index})" class="question-row__control-btn" title="Edit">
-                    <img src="assets/edit-icon.png" alt="Edit">
-                  </button>
+                  <a href="#" onclick="editItem(${index}); return false;" class="icon-button" aria-label="Edit Question"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                   <button type="button" onclick="moveDown(${index})" class="question-row__control-btn ${index === reviewQuestions.length - 1 ? 'question-row__control-btn--hidden' : ''}">↓</button>
                   <button type="button" onclick="moveUp(${index})" class="question-row__control-btn ${index === 0 ? 'question-row__control-btn--hidden' : ''}">↑</button>
-                  <button type="button" onclick="deleteItem(${index})" class="question-row__control-btn" title="Delete">
-                    <img src="assets/icon-delete.png" alt="Delete">
-                  </button>
+                  <a href="#" onclick="deleteItem(${index}); return false;" class="icon-button" aria-label="Delete Question"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
                 </div>
               </div>
             </div>
@@ -613,14 +605,10 @@
 
               <!-- Controls Column -->
               <div class="question-row__controls-col">
-                <button type="button" onclick="editItem(${index})" class="question-row__control-btn" title="Edit">
-                  <img src="assets/edit-icon.png" alt="Edit">
-                </button>
+                <a href="#" onclick="editItem(${index}); return false;" class="icon-button" aria-label="Edit Question"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <button type="button" onclick="moveDown(${index})" class="question-row__control-btn ${index === reviewQuestions.length - 1 ? 'question-row__control-btn--hidden' : ''}">↓</button>
                 <button type="button" onclick="moveUp(${index})" class="question-row__control-btn ${index === 0 ? 'question-row__control-btn--hidden' : ''}">↑</button>
-                <button type="button" onclick="deleteItem(${index})" class="question-row__control-btn" title="Delete">
-                  <img src="assets/icon-delete.png" alt="Delete">
-                </button>
+                <a href="#" onclick="deleteItem(${index}); return false;" class="icon-button" aria-label="Delete Question"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </div>
             </div>
           </div>

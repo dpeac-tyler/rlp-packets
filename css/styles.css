@@ -2711,6 +2711,7 @@ a.usa-step-indicator__segment-label:hover {
 
 .question-row__controls-col {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
