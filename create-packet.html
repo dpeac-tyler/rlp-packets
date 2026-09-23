@@ -403,6 +403,19 @@
           </div>
         </div>
         <div style="margin-top: 30px;">
+          <label class="usa-label" for="modal-max-per-role">Maximum Number Per Role</label>
+          <div class="number-stepper" style="display: flex; align-items: stretch; margin-top: 0.8rem;">
+            <button type="button" class="usa-button usa-button--outline margin-0" id="modal-max-decrement"
+              aria-label="Decrease maximum number per role" aria-controls="modal-max-per-role"
+              style="width: 4rem; padding: 0; border-radius: 0.4rem 0 0 0.4rem;">&minus;</button>
+            <input class="usa-input margin-0 text-center" id="modal-max-per-role" type="number" min="1" max="99" value="1"
+              inputmode="numeric" style="width: 6rem; border-left: 0; border-right: 0;">
+            <button type="button" class="usa-button usa-button--outline margin-0" id="modal-max-increment"
+              aria-label="Increase maximum number per role" aria-controls="modal-max-per-role"
+              style="width: 4rem; padding: 0; border-radius: 0 0.4rem 0.4rem 0;">+</button>
+          </div>
+        </div>
+        <div style="margin-top: 30px;">
           <span class="usa-label display-block">Required</span>
           <div class="type-radios">
             <label><input type="radio" name="modal-secondary-type" value="required" checked> Yes</label>
@@ -412,7 +425,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="usa-button" id="save-secondary-btn">Save</button>
-        <button type="button" class="usa-button usa-button--outline" id="cancel-secondary-btn">Cancel</button>
+        <button type="button" class="usa-button usa-button--secondary" id="cancel-secondary-btn">Cancel</button>
       </div>
     </div>
   </div>
@@ -487,7 +500,7 @@
     populateLicenseTypeSelect('primary-license-type');
     populateLicenseTypeSelect('modal-license-type');
 
-    // ── Secondaries state: { licenseType, appValue, appLabel, role, type }
+    // ── Secondaries state: { licenseType, appValue, appLabel, role, type, maxPerRole }
     let secondaries = [];
 
     // ── Modal ─────────────────────────────────────────────
@@ -519,6 +532,7 @@
         appInput.value = entry.appLabel;
         document.getElementById('modal-child-license').value = entry.appValue;
         document.getElementById('modal-role').value = entry.role || '';
+        document.getElementById('modal-max-per-role').value = entry.maxPerRole || 1;
         document.querySelector(`input[name="modal-secondary-type"][value="${entry.type}"]`).checked = true;
       } else {
         document.getElementById('modal-license-type').value = '';
@@ -527,6 +541,7 @@
         appInput.value = '';
         document.getElementById('modal-child-license').value = '';
         document.getElementById('modal-role').value = '';
+        document.getElementById('modal-max-per-role').value = 1;
         document.querySelector('input[name="modal-secondary-type"][value="required"]').checked = true;
       }
 
@@ -552,6 +567,23 @@
       document.getElementById('modal-child-license-input').classList.remove('usa-input--error');
     });
 
+    // ── Maximum Number Per Role stepper ───────────────────
+    function clampMaxPerRole(val) {
+      const n = parseInt(val, 10);
+      if (isNaN(n) || n < 1) return 1;
+      return Math.min(n, 99);
+    }
+    const maxPerRoleInput = document.getElementById('modal-max-per-role');
+    document.getElementById('modal-max-decrement').addEventListener('click', () => {
+      maxPerRoleInput.value = clampMaxPerRole(maxPerRoleInput.value) - 1 || 1;
+    });
+    document.getElementById('modal-max-increment').addEventListener('click', () => {
+      maxPerRoleInput.value = clampMaxPerRole(parseInt(maxPerRoleInput.value, 10) + 1 || 1);
+    });
+    maxPerRoleInput.addEventListener('blur', () => {
+      maxPerRoleInput.value = clampMaxPerRole(maxPerRoleInput.value);
+    });
+
     document.getElementById('open-add-secondary-btn').addEventListener('click', () => openModal());
     document.getElementById('close-modal-btn').addEventListener('click', closeModal);
     document.getElementById('cancel-secondary-btn').addEventListener('click', closeModal);
@@ -570,6 +602,7 @@
       const appLabel    = document.getElementById('modal-child-license-input').value;
       const role        = document.getElementById('modal-role').value;
       const type        = document.querySelector('input[name="modal-secondary-type"]:checked').value;
+      const maxPerRole  = clampMaxPerRole(document.getElementById('modal-max-per-role').value);
 
       clearModalErrors();
       let valid = true;
@@ -606,9 +639,9 @@
       if (!valid) return;
 
       if (editingIndex !== null) {
-        secondaries[editingIndex] = { licenseType, appValue, appLabel, role, type };
+        secondaries[editingIndex] = { licenseType, appValue, appLabel, role, type, maxPerRole };
       } else {
-        secondaries.push({ licenseType, appValue, appLabel, role, type });
+        secondaries.push({ licenseType, appValue, appLabel, role, type, maxPerRole });
       }
 
       const wasEditing = editingIndex !== null;
