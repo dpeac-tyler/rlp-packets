@@ -709,6 +709,7 @@
       if (!confirm('Are you sure you want to delete this participant?')) return;
       secondaries.splice(idx, 1);
       renderSecondaryRows();
+      showSuccessNotification('Participant deleted successfully.');
     }
 
     // ── Validation ────────────────────────────────────────

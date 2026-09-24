@@ -180,7 +180,7 @@
                 <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="0"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html?packet=0" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button archive-btn" aria-label="Archive Packet"><img src="assets/packet-archive.png" alt="" width="30" height="30"></a>
-                <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button delete-btn" aria-label="Delete Packet"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
             </tr>
             <tr>
@@ -193,7 +193,7 @@
                 <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="1"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html?packet=1" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button archive-btn" aria-label="Archive Packet"><img src="assets/packet-archive.png" alt="" width="30" height="30"></a>
-                <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button delete-btn" aria-label="Delete Packet"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
             </tr>
             <tr>
@@ -206,7 +206,7 @@
                 <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="2"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html?packet=2" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button archive-btn" aria-label="Archive Packet"><img src="assets/packet-archive.png" alt="" width="30" height="30"></a>
-                <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button delete-btn" aria-label="Delete Packet"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
             </tr>
             <tr>
@@ -219,7 +219,7 @@
                 <a href="#" class="icon-button" aria-label="View Packet" data-packet-idx="3"><img src="assets/eye-icon.png" alt="" width="30" height="30"></a>
                 <a href="create-packet.html?packet=3" class="icon-button" aria-label="Edit Packet"><img src="assets/edit-icon.png" alt="" width="30" height="30"></a>
                 <a href="#" class="icon-button archive-btn" aria-label="Archive Packet"><img src="assets/packet-archive.png" alt="" width="30" height="30"></a>
-                <a href="#" class="icon-button" aria-label="Delete Packet" onclick="if(confirm('Are you sure you want to delete this packet?')) this.closest('tr').remove(); return false;"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
+                <a href="#" class="icon-button delete-btn" aria-label="Delete Packet"><img src="assets/icon-delete.png" alt="" width="30" height="30"></a>
               </td>
             </tr>
           </tbody>
@@ -315,7 +315,31 @@
     </div>
   </div>
 
+  <!-- Success Notification -->
+  <div id="successNotification" class="notification">
+    <div class="notification-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <div class="notification-text" id="notificationText"></div>
+  </div>
+
   <script>
+    // ── Success notification ──────────────────────────────
+    function showSuccessNotification(message) {
+      const notification = document.getElementById('successNotification');
+      const notificationText = document.getElementById('notificationText');
+      notificationText.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+        setTimeout(() => notification.classList.remove('hide'), 400);
+      }, 4000);
+    }
+
     // ── Filter button switching (Live / Archived) ──────────
     (function() {
       const filterBtns   = document.querySelectorAll('.category-filter-btn');
@@ -339,6 +363,17 @@
         e.preventDefault();
         if (confirm('Are you sure you want to archive this packet?')) {
           this.closest('tr').remove();
+        }
+      });
+    });
+
+    // ── Delete button ──────────────────────────────────────
+    document.querySelectorAll('.delete-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to delete this packet?')) {
+          this.closest('tr').remove();
+          showSuccessNotification('Packet deleted successfully.');
         }
       });
     });
